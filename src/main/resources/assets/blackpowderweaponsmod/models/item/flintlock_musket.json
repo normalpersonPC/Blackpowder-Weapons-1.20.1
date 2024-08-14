@@ -1,0 +1,7 @@
+{
+  "parent": "blackpowderweaponsmod:custom/flintlock_musket",
+  "textures": {
+    "0": "blackpowderweaponsmod:item/flintlock_musket",
+    "particle": "blackpowderweaponsmod:item/flintlock_musket_item"
+  }
+}

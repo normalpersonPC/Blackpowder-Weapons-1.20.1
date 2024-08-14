@@ -1,0 +1,66 @@
+{
+  "flintlock_rod0": {
+    "sounds": [
+      {
+        "name": "blackpowderweaponsmod:musket_load0",
+        "stream": false
+      }
+    ]
+  },
+  "flintlock_rod1": {
+    "sounds": [
+      {
+        "name": "blackpowderweaponsmod:musket_load1",
+        "stream": false
+      }
+    ]
+  },
+  "flintlock_ready": {
+    "sounds": [
+      {
+        "name": "blackpowderweaponsmod:musket_ready",
+        "stream": false
+      }
+    ]
+  },
+  "flintlock_powder": {
+    "sounds": [
+      {
+        "name": "blackpowderweaponsmod:loading_start",
+        "stream": false
+      }
+    ]
+  },
+  "flintlock_fire": {
+    "sounds": [
+      {
+        "name": "blackpowderweaponsmod:shoot1",
+        "stream": false
+      }
+    ]
+  },
+  "flinlock_fire_1": {
+    "sounds": [
+      {
+        "name": "blackpowderweaponsmod:musket_fire",
+        "stream": false
+      }
+    ]
+  },
+  "flintlock_musket_shoot": {
+    "sounds": [
+      {
+        "name": "blackpowderweaponsmod:musket_fire",
+        "stream": false
+      }
+    ]
+  },
+  "flintlock_pistol_shoot": {
+    "sounds": [
+      {
+        "name": "blackpowderweaponsmod:pistol_fire",
+        "stream": false
+      }
+    ]
+  }
+}
