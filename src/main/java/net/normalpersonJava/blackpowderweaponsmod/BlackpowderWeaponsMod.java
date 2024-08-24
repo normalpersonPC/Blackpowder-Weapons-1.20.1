@@ -12,6 +12,7 @@ import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
@@ -19,6 +20,8 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.normalpersonJava.blackpowderweaponsmod.client.ClientEventHandler;
+import net.normalpersonJava.blackpowderweaponsmod.common.CommonEventHandler;
 import net.normalpersonJava.blackpowderweaponsmod.init.*;
 import org.slf4j.Logger;
 
@@ -41,7 +44,11 @@ public class BlackpowderWeaponsMod
         ModParticles.register(modEventBus);
         ModSounds.REGISTRY.register(modEventBus);
 
+        new CommonEventHandler(modEventBus);
+        DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> new ClientEventHandler(modEventBus));
+
         modEventBus.addListener(this::commonSetup);
+
 
         MinecraftForge.EVENT_BUS.register(this);
 

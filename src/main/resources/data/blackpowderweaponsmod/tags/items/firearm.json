@@ -2,10 +2,7 @@
   "replace": false,
   "values": [
     "blackpowderweaponsmod:flintlock_musket",
-    "blackpowderweaponsmod:flintlock_pistol",
-    "blackpowderweaponsmod:flinlock_musket_bayonet",
-    "blackpowderweaponsmod:breechloading_flintlock_rifle",
-    "blackpowderweaponsmod:flintlock_blunderbuss",
-    "blackpowderweaponsmod:flintlock_pepperbox_pistol"
+    "blackpowderweaponsmod:flintlock_musket_bayonet",
+    "blackpowderweaponsmod:flintlock_pistol"
   ]
 }

@@ -1,7 +1,17 @@
 {
   "item.blackpowderweaponsmod.flintlock_musket": "Flintlock Musket",
-  "item.blackpowderweaponsmod.musketball": "Musket Ball",
   "item.blackpowderweaponsmod.flintlock_musket_bayonet": "Flintlock Musket with Bayonet",
+  "item.blackpowderweaponsmod.flintlock_pistol": "Flintlock Pistol",
+  "item.blackpowderweaponsmod.musketball": "Musket Ball",
+  "item.blackpowderweaponsmod.musketball_small": "Small Musket Ball",
+  "item.blackpowderweaponsmod.barrel_short": "Short Barrel",
+  "item.blackpowderweaponsmod.barrel_medium": "Medium Barrel",
+  "item.blackpowderweaponsmod.barrel_long": "Long Barrel",
+  "item.blackpowderweaponsmod.stock_pistol": "Pistol Handle",
+  "item.blackpowderweaponsmod.stock_long": "Long Stock",
+  "item.blackpowderweaponsmod.flintlock_mechanism": "FLintlock Mechanism",
+  "item.blackpowderweaponsmod.bullet_mold": "Bullet Mold",
+  "item.blackpowderweaponsmod.toolkit": "Toolkit",
 
   "creativetab.blackpowder_weapons": "Blackpowder Weapons"
 }

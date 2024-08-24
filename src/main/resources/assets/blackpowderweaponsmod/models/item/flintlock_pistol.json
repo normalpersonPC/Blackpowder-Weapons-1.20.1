@@ -1,0 +1,86 @@
+{
+  "parent": "minecraft:item/handheld",
+  "loader": "forge:separate_transforms",
+  "base": {
+    "parent": "blackpowderweaponsmod:custom/flintlock_pistol_unloaded"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "blackpowderweaponsmod:item/flintlock_pistol_item"
+    },
+    "ground": {
+      "parent": "blackpowderweaponsmod:item/flintlock_pistol_item"
+    },
+    "fixed": {
+      "parent": "blackpowderweaponsmod:item/flintlock_pistol_item"
+    }
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "blackpowderweaponsmod:modelstate": 0
+      },
+      "model": "blackpowderweaponsmod:custom/flintlock_pistol_unloaded"
+    },
+    {
+      "predicate": {
+        "blackpowderweaponsmod:modelstate": 1
+      },
+      "model": "blackpowderweaponsmod:custom/flintlock_pistol_reload_1"
+    },
+    {
+      "predicate": {
+        "blackpowderweaponsmod:modelstate": 2
+      },
+      "model": "blackpowderweaponsmod:custom/flintlock_pistol_reload_2"
+    },
+    {
+      "predicate": {
+        "blackpowderweaponsmod:modelstate": 3
+      },
+      "model": "blackpowderweaponsmod:custom/flintlock_pistol_reload_3"
+    },
+    {
+      "predicate": {
+        "blackpowderweaponsmod:modelstate": 4
+      },
+      "model": "blackpowderweaponsmod:custom/flintlock_pistol_reload_4"
+    },
+    {
+      "predicate": {
+        "blackpowderweaponsmod:modelstate": 5
+      },
+      "model": "blackpowderweaponsmod:custom/flintlock_pistol_reload_5"
+    },
+    {
+      "predicate": {
+        "blackpowderweaponsmod:modelstate": 6
+      },
+      "model": "blackpowderweaponsmod:custom/flintlock_pistol_reload_6"
+    },
+    {
+      "predicate": {
+        "blackpowderweaponsmod:modelstate": 7
+      },
+      "model": "blackpowderweaponsmod:custom/flintlock_pistol_reload_7"
+    },
+    {
+      "predicate": {
+        "blackpowderweaponsmod:modelstate": 8
+      },
+      "model": "blackpowderweaponsmod:custom/flintlock_pistol_reload_8"
+    },
+    {
+      "predicate": {
+        "blackpowderweaponsmod:modelstate": 9
+      },
+      "model": "blackpowderweaponsmod:custom/flintlock_pistol_reload_9"
+    },
+    {
+      "predicate": {
+        "blackpowderweaponsmod:modelstate": 10
+      },
+      "model": "blackpowderweaponsmod:custom/flintlock_pistol_ready"
+    }
+  ]
+}

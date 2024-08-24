@@ -19,7 +19,19 @@ public class ModCreativeTabs {
                     .displayItems((itemDisplayParameters, output) -> {
                         output.accept(ModItems.FLINTLOCK_MUSKET.get());
                         output.accept(ModItems.FLINTLOCK_MUSKET_BAYONET.get());
+                        output.accept(ModItems.FLINTLOCK_PISTOL.get());
                         output.accept(ModItems.MUSKETBALL.get());
+                        output.accept(ModItems.MUSKETBALL_SMALL.get());
+                        output.accept(ModItems.BARREL_SHORT.get());
+                        output.accept(ModItems.BARREL_MEDIUM.get());
+                        output.accept(ModItems.BARREL_LONG.get());
+                        output.accept(ModItems.STOCK_PISTOL.get());
+                        output.accept(ModItems.STOCK_LONG.get());
+                        output.accept(ModItems.FLINTLOCK_MECHANISM.get());
+                        output.accept(ModItems.TOOLKIT.get());
+                        output.accept(ModItems.BULLET_MOLD.get());
+
+
                     }).build());
 
     public static void register(IEventBus eventBus) {

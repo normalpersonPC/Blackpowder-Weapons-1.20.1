@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "blackpowderweaponsmod:flintlock_pistol",
-    "blackpowderweaponsmod:flintlock_pepperbox_pistol"
+    "blackpowderweaponsmod:flintlock_pistol"
   ]
 }

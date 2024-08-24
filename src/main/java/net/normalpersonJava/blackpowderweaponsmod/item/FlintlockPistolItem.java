@@ -1,46 +1,39 @@
 package net.normalpersonJava.blackpowderweaponsmod.item;
 
-import net.minecraft.client.Minecraft;
+import com.google.common.collect.ImmutableMultimap;
+import com.google.common.collect.Multimap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.tags.TagKey;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.Attribute;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.projectile.Projectile;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.level.LevelAccessor;
-import net.minecraftforge.registries.ForgeRegistries;
-
-import net.minecraft.world.level.Level;
-import net.minecraft.world.item.Rarity;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.ai.attributes.AttributeModifier;
-import net.minecraft.world.entity.ai.attributes.Attribute;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.InteractionResultHolder;
-import net.minecraft.world.InteractionHand;
-
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.Rarity;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
+import net.normalpersonJava.blackpowderweaponsmod.common.GunMethods;
 import net.normalpersonJava.blackpowderweaponsmod.entity.BulletProjectileEntity;
 import net.normalpersonJava.blackpowderweaponsmod.init.ModEntities;
 import net.normalpersonJava.blackpowderweaponsmod.init.ModItems;
 import net.normalpersonJava.blackpowderweaponsmod.init.ModParticles;
-
-import com.google.common.collect.Multimap;
-import com.google.common.collect.ImmutableMultimap;
 import net.normalpersonJava.blackpowderweaponsmod.init.ModSounds;
 
-import java.util.Objects;
-import java.util.function.Predicate;
+public class FlintlockPistolItem extends Item {
+    GunMethods gunMethods = new GunMethods();
 
-public class FlintlockMusketItem extends Item {
-    public FlintlockMusketItem() {
+    public FlintlockPistolItem() {
         super(new Properties().stacksTo(1).rarity(Rarity.COMMON));
     }
 
@@ -66,27 +59,22 @@ public class FlintlockMusketItem extends Item {
         InteractionResultHolder<ItemStack> used = super.use(level, player, hand);
         ItemStack itemstack = player.getItemInHand(hand);
         player.startUsingItem(hand);
-        if (hand == InteractionHand.OFF_HAND) {
-            player.getCooldowns().addCooldown(itemstack.getItem(), 2);
-            return InteractionResultHolder.fail(player.getItemInHand(hand));
-        }
         if (itemstack.getOrCreateTag().getBoolean("isLoaded")) {
             fire(level, player.getX(), player.getY(), player.getZ(), player, used.getObject());
         }
         return used;
     }
 
+    @Override
     public void onUseTick(Level level, LivingEntity entity, ItemStack itemstack, int useDuration) {
         super.onUseTick(level, entity, itemstack, useDuration);
         reload(level, entity.getX(), entity.getY(), entity.getZ(), entity, itemstack);
     }
 
-
     @Override
     public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) {
         return oldStack.getItem() != newStack.getItem();
     }
-
 
     public void fire(LevelAccessor world, double x, double y, double z, Entity entity, ItemStack itemstack) {
         CompoundTag tag = itemstack.getOrCreateTag();
@@ -100,9 +88,9 @@ public class FlintlockMusketItem extends Item {
                     _player.getCooldowns().addCooldown(itemstack.getItem(), 2);
                 if (world instanceof Level _level) {
                     if (!_level.isClientSide()) {
-                        _level.playSound(null, BlockPos.containing(x, y, z), ModSounds.FLINTLOCK_MUSKET_SHOOT.get(), SoundSource.PLAYERS, 1, 1);
+                        _level.playSound(null, BlockPos.containing(x, y, z), ModSounds.FLINTLOCK_PISTOL_SHOOT.get(), SoundSource.PLAYERS, 1, 1);
                     } else {
-                        _level.playLocalSound(x, y, z, ModSounds.FLINTLOCK_MUSKET_SHOOT.get(), SoundSource.PLAYERS, 1, 1, false);
+                        _level.playLocalSound(x, y, z, ModSounds.FLINTLOCK_PISTOL_SHOOT.get(), SoundSource.PLAYERS, 1, 1, false);
                     }
                 }
                 if (world instanceof ServerLevel projectileLevel) {
@@ -116,13 +104,13 @@ public class FlintlockMusketItem extends Item {
                             entityToSpawn.setPierceLevel(piercing);
                             return entityToSpawn;
                         }
-                    }.getArrow(projectileLevel, entity, 4, 1, (byte) 2);
+                    }.getArrow(projectileLevel, entity, 4, 1, (byte) 1);
                     _entityToSpawn.setPos((entity.getX() + entity.getLookAngle().x), (entity.getY() + entity.getLookAngle().y + 1.5), (entity.getZ() + entity.getLookAngle().z));
-                    _entityToSpawn.shoot((entity.getLookAngle().x), (entity.getLookAngle().y), (entity.getLookAngle().z), 7, 1);
+                    _entityToSpawn.shoot((entity.getLookAngle().x), (entity.getLookAngle().y), (entity.getLookAngle().z), 6, 1.5F);
                     projectileLevel.addFreshEntity(_entityToSpawn);
                 }
                 if (world instanceof ServerLevel _level)
-                    _level.sendParticles(ModParticles.GUN_SMOKE.get(),
+                    _level.sendParticles(ModParticles.GUN_SMOKESMALL.get(),
                             (entity.getX() + entity.getLookAngle().x * 1.5),
                             (entity.getY() + entity.getLookAngle().y + 1.5),
                             (entity.getZ() + entity.getLookAngle().z * 1.5), 0,
@@ -130,10 +118,10 @@ public class FlintlockMusketItem extends Item {
                             (entity.getLookAngle().y * speed),
                             (entity.getLookAngle().z * speed), 1);
                 if (world instanceof ServerLevel _level)
-                    _level.sendParticles(ModParticles.GUN_SMOKE.get(),
-                            (entity.getX() + entity.getLookAngle().x * 3),
-                            (entity.getY() + entity.getLookAngle().y * 3 + 1.5),
-                            (entity.getZ() + entity.getLookAngle().z * 3), 0,
+                    _level.sendParticles(ModParticles.GUN_SMOKESMALL.get(),
+                            (entity.getX() + entity.getLookAngle().x * 2),
+                            (entity.getY() + entity.getLookAngle().y * 2 + 1.5),
+                            (entity.getZ() + entity.getLookAngle().z * 2), 0,
                             (entity.getLookAngle().x * speed),
                             (entity.getLookAngle().y * speed),
                             (entity.getLookAngle().z * speed), 1);
@@ -150,7 +138,7 @@ public class FlintlockMusketItem extends Item {
         }
         if (!world.isClientSide()) {
             if (entity instanceof Player player) {
-                boolean hasAmmo = player.getInventory().contains(new ItemStack(ModItems.MUSKETBALL.get())) &&
+                boolean hasAmmo = player.getInventory().contains(new ItemStack(ModItems.MUSKETBALL_SMALL.get())) &&
                         player.getInventory().contains(new ItemStack(Items.GUNPOWDER));
 
                 CompoundTag tag = itemstack.getOrCreateTag();
@@ -161,8 +149,7 @@ public class FlintlockMusketItem extends Item {
                 if (!tag.getBoolean("isLoaded") && hasAmmo) {
                     delay++;
 
-
-                    if (delay >= 10) { // Check if 10 ticks have passed
+                    if (delay >= 8) { // Check if 10 ticks have passed
                         delay = 0; // Reset delay for next tick
                         modelstate++;
                         tag.putDouble("modelstate", modelstate);
@@ -184,7 +171,7 @@ public class FlintlockMusketItem extends Item {
                                 }
                             }
                         }
-                        if (modelstate == 4 || modelstate == 12) {
+                        if (modelstate == 4 || modelstate == 9) {
                             if (world instanceof Level level) {
                                 if (!level.isClientSide()) {
                                     level.playSound(null, player.blockPosition(), ModSounds.FLINTLOCK_ROD0.get(), SoundSource.PLAYERS, 1, 1);
@@ -193,7 +180,7 @@ public class FlintlockMusketItem extends Item {
                                 }
                             }
                         }
-                        if (modelstate == 6 || modelstate == 8) {
+                        if (modelstate == 6) {
                             if (world instanceof Level level) {
                                 if (!level.isClientSide()) {
                                     level.playSound(null, player.blockPosition(), ModSounds.FLINTLOCK_ROD1.get(), SoundSource.PLAYERS, 1, 1);
@@ -202,13 +189,13 @@ public class FlintlockMusketItem extends Item {
                                 }
                             }
                         }
-                        if (modelstate >= 13) { // If fully loaded
+                        if (modelstate >= 10) { // If fully loaded
                             tag.putBoolean("isLoaded", true);
                             tag.putDouble("delay", 0); // Reset delay
 
                             // Consume the ammo
                             consumeItem(player, Items.GUNPOWDER);
-                            consumeItem(player, ModItems.MUSKETBALL.get());
+                            consumeItem(player, ModItems.MUSKETBALL_SMALL.get());
 
                             player.getCooldowns().addCooldown(itemstack.getItem(), 2);
 
@@ -243,4 +230,3 @@ public class FlintlockMusketItem extends Item {
         }
     }
 }
-
