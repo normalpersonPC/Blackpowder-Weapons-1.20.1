@@ -19,6 +19,7 @@ public class ModCreativeTabs {
                     .displayItems((itemDisplayParameters, output) -> {
                         output.accept(ModItems.FLINTLOCK_MUSKET.get());
                         output.accept(ModItems.FLINTLOCK_MUSKET_BAYONET.get());
+                        output.accept(ModItems.FLINTLOCK_BLUNDERBUSS.get());
                         output.accept(ModItems.FLINTLOCK_PISTOL.get());
                         output.accept(ModItems.MUSKETBALL.get());
                         output.accept(ModItems.MUSKETBALL_SMALL.get());

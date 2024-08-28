@@ -246,120 +246,38 @@
 		},
 		{
 			"name": "cartridge",
-			"from": [7.8, 6.095, 20.5],
-			"to": [8.2, 6.495, 22],
-			"rotation": {"angle": 45, "axis": "z", "origin": [8, 6.295, 21.275]},
+			"from": [7.8, 6.095, 16.2],
+			"to": [8.2, 6.495, 17.7],
+			"rotation": {"angle": 45, "axis": "z", "origin": [8, 6.295, 16.95]},
 			"faces": {
-				"north": {"uv": [14.5, 7.5, 15, 8], "rotation": 270, "texture": "#0"},
-				"east": {"uv": [14.5, 8.5, 15, 10], "rotation": 270, "texture": "#0"},
-				"south": {"uv": [15.5, 7.5, 16, 8], "rotation": 270, "texture": "#0"},
-				"west": {"uv": [15.5, 8.5, 16, 10], "rotation": 270, "texture": "#0"},
-				"up": {"uv": [14.5, 10.5, 16, 11], "rotation": 270, "texture": "#0"},
-				"down": {"uv": [14.5, 11.5, 16, 12], "rotation": 270, "texture": "#0"}
+				"north": {"uv": [14.5, 7.5, 15, 8], "rotation": 180, "texture": "#0"},
+				"east": {"uv": [14.5, 10.5, 16, 11], "texture": "#0"},
+				"south": {"uv": [15.5, 7.5, 16, 8], "texture": "#0"},
+				"west": {"uv": [14.5, 11.5, 16, 12], "texture": "#0"},
+				"up": {"uv": [15.5, 8.5, 16, 10], "texture": "#0"},
+				"down": {"uv": [14.5, 8.5, 15, 10], "texture": "#0"}
 			}
-		}
-	],
-	"overrides": [
-		{
-			"predicate": {
-				"blackpowderweaponsmod:modelstate": 0
-			},
-			"model": "blackpowderweaponsmod:custom/flintlockblunderbuss/flintlock_blunderbuss_unloaded"
-		},
-		{
-			"predicate": {
-				"blackpowderweaponsmod:modelstate": 1
-			},
-			"model": "blackpowderweaponsmod:custom/flintlockblunderbuss/flintlock_blunderbuss_reload_1"
-		},
-		{
-			"predicate": {
-				"blackpowderweaponsmod:modelstate": 2
-			},
-			"model": "blackpowderweaponsmod:custom/flintlockblunderbuss/flintlock_blunderbuss_reload_2"
-		},
-		{
-			"predicate": {
-				"blackpowderweaponsmod:modelstate": 3
-			},
-			"model": "blackpowderweaponsmod:custom/flintlockblunderbuss/flintlock_blunderbuss_reload_3"
-		},
-		{
-			"predicate": {
-				"blackpowderweaponsmod:modelstate": 4
-			},
-			"model": "blackpowderweaponsmod:custom/flintlockblunderbuss/flintlock_blunderbuss_reload_4"
-		},
-		{
-			"predicate": {
-				"blackpowderweaponsmod:modelstate": 5
-			},
-			"model": "blackpowderweaponsmod:custom/flintlockblunderbuss/flintlock_blunderbuss_reload_5"
-		},
-		{
-			"predicate": {
-				"blackpowderweaponsmod:modelstate": 6
-			},
-			"model": "blackpowderweaponsmod:custom/flintlockblunderbuss/flintlock_blunderbuss_reload_6"
-		},
-		{
-			"predicate": {
-				"blackpowderweaponsmod:modelstate": 7
-			},
-			"model": "blackpowderweaponsmod:custom/flintlockblunderbuss/flintlock_blunderbuss_reload_7"
-		},
-		{
-			"predicate": {
-				"blackpowderweaponsmod:modelstate": 8
-			},
-			"model": "blackpowderweaponsmod:custom/flintlockblunderbuss/flintlock_blunderbuss_reload_6"
-		},
-		{
-			"predicate": {
-				"blackpowderweaponsmod:modelstate": 9
-			},
-			"model": "blackpowderweaponsmod:custom/flintlockblunderbuss/flintlock_blunderbuss_reload_7"
-		},
-		{
-			"predicate": {
-				"blackpowderweaponsmod:modelstate": 10
-			},
-			"model": "blackpowderweaponsmod:custom/flintlockblunderbuss/flintlock_blunderbuss_reload_8"
-		},
-		{
-			"predicate": {
-				"blackpowderweaponsmod:modelstate": 11
-			},
-			"model": "blackpowderweaponsmod:custom/flintlockblunderbuss/flintlock_blunderbuss_reload_9"
-		},
-		{
-			"predicate": {
-				"blackpowderweaponsmod:modelstate": 12
-			},
-			"model": "blackpowderweaponsmod:custom/flintlockblunderbuss/flintlock_blunderbuss_reload_10"
-		},
-		{
-			"predicate": {
-				"blackpowderweaponsmod:modelstate": 13
-			},
-			"model": "blackpowderweaponsmod:custom/flintlockblunderbuss/flintlock_blunderbuss_ready"
 		}
 	],
 	"display": {
 		"thirdperson_righthand": {
-			"translation": [-2, 2.25, -21.75],
+			"rotation": [90, 0, 99],
+			"translation": [-11.75, 12.5, 0],
 			"scale": [1.2, 1.2, 1.2]
 		},
 		"thirdperson_lefthand": {
-			"translation": [-2, 2.25, -21.75],
+			"rotation": [90, 0, -90],
+			"translation": [0, 12, 0],
 			"scale": [1.2, 1.2, 1.2]
 		},
 		"firstperson_righthand": {
-			"translation": [-5.75, 7.5, -14.75],
+			"rotation": [90, -16, 60],
+			"translation": [-9.5, 20, 5.25],
 			"scale": [1.2, 1.2, 1.2]
 		},
 		"firstperson_lefthand": {
-			"translation": [-5.75, 7.5, -14.75],
+			"rotation": [90, 16, -27],
+			"translation": [-8.25, 19, 7.5],
 			"scale": [1.2, 1.2, 1.2]
 		},
 		"ground": {

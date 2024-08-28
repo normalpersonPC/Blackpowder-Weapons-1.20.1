@@ -2,6 +2,7 @@ package net.normalpersonJava.blackpowderweaponsmod.entity;
 
 
 
+import net.minecraft.world.phys.EntityHitResult;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.network.PlayMessages;
 import net.minecraftforge.network.NetworkHooks;
@@ -65,6 +66,18 @@ public class BulletProjectileEntity extends AbstractArrow implements ItemSupplie
     protected void doPostHurtEffects(LivingEntity entity) {
         super.doPostHurtEffects(entity);
         entity.setArrowCount(entity.getArrowCount() - 1);
+    }
+
+    @Override
+    protected void onHitEntity(EntityHitResult entityHitResult) {
+        super.onHitEntity(entityHitResult);
+
+        // Get the entity that was hit
+        LivingEntity hitEntity = (LivingEntity) entityHitResult.getEntity();
+
+        hitEntity.invulnerableTime = 0;
+
+        this.discard(); // Remove the projectile after hitting an entity
     }
 
     @Override

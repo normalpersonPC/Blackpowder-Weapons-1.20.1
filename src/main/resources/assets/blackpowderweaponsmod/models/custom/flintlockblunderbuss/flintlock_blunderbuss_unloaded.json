@@ -92,30 +92,30 @@
 		},
 		{
 			"name": "pan",
-			"from": [8.35, 6.175, 24.625],
-			"to": [8.35, 7.275, 25.225],
-			"rotation": {"angle": 0, "axis": "x", "origin": [8.35, 6.175, 24.625]},
+			"from": [8.35, 6.175, 23.525],
+			"to": [8.35, 6.775, 24.625],
+			"rotation": {"angle": 22.5, "axis": "x", "origin": [8.35, 6.175, 24.625]},
 			"faces": {
-				"north": {"uv": [6, 11.5, 6, 12], "texture": "#0"},
-				"east": {"uv": [7, 9.5, 8, 11.5], "texture": "#0"},
-				"south": {"uv": [11.5, 6, 11.5, 6.5], "texture": "#0"},
-				"west": {"uv": [8.5, 9.5, 9.5, 11.5], "texture": "#0"},
-				"up": {"uv": [6.5, 12, 6.5, 11.5], "texture": "#0"},
-				"down": {"uv": [7, 11.5, 7, 12], "texture": "#0"}
+				"north": {"uv": [6.5, 12, 6.5, 11.5], "rotation": 180, "texture": "#0"},
+				"east": {"uv": [7, 9.5, 8, 11.5], "rotation": 90, "texture": "#0"},
+				"south": {"uv": [7, 11.5, 7, 12], "texture": "#0"},
+				"west": {"uv": [8.5, 9.5, 9.5, 11.5], "rotation": 270, "texture": "#0"},
+				"up": {"uv": [11.5, 6, 11.5, 6.5], "texture": "#0"},
+				"down": {"uv": [6, 11.5, 6, 12], "rotation": 180, "texture": "#0"}
 			}
 		},
 		{
 			"name": "hammer",
-			"from": [8.35, 5.975, 25.7],
-			"to": [8.35, 7.075, 26.3],
-			"rotation": {"angle": -22.5, "axis": "x", "origin": [8.35, 6.1, 25.825]},
+			"from": [8.35, 5.975, 24.85],
+			"to": [8.35, 6.575, 25.95],
+			"rotation": {"angle": 22.5, "axis": "x", "origin": [8.35, 6.1, 25.825]},
 			"faces": {
-				"north": {"uv": [11.5, 7, 11.5, 7.5], "texture": "#0"},
-				"east": {"uv": [5.5, 9.5, 6.5, 11.5], "texture": "#0"},
-				"south": {"uv": [7.5, 11.5, 7.5, 12], "texture": "#0"},
-				"west": {"uv": [4, 9.5, 5, 11.5], "texture": "#0"},
-				"up": {"uv": [8, 12, 8, 11.5], "texture": "#0"},
-				"down": {"uv": [11.5, 8, 11.5, 8.5], "texture": "#0"}
+				"north": {"uv": [8, 12, 8, 11.5], "rotation": 180, "texture": "#0"},
+				"east": {"uv": [5.5, 9.5, 6.5, 11.5], "rotation": 90, "texture": "#0"},
+				"south": {"uv": [11.5, 8, 11.5, 8.5], "texture": "#0"},
+				"west": {"uv": [4, 9.5, 5, 11.5], "rotation": 270, "texture": "#0"},
+				"up": {"uv": [7.5, 11.5, 7.5, 12], "texture": "#0"},
+				"down": {"uv": [11.5, 7, 11.5, 7.5], "rotation": 180, "texture": "#0"}
 			}
 		},
 		{
@@ -257,92 +257,6 @@
 				"up": {"uv": [14.5, 10.5, 16, 11], "rotation": 270, "texture": "#0"},
 				"down": {"uv": [14.5, 11.5, 16, 12], "rotation": 270, "texture": "#0"}
 			}
-		}
-	],
-	"overrides": [
-		{
-			"predicate": {
-				"blackpowderweaponsmod:modelstate": 0
-			},
-			"model": "blackpowderweaponsmod:custom/flintlockblunderbuss/flintlock_blunderbuss_unloaded"
-		},
-		{
-			"predicate": {
-				"blackpowderweaponsmod:modelstate": 1
-			},
-			"model": "blackpowderweaponsmod:custom/flintlockblunderbuss/flintlock_blunderbuss_reload_1"
-		},
-		{
-			"predicate": {
-				"blackpowderweaponsmod:modelstate": 2
-			},
-			"model": "blackpowderweaponsmod:custom/flintlockblunderbuss/flintlock_blunderbuss_reload_2"
-		},
-		{
-			"predicate": {
-				"blackpowderweaponsmod:modelstate": 3
-			},
-			"model": "blackpowderweaponsmod:custom/flintlockblunderbuss/flintlock_blunderbuss_reload_3"
-		},
-		{
-			"predicate": {
-				"blackpowderweaponsmod:modelstate": 4
-			},
-			"model": "blackpowderweaponsmod:custom/flintlockblunderbuss/flintlock_blunderbuss_reload_4"
-		},
-		{
-			"predicate": {
-				"blackpowderweaponsmod:modelstate": 5
-			},
-			"model": "blackpowderweaponsmod:custom/flintlockblunderbuss/flintlock_blunderbuss_reload_5"
-		},
-		{
-			"predicate": {
-				"blackpowderweaponsmod:modelstate": 6
-			},
-			"model": "blackpowderweaponsmod:custom/flintlockblunderbuss/flintlock_blunderbuss_reload_6"
-		},
-		{
-			"predicate": {
-				"blackpowderweaponsmod:modelstate": 7
-			},
-			"model": "blackpowderweaponsmod:custom/flintlockblunderbuss/flintlock_blunderbuss_reload_7"
-		},
-		{
-			"predicate": {
-				"blackpowderweaponsmod:modelstate": 8
-			},
-			"model": "blackpowderweaponsmod:custom/flintlockblunderbuss/flintlock_blunderbuss_reload_6"
-		},
-		{
-			"predicate": {
-				"blackpowderweaponsmod:modelstate": 9
-			},
-			"model": "blackpowderweaponsmod:custom/flintlockblunderbuss/flintlock_blunderbuss_reload_7"
-		},
-		{
-			"predicate": {
-				"blackpowderweaponsmod:modelstate": 10
-			},
-			"model": "blackpowderweaponsmod:custom/flintlockblunderbuss/flintlock_blunderbuss_reload_8"
-		},
-		{
-			"predicate": {
-				"blackpowderweaponsmod:modelstate": 11
-			},
-			"model": "blackpowderweaponsmod:custom/flintlockblunderbuss/flintlock_blunderbuss_reload_9"
-		},
-		{
-			"predicate": {
-				"blackpowderweaponsmod:modelstate": 12
-			},
-			"model": "blackpowderweaponsmod:custom/flintlockblunderbuss/flintlock_blunderbuss_reload_10"
-		},
-		{
-			"predicate": {
-				"blackpowderweaponsmod:modelstate": 13
-			},
-			"model": "blackpowderweaponsmod:custom/flintlockblunderbuss/flintlock_blunderbuss_ready"
 		}
 	],
 	"display": {

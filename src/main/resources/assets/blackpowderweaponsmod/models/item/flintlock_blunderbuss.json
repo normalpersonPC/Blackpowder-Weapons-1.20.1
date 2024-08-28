@@ -1,0 +1,114 @@
+{
+  "parent": "minecraft:item/handheld",
+  "loader": "forge:separate_transforms",
+  "gui_light": "front",
+  "base": {
+    "parent": "blackpowderweaponsmod:custom/flintlockblunderbuss/flintlock_blunderbuss_unloaded"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "item/generated",
+      "textures": {
+        "layer0": "blackpowderweaponsmod:item/flintlock_blunderbuss_item"
+      }
+    },
+    "ground": {
+      "parent": "item/generated",
+      "textures": {
+        "layer0": "blackpowderweaponsmod:item/flintlock_blunderbuss_item"
+      }
+    },
+    "fixed": {
+      "parent": "item/generated",
+      "textures": {
+        "layer0": "blackpowderweaponsmod:item/flintlock_blunderbuss_item"
+      }
+    }
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "blackpowderweaponsmod:modelstate": 0
+      },
+      "model": "blackpowderweaponsmod:custom/flintlockblunderbuss/flintlock_blunderbuss_unloaded"
+    },
+    {
+      "predicate": {
+        "blackpowderweaponsmod:modelstate": 1
+      },
+      "model": "blackpowderweaponsmod:custom/flintlockblunderbuss/flintlock_blunderbuss_reload_1"
+    },
+    {
+      "predicate": {
+        "blackpowderweaponsmod:modelstate": 2
+      },
+      "model": "blackpowderweaponsmod:custom/flintlockblunderbuss/flintlock_blunderbuss_reload_2"
+    },
+    {
+      "predicate": {
+        "blackpowderweaponsmod:modelstate": 3
+      },
+      "model": "blackpowderweaponsmod:custom/flintlockblunderbuss/flintlock_blunderbuss_reload_3"
+    },
+    {
+      "predicate": {
+        "blackpowderweaponsmod:modelstate": 4
+      },
+      "model": "blackpowderweaponsmod:custom/flintlockblunderbuss/flintlock_blunderbuss_reload_4"
+    },
+    {
+      "predicate": {
+        "blackpowderweaponsmod:modelstate": 5
+      },
+      "model": "blackpowderweaponsmod:custom/flintlockblunderbuss/flintlock_blunderbuss_reload_5"
+    },
+    {
+      "predicate": {
+        "blackpowderweaponsmod:modelstate": 6
+      },
+      "model": "blackpowderweaponsmod:custom/flintlockblunderbuss/flintlock_blunderbuss_reload_6"
+    },
+    {
+      "predicate": {
+        "blackpowderweaponsmod:modelstate": 7
+      },
+      "model": "blackpowderweaponsmod:custom/flintlockblunderbuss/flintlock_blunderbuss_reload_7"
+    },
+    {
+      "predicate": {
+        "blackpowderweaponsmod:modelstate": 8
+      },
+      "model": "blackpowderweaponsmod:custom/flintlockblunderbuss/flintlock_blunderbuss_reload_6"
+    },
+    {
+      "predicate": {
+        "blackpowderweaponsmod:modelstate": 9
+      },
+      "model": "blackpowderweaponsmod:custom/flintlockblunderbuss/flintlock_blunderbuss_reload_7"
+    },
+    {
+      "predicate": {
+        "blackpowderweaponsmod:modelstate": 10
+      },
+      "model": "blackpowderweaponsmod:custom/flintlockblunderbuss/flintlock_blunderbuss_reload_8"
+    },
+    {
+      "predicate": {
+        "blackpowderweaponsmod:modelstate": 11
+      },
+      "model": "blackpowderweaponsmod:custom/flintlockblunderbuss/flintlock_blunderbuss_reload_9"
+    },
+    {
+      "predicate": {
+        "blackpowderweaponsmod:modelstate": 12
+      },
+      "model": "blackpowderweaponsmod:custom/flintlockblunderbuss/flintlock_blunderbuss_reload_10"
+    },
+    {
+      "predicate": {
+        "blackpowderweaponsmod:modelstate": 13
+      },
+      "model": "blackpowderweaponsmod:custom/flintlockblunderbuss/flintlock_blunderbuss_ready"
+    }
+  ]
+}

@@ -13,6 +13,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.normalpersonJava.blackpowderweaponsmod.BlackpowderWeaponsMod;
+import net.normalpersonJava.blackpowderweaponsmod.item.FlintlockBlunderbussItem;
 import net.normalpersonJava.blackpowderweaponsmod.item.FlintlockMusketBayonetItem;
 import net.normalpersonJava.blackpowderweaponsmod.item.FlintlockMusketItem;
 import net.normalpersonJava.blackpowderweaponsmod.item.FlintlockPistolItem;
@@ -28,6 +29,9 @@ public class ModItems {
 
     public static final RegistryObject<Item> FLINTLOCK_MUSKET_BAYONET = ITEMS.register("flintlock_musket_bayonet",
             () -> new FlintlockMusketBayonetItem());
+
+    public static final RegistryObject<Item> FLINTLOCK_BLUNDERBUSS = ITEMS.register("flintlock_blunderbuss",
+            () -> new FlintlockBlunderbussItem());
 
     public static final RegistryObject<Item> FLINTLOCK_PISTOL = ITEMS.register("flintlock_pistol",
             () -> new FlintlockPistolItem());
@@ -81,6 +85,7 @@ public class ModItems {
         event.enqueueWork(() -> {
             ItemProperties.register(FLINTLOCK_MUSKET.get(), new ResourceLocation("blackpowderweaponsmod:modelstate"), (itemStackToRender, clientWorld, entity, itemEntityId) -> (float) renderModelState(itemStackToRender));
             ItemProperties.register(FLINTLOCK_MUSKET_BAYONET.get(), new ResourceLocation("blackpowderweaponsmod:modelstate"), (itemStackToRender, clientWorld, entity, itemEntityId) -> (float) renderModelState(itemStackToRender));
+            ItemProperties.register(FLINTLOCK_BLUNDERBUSS.get(), new ResourceLocation("blackpowderweaponsmod:modelstate"), (itemStackToRender, clientWorld, entity, itemEntityId) -> (float) renderModelState(itemStackToRender));
             ItemProperties.register(FLINTLOCK_PISTOL.get(), new ResourceLocation("blackpowderweaponsmod:modelstate"), (itemStackToRender, clientWorld, entity, itemEntityId) -> (float) renderModelState(itemStackToRender));
        });
     }
