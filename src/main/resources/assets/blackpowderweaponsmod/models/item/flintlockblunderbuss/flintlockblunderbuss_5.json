@@ -1,0 +1,22 @@
+{
+  "parent": "minecraft:item/handheld",
+  "loader": "forge:separate_transforms",
+  "base": {
+    "parent": "blackpowderweaponsmod:custom/flintlockblunderbuss/flintlock_blunderbuss_reload_5",
+    "textures": {
+      "0": "blackpowderweaponsmod:item/flintlock_blunderbuss",
+      "particles": "blackpowderweaponsmod:item/flintlock_blunderbuss"
+    }
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "blackpowderweaponsmod:item/flintlock_blunderbuss_item"
+    },
+    "ground": {
+      "parent": "blackpowderweaponsmod:item/flintlock_blunderbuss_item"
+    },
+    "fixed": {
+      "parent": "blackpowderweaponsmod:item/flintlock_blunderbuss_item"
+    }
+  }
+}

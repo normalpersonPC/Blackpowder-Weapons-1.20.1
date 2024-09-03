@@ -17,18 +17,28 @@ public class ModCreativeTabs {
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.FLINTLOCK_MUSKET.get()))
                     .title(Component.translatable("creativetab.blackpowder_weapons"))
                     .displayItems((itemDisplayParameters, output) -> {
+                        //weapons
                         output.accept(ModItems.FLINTLOCK_MUSKET.get());
                         output.accept(ModItems.FLINTLOCK_MUSKET_BAYONET.get());
+                        output.accept(ModItems.FLINTLOCK_MUSKET_BAYONET_DIAMOND.get());
                         output.accept(ModItems.FLINTLOCK_BLUNDERBUSS.get());
                         output.accept(ModItems.FLINTLOCK_PISTOL.get());
+                        output.accept(ModItems.FLINTLOCK_BREECHLOADING_RIFLE.get());
+
+                        //ammo
                         output.accept(ModItems.MUSKETBALL.get());
                         output.accept(ModItems.MUSKETBALL_SMALL.get());
+                        output.accept(ModItems.SHOTGUN_PELLETS.get());
+
+                        //parts
                         output.accept(ModItems.BARREL_SHORT.get());
                         output.accept(ModItems.BARREL_MEDIUM.get());
                         output.accept(ModItems.BARREL_LONG.get());
                         output.accept(ModItems.STOCK_PISTOL.get());
                         output.accept(ModItems.STOCK_LONG.get());
                         output.accept(ModItems.FLINTLOCK_MECHANISM.get());
+
+                        //tools
                         output.accept(ModItems.TOOLKIT.get());
                         output.accept(ModItems.BULLET_MOLD.get());
 

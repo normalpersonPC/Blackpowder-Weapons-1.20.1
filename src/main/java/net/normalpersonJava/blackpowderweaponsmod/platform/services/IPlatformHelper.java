@@ -8,12 +8,13 @@ import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
+import net.normalpersonJava.blackpowderweaponsmod.entity.BulletEntity;
 import net.normalpersonJava.blackpowderweaponsmod.entity.BulletProjectileEntity;
 
 public interface IPlatformHelper {
 
     boolean isModLoaded(String modId);
-    boolean bulletHitResult(BulletProjectileEntity entity, HitResult result);
+    boolean bulletHitResult(BulletEntity entity, HitResult result);
     void playSound(SoundEvent sound, SoundSource source, ServerLevel level, Vec3 origin);
     Entity getHitEntity(Entity entity);
 }

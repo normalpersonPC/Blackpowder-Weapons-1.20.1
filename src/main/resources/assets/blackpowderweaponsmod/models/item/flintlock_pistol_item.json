@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "Layer0": "blackpowderweaponsmod:item/flintlock_pistol_item"
+    "layer0": "blackpowderweaponsmod:item/flintlock_pistol_item"
   }
 }

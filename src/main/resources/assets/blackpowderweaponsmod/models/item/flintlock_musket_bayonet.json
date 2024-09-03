@@ -2,7 +2,11 @@
   "parent": "minecraft:item/handheld",
   "loader": "forge:separate_transforms",
   "base": {
-    "parent": "blackpowderweaponsmod:custom/flintlock_musket_bayonet"
+    "parent": "blackpowderweaponsmod:item/flintlockmusketbayonet/iron/flintlockmusketbayonet_0",
+    "textures": {
+      "0": "blackpowderweaponsmod:item/flintlock_musket_bayonet",
+      "particles": "blackpowderweaponsmod:item/flintlock_musket_bayonet"
+    }
   },
   "perspectives": {
     "gui": {
@@ -20,85 +24,85 @@
       "predicate": {
         "blackpowderweaponsmod:modelstate": 0
       },
-      "model": "blackpowderweaponsmod:custom/flintlock_musket_bayonet_unloaded"
+      "model": "blackpowderweaponsmod:item/flintlockmusketbayonet/iron/flintlockmusketbayonet_0"
     },
     {
       "predicate": {
         "blackpowderweaponsmod:modelstate": 1
       },
-      "model": "blackpowderweaponsmod:custom/flintlock_musket_bayonet_reload_1"
+      "model": "blackpowderweaponsmod:item/flintlockmusketbayonet/iron/flintlockmusketbayonet_1"
     },
     {
       "predicate": {
         "blackpowderweaponsmod:modelstate": 2
       },
-      "model": "blackpowderweaponsmod:custom/flintlock_musket_bayonet_reload_2"
+      "model": "blackpowderweaponsmod:item/flintlockmusketbayonet/iron/flintlockmusketbayonet_2"
     },
     {
       "predicate": {
         "blackpowderweaponsmod:modelstate": 3
       },
-      "model": "blackpowderweaponsmod:custom/flintlock_musket_bayonet_reload_3"
+      "model": "blackpowderweaponsmod:item/flintlockmusketbayonet/iron/flintlockmusketbayonet_3"
     },
     {
       "predicate": {
         "blackpowderweaponsmod:modelstate": 4
       },
-      "model": "blackpowderweaponsmod:custom/flintlock_musket_bayonet_reload_4"
+      "model": "blackpowderweaponsmod:item/flintlockmusketbayonet/iron/flintlockmusketbayonet_4"
     },
     {
       "predicate": {
         "blackpowderweaponsmod:modelstate": 5
       },
-      "model": "blackpowderweaponsmod:custom/flintlock_musket_bayonet_reload_5"
+      "model": "blackpowderweaponsmod:item/flintlockmusketbayonet/iron/flintlockmusketbayonet_5"
     },
     {
       "predicate": {
         "blackpowderweaponsmod:modelstate": 6
       },
-      "model": "blackpowderweaponsmod:custom/flintlock_musket_bayonet_reload_6"
+      "model": "blackpowderweaponsmod:item/flintlockmusketbayonet/iron/flintlockmusketbayonet_6"
     },
     {
       "predicate": {
         "blackpowderweaponsmod:modelstate": 7
       },
-      "model": "blackpowderweaponsmod:custom/flintlock_musket_bayonet_reload_7"
+      "model": "blackpowderweaponsmod:item/flintlockmusketbayonet/iron/flintlockmusketbayonet_7"
     },
     {
       "predicate": {
         "blackpowderweaponsmod:modelstate": 8
       },
-      "model": "blackpowderweaponsmod:custom/flintlock_musket_bayonet_reload_6"
+      "model": "blackpowderweaponsmod:item/flintlockmusketbayonet/iron/flintlockmusketbayonet_6"
     },
     {
       "predicate": {
         "blackpowderweaponsmod:modelstate": 9
       },
-      "model": "blackpowderweaponsmod:custom/flintlock_musket_bayonet_reload_7"
+      "model": "blackpowderweaponsmod:item/flintlockmusketbayonet/iron/flintlockmusketbayonet_7"
     },
     {
       "predicate": {
         "blackpowderweaponsmod:modelstate": 10
       },
-      "model": "blackpowderweaponsmod:custom/flintlock_musket_bayonet_reload_8"
+      "model": "blackpowderweaponsmod:item/flintlockmusketbayonet/iron/flintlockmusketbayonet_8"
     },
     {
       "predicate": {
         "blackpowderweaponsmod:modelstate": 11
       },
-      "model": "blackpowderweaponsmod:custom/flintlock_musket_bayonet_reload_9"
+      "model": "blackpowderweaponsmod:item/flintlockmusketbayonet/iron/flintlockmusketbayonet_9"
     },
     {
       "predicate": {
         "blackpowderweaponsmod:modelstate": 12
       },
-      "model": "blackpowderweaponsmod:custom/flintlock_musket_bayonet_reload_10"
+      "model": "blackpowderweaponsmod:item/flintlockmusketbayonet/iron/flintlockmusketbayonet_10"
     },
     {
       "predicate": {
         "blackpowderweaponsmod:modelstate": 13
       },
-      "model": "blackpowderweaponsmod:custom/flintlock_musket_bayonet_ready"
+      "model": "blackpowderweaponsmod:item/flintlockmusketbayonet/iron/flintlockmusketbayonet_11"
     }
   ]
 }

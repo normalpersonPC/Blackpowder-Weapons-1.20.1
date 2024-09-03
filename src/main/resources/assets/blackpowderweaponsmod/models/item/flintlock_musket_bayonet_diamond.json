@@ -1,0 +1,108 @@
+{
+  "parent": "minecraft:item/handheld",
+  "loader": "forge:separate_transforms",
+  "base": {
+    "parent": "blackpowderweaponsmod:item/flintlockmusketbayonet/diamond/flintlockmusketbayonetdiamond_0",
+    "textures": {
+      "0": "blackpowderweaponsmod:item/flintlock_musket_bayonet_diamond",
+      "particles": "blackpowderweaponsmod:item/flintlock_musket_bayonet_diamond"
+    }
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "blackpowderweaponsmod:item/flintlock_musket_bayonet_item"
+    },
+    "ground": {
+      "parent": "blackpowderweaponsmod:item/flintlock_musket_bayonet_item"
+    },
+    "fixed": {
+      "parent": "blackpowderweaponsmod:item/flintlock_musket_bayonet_item"
+    }
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "blackpowderweaponsmod:modelstate": 0
+      },
+      "model": "blackpowderweaponsmod:item/flintlockmusketbayonet/diamond/flintlockmusketbayonetdiamond_0"
+    },
+    {
+      "predicate": {
+        "blackpowderweaponsmod:modelstate": 1
+      },
+      "model": "blackpowderweaponsmod:item/flintlockmusketbayonet/diamond/flintlockmusketbayonetdiamond_1"
+    },
+    {
+      "predicate": {
+        "blackpowderweaponsmod:modelstate": 2
+      },
+      "model": "blackpowderweaponsmod:item/flintlockmusketbayonet/diamond/flintlockmusketbayonetdiamond_2"
+    },
+    {
+      "predicate": {
+        "blackpowderweaponsmod:modelstate": 3
+      },
+      "model": "blackpowderweaponsmod:item/flintlockmusketbayonet/diamond/flintlockmusketbayonetdiamond_3"
+    },
+    {
+      "predicate": {
+        "blackpowderweaponsmod:modelstate": 4
+      },
+      "model": "blackpowderweaponsmod:item/flintlockmusketbayonet/diamond/flintlockmusketbayonetdiamond_4"
+    },
+    {
+      "predicate": {
+        "blackpowderweaponsmod:modelstate": 5
+      },
+      "model": "blackpowderweaponsmod:item/flintlockmusketbayonet/diamond/flintlockmusketbayonetdiamond_5"
+    },
+    {
+      "predicate": {
+        "blackpowderweaponsmod:modelstate": 6
+      },
+      "model": "blackpowderweaponsmod:item/flintlockmusketbayonet/diamond/flintlockmusketbayonetdiamond_6"
+    },
+    {
+      "predicate": {
+        "blackpowderweaponsmod:modelstate": 7
+      },
+      "model": "blackpowderweaponsmod:item/flintlockmusketbayonet/diamond/flintlockmusketbayonetdiamond_7"
+    },
+    {
+      "predicate": {
+        "blackpowderweaponsmod:modelstate": 8
+      },
+      "model": "blackpowderweaponsmod:item/flintlockmusketbayonet/diamond/flintlockmusketbayonetdiamond_6"
+    },
+    {
+      "predicate": {
+        "blackpowderweaponsmod:modelstate": 9
+      },
+      "model": "blackpowderweaponsmod:item/flintlockmusketbayonet/diamond/flintlockmusketbayonetdiamond_7"
+    },
+    {
+      "predicate": {
+        "blackpowderweaponsmod:modelstate": 10
+      },
+      "model": "blackpowderweaponsmod:item/flintlockmusketbayonet/diamond/flintlockmusketbayonetdiamond_8"
+    },
+    {
+      "predicate": {
+        "blackpowderweaponsmod:modelstate": 11
+      },
+      "model": "blackpowderweaponsmod:item/flintlockmusketbayonet/diamond/flintlockmusketbayonetdiamond_9"
+    },
+    {
+      "predicate": {
+        "blackpowderweaponsmod:modelstate": 12
+      },
+      "model": "blackpowderweaponsmod:item/flintlockmusketbayonet/diamond/flintlockmusketbayonetdiamond_10"
+    },
+    {
+      "predicate": {
+        "blackpowderweaponsmod:modelstate": 13
+      },
+      "model": "blackpowderweaponsmod:item/flintlockmusketbayonet/diamond/flintlockmusketbayonetdiamond_11"
+    }
+  ]
+}

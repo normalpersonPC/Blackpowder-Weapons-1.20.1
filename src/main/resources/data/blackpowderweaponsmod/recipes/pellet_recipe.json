@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "aaa",
+    "aba",
+    "aaa"
+  ],
+  "key": {
+    "a": {
+      "item": "minecraft:iron_nugget"
+    },
+    "b": {
+      "item": "blackpowderweaponsmod:bullet_mold"
+    }
+  },
+  "result": {
+    "item": "blackpowderweaponsmod:shotgun_pellets",
+    "count": 4
+  }
+}

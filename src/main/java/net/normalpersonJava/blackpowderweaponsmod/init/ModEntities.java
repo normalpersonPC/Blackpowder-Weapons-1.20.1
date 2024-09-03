@@ -10,6 +10,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 import net.normalpersonJava.blackpowderweaponsmod.BlackpowderWeaponsMod;
+import net.normalpersonJava.blackpowderweaponsmod.entity.BulletEntity;
 import net.normalpersonJava.blackpowderweaponsmod.entity.BulletProjectileEntity;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -19,6 +20,9 @@ public class ModEntities {
 
     public static final RegistryObject<EntityType<BulletProjectileEntity>> BULLET_PROJECTILE = register("bullet_projectile", EntityType.Builder.<BulletProjectileEntity>of(BulletProjectileEntity::new, MobCategory.MISC)
             .setCustomClientFactory(BulletProjectileEntity::new).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(1).sized(0.8f, 0.8f));
+
+    public static final RegistryObject<EntityType<BulletEntity>> BULLET_ENTITY = register("bullet_entity", EntityType.Builder.<BulletEntity>of(BulletEntity::new, MobCategory.MISC)
+        .setCustomClientFactory(BulletEntity::new).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(1).sized(0.8f, 0.8f));
 
     private static <T extends Entity> RegistryObject<EntityType<T>> register(String registryname, EntityType.Builder<T> entityTypeBuilder) {
         return ENITITY_TYPES.register(registryname, () -> entityTypeBuilder.build(registryname));

@@ -2,6 +2,8 @@ package net.normalpersonJava.blackpowderweaponsmod.entity;
 
 
 
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.monster.EnderMan;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.network.PlayMessages;
@@ -71,13 +73,13 @@ public class BulletProjectileEntity extends AbstractArrow implements ItemSupplie
     @Override
     protected void onHitEntity(EntityHitResult entityHitResult) {
         super.onHitEntity(entityHitResult);
-
         // Get the entity that was hit
         LivingEntity hitEntity = (LivingEntity) entityHitResult.getEntity();
+        Entity entity = entityHitResult.getEntity();
 
         hitEntity.invulnerableTime = 0;
 
-        this.discard(); // Remove the projectile after hitting an entity
+
     }
 
     @Override

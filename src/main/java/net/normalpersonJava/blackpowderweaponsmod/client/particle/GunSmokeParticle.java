@@ -30,9 +30,8 @@ public class GunSmokeParticle extends TextureSheetParticle {
 	protected GunSmokeParticle(ClientLevel world, double x, double y, double z, double vx, double vy, double vz, SpriteSet spriteSet) {
 		super(world, x, y, z);
 		this.spriteSet = spriteSet;
-		this.setSize(0.3f, 0.3f);
-		this.quadSize *= 10f;
-		this.lifetime = (int) Math.max(1, 60 + (this.random.nextInt(120) - 60));
+		this.quadSize = 2f;
+		this.lifetime = 100;
 		this.gravity = 0f;
 		this.hasPhysics = false;
 		this.xd = vx * 1;
@@ -49,5 +48,10 @@ public class GunSmokeParticle extends TextureSheetParticle {
 	@Override
 	public void tick() {
 		super.tick();
+		fadeOut();
+	}
+
+	private void fadeOut() {
+		this.alpha = (-(1/(float)lifetime) * age + 1);
 	}
 }

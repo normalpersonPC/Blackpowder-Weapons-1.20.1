@@ -12,7 +12,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.normalpersonJava.blackpowderweaponsmod.BlackpowderWeaponsMod;
 import net.normalpersonJava.blackpowderweaponsmod.client.particle.GunSmokeParticle;
-import net.normalpersonJava.blackpowderweaponsmod.client.particle.GunSmokesmallParticle;
+import net.normalpersonJava.blackpowderweaponsmod.client.particle.GunSmokeSmallParticle;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class ModParticles {
@@ -31,6 +31,6 @@ public class ModParticles {
     @SubscribeEvent
     public static void registerParticles(RegisterParticleProvidersEvent event) {
         event.registerSpriteSet(GUN_SMOKE.get(), GunSmokeParticle::provider);
-        event.registerSpriteSet(GUN_SMOKESMALL.get(), GunSmokesmallParticle::provider);
+        event.registerSpriteSet(GUN_SMOKESMALL.get(), GunSmokeSmallParticle::provider);
     }
 }

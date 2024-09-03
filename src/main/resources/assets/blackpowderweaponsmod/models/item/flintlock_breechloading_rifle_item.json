@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "blackpowderweaponsmod:item/flintlock_breechloading_rifle_item"
+  }
+}
