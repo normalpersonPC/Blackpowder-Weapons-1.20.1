@@ -7,7 +7,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.normalpersonJava.blackpowderweaponsmod.client.model.Modelbullet;
 import net.normalpersonJava.blackpowderweaponsmod.client.renderer.BulletEntityRenderer;
 import net.normalpersonJava.blackpowderweaponsmod.client.renderer.BulletProjectileRenderer;
-import net.normalpersonJava.blackpowderweaponsmod.entity.BulletEntity;
+import net.normalpersonJava.blackpowderweaponsmod.entity.ModEntities;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class ModEntityRenderer {

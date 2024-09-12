@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "a b",
+    "cde",
+    "ee "
+  ],
+  "key": {
+    "a": {
+      "item": "blackpowderweaponsmod:blueprint_breechblock"
+    },
+    "b": {
+      "item": "blackpowderweaponsmod:toolkit"
+    },
+    "c": {
+      "item": "blackpowderweaponsmod:barrel_short"
+    },
+    "d": {
+      "item": "minecraft:iron_block"
+    },
+    "e": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "item": "blackpowderweaponsmod:breechblock",
+    "count": 1
+  }
+}

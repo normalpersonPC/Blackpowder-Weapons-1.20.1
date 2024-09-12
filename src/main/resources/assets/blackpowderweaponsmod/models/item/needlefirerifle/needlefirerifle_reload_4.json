@@ -1,0 +1,22 @@
+{
+  "parent": "minecraft:item/handheld",
+  "loader": "forge:separate_transforms",
+  "base": {
+    "parent": "blackpowderweaponsmod:custom/needlefirerifle/needlefire_rifle_reload_4",
+    "textures": {
+      "0": "blackpowderweaponsmod:item/needlefire_rifle",
+      "particles": "blackpowderweaponsmod:item/needlefire_rifle"
+    }
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "blackpowderweaponsmod:item/needlefirerifle/needlefirerifle_item"
+    },
+    "ground": {
+      "parent": "blackpowderweaponsmod:item/needlefirerifle/needlefirerifle_item"
+    },
+    "fixed": {
+      "parent": "blackpowderweaponsmod:item/needlefirerifle/needlefirerifle_tem"
+    }
+  }
+}

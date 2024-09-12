@@ -1,0 +1,22 @@
+{
+  "parent": "minecraft:item/handheld",
+  "loader": "forge:separate_transforms",
+  "base": {
+    "parent": "blackpowderweaponsmod:custom/caplockbreechloadingrifle/caplock_breechloading_rifle_fired",
+    "textures": {
+      "0": "blackpowderweaponsmod:item/caplock_breechloading_rifle",
+      "particles": "blackpowderweaponsmod:item/caplock_breechloading_rifle"
+    }
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "blackpowderweaponsmod:item/caplockbreechloadingrifle/caplock_breechloading_rifle_item"
+    },
+    "ground": {
+      "parent": "blackpowderweaponsmod:item/caplockbreechloadingrifle/caplock_breechloading_rifle_item"
+    },
+    "fixed": {
+      "parent": "blackpowderweaponsmod:item/caplockbreechloadingrifle/caplock_breechloading_rifle_item"
+    }
+  }
+}

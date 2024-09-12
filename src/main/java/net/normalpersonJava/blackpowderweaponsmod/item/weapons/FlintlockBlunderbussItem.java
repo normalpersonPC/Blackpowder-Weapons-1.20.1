@@ -1,232 +1,124 @@
 package net.normalpersonJava.blackpowderweaponsmod.item.weapons;
 
-import com.google.common.collect.ImmutableMultimap;
-import com.google.common.collect.Multimap;
-import net.minecraft.core.BlockPos;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundSource;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.Mob;
-import net.minecraft.world.entity.ai.attributes.Attribute;
-import net.minecraft.world.entity.ai.attributes.AttributeModifier;
-import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.projectile.AbstractArrow;
-import net.minecraft.world.entity.projectile.Projectile;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Rarity;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.phys.Vec3;
-import net.normalpersonJava.blackpowderweaponsmod.entity.BulletEntity;
-import net.normalpersonJava.blackpowderweaponsmod.entity.BulletProjectileEntity;
-import net.normalpersonJava.blackpowderweaponsmod.init.ModEntities;
-import net.normalpersonJava.blackpowderweaponsmod.init.ModItems;
-import net.normalpersonJava.blackpowderweaponsmod.init.ModParticles;
+import net.normalpersonJava.blackpowderweaponsmod.item.ModItems;
 import net.normalpersonJava.blackpowderweaponsmod.init.ModSounds;
-import net.normalpersonJava.blackpowderweaponsmod.platform.Services;
+import net.normalpersonJava.blackpowderweaponsmod.item.base.GunItem;
 
-public class FlintlockBlunderbussItem extends Item {
+public class FlintlockBlunderbussItem extends GunItem {
     public FlintlockBlunderbussItem() {
         super(new Properties().stacksTo(1).rarity(Rarity.COMMON));
     }
 
     @Override
-    public int getUseDuration(ItemStack stack) {
-        return 1000;
+    public double meleeDamage() {
+        return 2;
     }
 
     @Override
-    public Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(EquipmentSlot equipmentSlot) {
-        if (equipmentSlot == EquipmentSlot.MAINHAND) {
-            ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
-            builder.putAll(super.getDefaultAttributeModifiers(equipmentSlot));
-            builder.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Item modifier", 2d, AttributeModifier.Operation.ADDITION));
-            builder.put(Attributes.ATTACK_SPEED, new AttributeModifier(BASE_ATTACK_SPEED_UUID, "Item modifier", -2.4, AttributeModifier.Operation.ADDITION));
-            return builder.build();
-        }
-        return super.getDefaultAttributeModifiers(equipmentSlot);
+    public float bulletDamage() {
+        return 16;
     }
 
     @Override
-    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
-        InteractionResultHolder<ItemStack> used = super.use(level, player, hand);
-        ItemStack itemstack = player.getItemInHand(hand);
-        player.startUsingItem(hand);
-        if (hand == InteractionHand.OFF_HAND) {
-            player.getCooldowns().addCooldown(itemstack.getItem(), 2);
-            return InteractionResultHolder.fail(player.getItemInHand(hand));
-        }
-        if (itemstack.getOrCreateTag().getBoolean("isLoaded")) {
-            fire(level, player.getX(), player.getY(), player.getZ(), player, used.getObject());
-        }
-        return used;
+    public float bulletSpeed() {
+        return 7;
     }
-
-    public void onUseTick(Level level, LivingEntity entity, ItemStack itemstack, int useDuration) {
-        super.onUseTick(level, entity, itemstack, useDuration);
-        reload(level, entity.getX(), entity.getY(), entity.getZ(), entity, itemstack);
-    }
-
 
     @Override
-    public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) {
-        return oldStack.getItem() != newStack.getItem();
+    public float bulletSpread() {
+        return 10;
     }
 
-
-    public void fire(LevelAccessor world, double x, double y, double z, Entity entity, ItemStack itemstack) {
-        CompoundTag tag = itemstack.getOrCreateTag();
-        if (entity == null) return;
-        double speed = 0.1;
-        if (!world.isClientSide()) {
-            if (entity instanceof Player _player)
-                _player.getCooldowns().addCooldown(itemstack.getItem(), 4);
-            if (world instanceof ServerLevel projectileLevel) {
-                for (int a = 0; a < 20; a++) {
-                    BulletEntity bullet = new BulletEntity(projectileLevel, entity, new Vec3(x, y, z), 16, 2, 2);
-                    bullet.setPos((entity.getX() + entity.getLookAngle().x), (entity.getY() + entity.getLookAngle().y + 1.5), (entity.getZ() + entity.getLookAngle().z));
-                    bullet.shoot(entity.getLookAngle().x, entity.getLookAngle().y, entity.getLookAngle().z, 6, 20);
-                    projectileLevel.addFreshEntity(bullet);
-                }
-            }
-            if (world instanceof Level _level) {
-                if (!_level.isClientSide()) {
-                    _level.playSound(null, BlockPos.containing(x, y, z), ModSounds.FLINTLOCK_MUSKET_SHOOT.get(), SoundSource.PLAYERS, 1, 1);
-                } else {
-                    _level.playLocalSound(x, y, z, ModSounds.FLINTLOCK_MUSKET_SHOOT.get(), SoundSource.PLAYERS, 1, 1, false);
-                }
-            }
-            if (world instanceof ServerLevel _level) {
-                _level.sendParticles(ModParticles.GUN_SMOKE.get(),
-                        (entity.getX() + entity.getLookAngle().x * 1.5),
-                        (entity.getY() + entity.getLookAngle().y + 1.5),
-                        (entity.getZ() + entity.getLookAngle().z * 1.5), 0,
-                        (entity.getLookAngle().x * speed),
-                        (entity.getLookAngle().y * speed),
-                        (entity.getLookAngle().z * speed), 1);
-            }
-            if (world instanceof ServerLevel _level) {
-                _level.sendParticles(ModParticles.GUN_SMOKE.get(),
-                        (entity.getX() + entity.getLookAngle().x * 3),
-                        (entity.getY() + entity.getLookAngle().y * 3 + 1.5),
-                        (entity.getZ() + entity.getLookAngle().z * 3), 0,
-                        (entity.getLookAngle().x * speed),
-                        (entity.getLookAngle().y * speed),
-                        (entity.getLookAngle().z * speed), 1);
-
-            }
-            tag.putBoolean("isLoaded",false);
-            tag.putDouble("modelstate", 0);
-        }
-
+    @Override
+    public float piercing() {
+        return 2;
     }
 
+    @Override
+    public float knockback() {
+        return 2;
+    }
 
-    public void reload (LevelAccessor world, double x, double y, double z, Entity entity, ItemStack itemstack) {
+    @Override
+    public int maxAmmo() {
+        return 1;
+    }
+
+    @Override
+    public int pelletCount() {
+        return 12;
+    }
+
+    @Override
+    public boolean hasAmmo(Player player) {
+        return player.getInventory().contains(new ItemStack(ModItems.SHOTGUN_PELLETS.get())) &&
+                player.getInventory().contains(new ItemStack(Items.GUNPOWDER));
+    }
+
+    @Override
+    public void reload(LevelAccessor world, Entity entity, ItemStack stack) {
         if (entity == null) {
             return;
         }
         if (!world.isClientSide()) {
             if (entity instanceof Player player) {
-                boolean hasAmmo = player.getInventory().contains(new ItemStack(ModItems.MUSKETBALL.get())) &&
-                        player.getInventory().contains(new ItemStack(Items.GUNPOWDER));
-
-                CompoundTag tag = itemstack.getOrCreateTag();
-                double modelstate = tag.getDouble("modelstate");
-                double delay = tag.getDouble("delay");
+                double modelstate = getModelState(stack);
+                double delay = getDelay(stack);
 
                 // Ensure the item is not already loaded and that the player has ammo
-                if (!tag.getBoolean("isLoaded") && hasAmmo) {
+                if (!isLoaded(stack) && hasAmmo(player)) {
                     delay++;
-
-
                     if (delay >= 10) { // Check if 10 ticks have passed
                         delay = 0; // Reset delay for next tick
                         modelstate++;
-                        tag.putDouble("modelstate", modelstate);
+                        setModelState(stack, modelstate);
                         if (modelstate == 1) {
-                            if (world instanceof Level level) {
-                                if (!level.isClientSide()) {
-                                    level.playSound(null, player.blockPosition(), ModSounds.FLINTLOCK_POWDER.get(), SoundSource.PLAYERS, 1, 1);
-                                } else {
-                                    level.playLocalSound(player.getX(), player.getY(), player.getZ(), ModSounds.FLINTLOCK_POWDER.get(), SoundSource.PLAYERS, 1, 1, false);
-                                }
-                            }
+                            playSound(world, player, ModSounds.FLINTLOCK_POWDER.get());
                         }
                         if (modelstate == 2) {
-                            if (world instanceof Level level) {
-                                if (!level.isClientSide()) {
-                                    level.playSound(null, player.blockPosition(), ModSounds.FLINTLOCK_READY.get(), SoundSource.PLAYERS, 1, 1);
-                                } else {
-                                    level.playLocalSound(player.getX(), player.getY(), player.getZ(), ModSounds.FLINTLOCK_READY.get(), SoundSource.PLAYERS, 1, 1, false);
-                                }
-                            }
+                            playSound(world, player, ModSounds.FLINTLOCK_READY.get());
                         }
-                        if (modelstate == 4 || modelstate == 12) {
-                            if (world instanceof Level level) {
-                                if (!level.isClientSide()) {
-                                    level.playSound(null, player.blockPosition(), ModSounds.FLINTLOCK_ROD0.get(), SoundSource.PLAYERS, 1, 1);
-                                } else {
-                                    level.playLocalSound(player.getX(), player.getY(), player.getZ(), ModSounds.FLINTLOCK_ROD0.get(), SoundSource.PLAYERS, 1, 1, false);
-                                }
-                            }
+                        if (modelstate == 3) {
+                            playSound(world, player, ModSounds.FLINTLOCK_POWDER.get());
                         }
-                        if (modelstate == 6 || modelstate == 8) {
-                            if (world instanceof Level level) {
-                                if (!level.isClientSide()) {
-                                    level.playSound(null, player.blockPosition(), ModSounds.FLINTLOCK_ROD1.get(), SoundSource.PLAYERS, 1, 1);
-                                } else {
-                                    level.playLocalSound(player.getX(), player.getY(), player.getZ(), ModSounds.FLINTLOCK_ROD1.get(), SoundSource.PLAYERS, 1, 1, false);
-                                }
-                            }
+                        if (modelstate == 5 || modelstate == 13) {
+                            playSound(world, player, ModSounds.FLINTLOCK_ROD0.get());
                         }
-                        if (modelstate >= 13) { // If fully loaded
-                            tag.putBoolean("isLoaded", true);
-                            tag.putDouble("delay", 0); // Reset delay
+                        if (modelstate == 7 || modelstate == 9) {
+                            playSound(world, player, ModSounds.FLINTLOCK_ROD1.get());
+                        }
+                        if (modelstate >= 14) { // If fully loaded
+                            setModelState(stack, 14);
+                            setAmmoCount(stack, getAmmoCount(stack) + 1);
+                            setDelay(stack, 0); // Reset delay
+                            setLoaded(stack, true);
+                            setFired(stack, false);
 
                             // Consume the ammo
-                            consumeItem(player, Items.GUNPOWDER);
-                            consumeItem(player, ModItems.SHOTGUN_PELLETS.get());
+                            consumeItem(player, Items.GUNPOWDER, 1);
+                            consumeItem(player, ModItems.SHOTGUN_PELLETS.get(), 1);
 
-                            player.getCooldowns().addCooldown(itemstack.getItem(), 2);
+                            player.getCooldowns().addCooldown(stack.getItem(), 5);
 
-                            // Play the sound
-                            if (world instanceof Level level) {
-                                if (!level.isClientSide()) {
-                                    level.playSound(null, player.blockPosition(), ModSounds.FLINTLOCK_READY.get(), SoundSource.PLAYERS, 1, 1);
-                                } else {
-                                    level.playLocalSound(player.getX(), player.getY(), player.getZ(), ModSounds.FLINTLOCK_READY.get(), SoundSource.PLAYERS, 1, 1, false);
-                                }
-                            }
+                            playSound(world, player, ModSounds.FLINTLOCK_READY.get());
                         }
-
-                        System.out.println("tick");
                     }
-                    tag.putDouble("delay", delay);
+                    setDelay(stack, delay);
                 }
             }
         }
     }
 
-    public void consumeItem(Player player, Item item) {
-        for (int i = 0; i < player.getInventory().getContainerSize(); i++) {
-            ItemStack stack = player.getInventory().getItem(i);
-            if (stack.getItem() == item) {
-                stack.shrink(1);
-                if (stack.isEmpty()) {
-                    player.getInventory().removeItem(stack);
-                }
-                break;
-            }
-        }
+    @Override
+    public SoundEvent fireSFX() {
+        return ModSounds.FLINTLOCK_MUSKET_SHOOT.get();
     }
 }
 

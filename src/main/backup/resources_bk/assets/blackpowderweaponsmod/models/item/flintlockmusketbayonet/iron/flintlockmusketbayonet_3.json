@@ -1,0 +1,22 @@
+{
+  "parent": "minecraft:item/handheld",
+  "loader": "forge:separate_transforms",
+  "base": {
+    "parent": "blackpowderweaponsmod:custom/flintlockmusketbayonet/flintlock_musket_bayonet_reload_3",
+    "textures": {
+      "0": "blackpowderweaponsmod:item/flintlock_musket_bayonet",
+      "particles": "blackpowderweaponsmod:item/flintlock_musket_bayonet"
+    }
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "blackpowderweaponsmod:item/flintlock_musket_bayonet_item"
+    },
+    "ground": {
+      "parent": "blackpowderweaponsmod:item/flintlock_musket_bayonet_item"
+    },
+    "fixed": {
+      "parent": "blackpowderweaponsmod:item/flintlock_musket_bayonet_item"
+    }
+  }
+}

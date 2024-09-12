@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "acb",
+    "ccc",
+    "dde"
+  ],
+  "key": {
+    "a": {
+      "item": "blackpowderweaponsmod:blueprint_needlefire_bolt"
+    },
+    "b": {
+      "item": "blackpowderweaponsmod:toolkit"
+    },
+    "c": {
+      "item": "minecraft:iron_ingot"
+    },
+    "d": {
+      "item": "minecraft:iron_nugget"
+    },
+    "e": {
+      "item": "blackpowderweaponsmod:barrel_short"
+    }
+  },
+  "result": {
+    "item": "blackpowderweaponsmod:needlefire_bolt",
+    "count": 1
+  }
+}

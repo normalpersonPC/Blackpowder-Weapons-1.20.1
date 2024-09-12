@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "blackpowderweaponsmod:flintlock_musket",
+    "blackpowderweaponsmod:flintlock_musket_bayonet",
+    "blackpowderweaponsmod:flintlock_pistol",
+    "blackpowderweaponsmod:flintlock_blunderbuss"
+  ]
+}

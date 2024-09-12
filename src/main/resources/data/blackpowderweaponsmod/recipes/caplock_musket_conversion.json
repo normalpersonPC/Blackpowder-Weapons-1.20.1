@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "template": {
+    "item": "blackpowderweaponsmod:toolkit_conversion"
+  },
+  "base": {
+    "item": "blackpowderweaponsmod:flintlock_musket"
+  },
+  "addition": {
+    "item": "blackpowderweaponsmod:caplock_mechanism"
+  },
+  "result": {
+    "item": "blackpowderweaponsmod:caplock_musket"
+  }
+}

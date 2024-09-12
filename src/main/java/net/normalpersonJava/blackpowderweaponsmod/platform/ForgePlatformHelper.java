@@ -8,8 +8,7 @@ import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.entity.PartEntity;
 import net.minecraftforge.fml.ModList;
-import net.normalpersonJava.blackpowderweaponsmod.entity.BulletEntity;
-import net.normalpersonJava.blackpowderweaponsmod.entity.BulletProjectileEntity;
+import net.normalpersonJava.blackpowderweaponsmod.entity.projectile.BulletEntity;
 import net.normalpersonJava.blackpowderweaponsmod.network.Network;
 import net.normalpersonJava.blackpowderweaponsmod.platform.services.IPlatformHelper;
 

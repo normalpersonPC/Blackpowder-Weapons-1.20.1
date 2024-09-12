@@ -1,0 +1,22 @@
+{
+  "parent": "minecraft:item/handheld",
+  "loader": "forge:separate_transforms",
+  "base": {
+    "parent": "blackpowderweaponsmod:custom/caplockmusket/caplock_musket_reload_3",
+    "textures": {
+      "0": "blackpowderweaponsmod:item/caplock_musket",
+      "particles": "blackpowderweaponsmod:item/caplock_musket"
+    }
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "blackpowderweaponsmod:item/caplockmusket/caplock_musket_item"
+    },
+    "ground": {
+      "parent": "blackpowderweaponsmod:item/caplockmusket/caplock_musket_item"
+    },
+    "fixed": {
+      "parent": "blackpowderweaponsmod:item/caplockmusket/caplock_musket_item"
+    }
+  }
+}

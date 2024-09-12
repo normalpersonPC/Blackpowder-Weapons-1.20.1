@@ -1,0 +1,63 @@
+{
+  "parent": "minecraft:item/handheld",
+  "loader": "forge:separate_transforms",
+  "gui_light": "front",
+  "base": {
+    "parent": "blackpowderweaponsmod:item/needlefirerifle/needlefirerifle_unloaded"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "blackpowderweaponsmod:item/needlefirerifle/needlefirerifle_item"
+    },
+    "ground": {
+      "parent": "blackpowderweaponsmod:item/needlefirerifle/needlefirerifle_item"
+    },
+    "fixed": {
+      "parent": "blackpowderweaponsmod:item/needlefirerifle/needlefirerifle_item"
+    }
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "blackpowderweaponsmod:modelstate": 0
+      },
+      "model": "blackpowderweaponsmod:item/needlefirerifle/needlefirerifle_unloaded"
+    },
+    {
+      "predicate": {
+        "blackpowderweaponsmod:modelstate": 1
+      },
+      "model": "blackpowderweaponsmod:item/needlefirerifle/needlefirerifle_reload_1"
+    },
+    {
+      "predicate": {
+        "blackpowderweaponsmod:modelstate": 2
+      },
+      "model": "blackpowderweaponsmod:item/needlefirerifle/needlefirerifle_reload_2"
+    },
+    {
+      "predicate": {
+        "blackpowderweaponsmod:modelstate": 3
+      },
+      "model": "blackpowderweaponsmod:item/needlefirerifle/needlefirerifle_reload_3"
+    },
+    {
+      "predicate": {
+        "blackpowderweaponsmod:modelstate": 4
+      },
+      "model": "blackpowderweaponsmod:item/needlefirerifle/needlefirerifle_reload_4"
+    },
+    {
+      "predicate": {
+        "blackpowderweaponsmod:modelstate": 5
+      },
+      "model": "blackpowderweaponsmod:item/needlefirerifle/needlefirerifle_reload_1"
+    },
+    {
+      "predicate": {
+        "blackpowderweaponsmod:modelstate": 6
+      },
+      "model": "blackpowderweaponsmod:item/needlefirerifle/needlefirerifle_ready"
+    }
+  ]
+}

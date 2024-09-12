@@ -1,15 +1,12 @@
 package net.normalpersonJava.blackpowderweaponsmod.platform.services;
 
-import net.minecraft.core.Holder;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
-import net.normalpersonJava.blackpowderweaponsmod.entity.BulletEntity;
-import net.normalpersonJava.blackpowderweaponsmod.entity.BulletProjectileEntity;
+import net.normalpersonJava.blackpowderweaponsmod.entity.projectile.BulletEntity;
 
 public interface IPlatformHelper {
 

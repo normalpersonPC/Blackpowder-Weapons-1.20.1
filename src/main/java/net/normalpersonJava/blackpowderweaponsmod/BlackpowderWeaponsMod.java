@@ -2,13 +2,10 @@ package net.normalpersonJava.blackpowderweaponsmod;
 
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
+import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -19,11 +16,21 @@ import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.fml.util.thread.SidedThreadGroups;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.normalpersonJava.blackpowderweaponsmod.client.ClientEventHandler;
 import net.normalpersonJava.blackpowderweaponsmod.common.CommonEventHandler;
+import net.normalpersonJava.blackpowderweaponsmod.entity.ModEntities;
 import net.normalpersonJava.blackpowderweaponsmod.init.*;
+import net.normalpersonJava.blackpowderweaponsmod.init.ModLootModifiers;
+import net.normalpersonJava.blackpowderweaponsmod.item.ModItems;
 import org.slf4j.Logger;
+
+import java.util.AbstractMap;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.concurrent.ConcurrentLinkedQueue;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(BlackpowderWeaponsMod.MODID)
@@ -43,6 +50,7 @@ public class BlackpowderWeaponsMod
         ModEntities.ENITITY_TYPES.register(modEventBus);
         ModParticles.register(modEventBus);
         ModSounds.REGISTRY.register(modEventBus);
+        ModLootModifiers.register(modEventBus);
 
         new CommonEventHandler(modEventBus);
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> new ClientEventHandler(modEventBus));
@@ -52,7 +60,6 @@ public class BlackpowderWeaponsMod
 
         MinecraftForge.EVENT_BUS.register(this);
 
-        modEventBus.addListener(this::addCreative);
 
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
@@ -70,12 +77,30 @@ public class BlackpowderWeaponsMod
         Config.items.forEach((item) -> LOGGER.info("ITEM >> {}", item.toString()));
     }
 
-    private void addCreative(BuildCreativeModeTabContentsEvent event)
-    {
+    private static final Collection<AbstractMap.SimpleEntry<Runnable, Integer>> workQueue = new ConcurrentLinkedQueue<>();
 
+    public static void queueServerWork(int tick, Runnable action) {
+        if (Thread.currentThread().getThreadGroup() == SidedThreadGroups.SERVER)
+            workQueue.add(new AbstractMap.SimpleEntry<>(action, tick));
     }
 
+    // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
+
     // You can use SubscribeEvent and let the Event Bus discover methods to call
+    @SubscribeEvent
+    public void tick(TickEvent.ServerTickEvent event) {
+        if (event.phase == TickEvent.Phase.END) {
+            List<AbstractMap.SimpleEntry<Runnable, Integer>> actions = new ArrayList<>();
+            workQueue.forEach(work -> {
+                work.setValue(work.getValue() - 1);
+                if (work.getValue() == 0)
+                    actions.add(work);
+            });
+            actions.forEach(e -> e.getKey().run());
+            workQueue.removeAll(actions);
+        }
+    }
+
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event)
     {

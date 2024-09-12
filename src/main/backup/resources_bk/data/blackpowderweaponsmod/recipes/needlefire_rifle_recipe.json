@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "a b",
+    " dc",
+    "  e"
+  ],
+  "key": {
+    "a": {
+      "item": "blackpowderweaponsmod:barrel_long"
+    },
+    "b": {
+      "item": "blackpowderweaponsmod:toolkit"
+    },
+    "c": {
+      "item": "blackpowderweaponsmod:needlefire_bolt"
+    },
+    "d": {
+      "item": "blackpowderweaponsmod:breechblock"
+    },
+    "e": {
+      "item": "blackpowderweaponsmod:stock_long"
+    }
+  },
+  "result": {
+    "item": "blackpowderweaponsmod:needlefire_rifle",
+    "count": 1
+  }
+}

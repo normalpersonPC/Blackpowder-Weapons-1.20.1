@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    {
+      "item": "blackpowderweaponsmod:rifle_bullet"
+    },
+    {
+      "item": "minecraft:gunpowder"
+    },
+    {
+      "item": "minecraft:paper"
+    },
+    {
+      "item": "blackpowderweaponsmod:percussion_cap"
+    }
+  ],
+  "result": {
+    "item": "blackpowderweaponsmod:paper_cartridge_rifle",
+    "count": 1
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "dca",
+    "aba",
+    "  c"
+  ],
+  "key": {
+    "a": {
+      "item": "minecraft:iron_ingot"
+    },
+    "b": {
+      "item": "minecraft:gold_ingot"
+    },
+    "c": {
+      "item": "minecraft:iron_nugget"
+    },
+    "d": {
+      "item": "blackpowderweaponsmod:blueprint_caplock_mechanism"
+    }
+  },
+  "result": {
+    "item": "blackpowderweaponsmod:caplock_mechanism",
+    "count": 1
+  }
+}
