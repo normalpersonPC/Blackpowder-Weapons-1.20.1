@@ -23,13 +23,8 @@ public class ModGlobaLootModifiersProvider extends GlobalLootModifierProvider {
         }, ModItems.BLUEPRINT_BREECHBLOCK.get()));
 
         add("blueprint_needlefire_bolt_loot_location", new AddItemModifier(new LootItemCondition[] {
-                new LootTableIdCondition.Builder(new ResourceLocation("chests/bastion_treasure")).build(),
-                LootItemRandomChanceCondition.randomChance(0.40f).build()
-        }, ModItems.BLUEPRINT_NEEDLEFIRE_BOLT.get()));
-
-        add("blueprint_needlefire_bolt_loot_location2", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("chests/pillager_outpost")).build(),
-                LootItemRandomChanceCondition.randomChance(0.20f).build()
+                LootItemRandomChanceCondition.randomChance(0.40f).build(),
         }, ModItems.BLUEPRINT_NEEDLEFIRE_BOLT.get()));
     }
 }

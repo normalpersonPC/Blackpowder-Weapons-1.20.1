@@ -1,8 +1,7 @@
 {
   "entries": [
     "blackpowderweaponsmod:blueprint_breechblock_loot_location",
-    "blackpowderweaponsmod:blueprint_needlefire_bolt_loot_location",
-    "blackpowderweaponsmod:blueprint_caplock_mechanism_loot_location"
+    "blackpowderweaponsmod:blueprint_needlefire_bolt_loot_location"
   ],
   "replace": false
 }
