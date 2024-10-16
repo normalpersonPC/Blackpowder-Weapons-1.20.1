@@ -23,7 +23,7 @@ public class CaplockPistolItem extends GunItem {
     public double meleeDamage() {return 1;}
 
     @Override
-    public float bulletDamage() {return 18;}
+    public float bulletDamage() {return 25;}
 
     @Override
     public float bulletSpeed() {return 7.5f;}
@@ -35,7 +35,10 @@ public class CaplockPistolItem extends GunItem {
     public float piercing() {return 2;}
 
     @Override
-    public float knockback() {return 0.5f;}
+    public float knockback() {return 0.2f;}
+
+    @Override
+    public float armorPiercing() {return 0.5f;}
 
     @Override
     public int maxAmmo() {return 1;}
@@ -45,7 +48,7 @@ public class CaplockPistolItem extends GunItem {
 
     @Override
     public boolean hasAmmo(Player player) {
-        return player.getInventory().contains(new ItemStack(ModItems.MUSKETBALL_SMALL.get())) &&
+        return player.getInventory().contains(new ItemStack(ModItems.PISTOL_BULLET.get())) &&
                 player.getInventory().contains(new ItemStack(Items.GUNPOWDER)) &&
                 player.getInventory().contains(new ItemStack(ModItems.PERCUSSION_CAP.get()));
     }

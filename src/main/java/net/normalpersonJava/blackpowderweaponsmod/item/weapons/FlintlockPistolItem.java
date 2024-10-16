@@ -19,10 +19,10 @@ public class FlintlockPistolItem extends GunItem {
     public double meleeDamage() {return 2;}
 
     @Override
-    public float bulletDamage() {return 16;}
+    public float bulletDamage() {return 20;}
 
     @Override
-    public float bulletSpeed() {return 7;}
+    public float bulletSpeed() {return 7f;}
 
     @Override
     public float bulletSpread() {return 2;}
@@ -31,7 +31,10 @@ public class FlintlockPistolItem extends GunItem {
     public float piercing() {return 2;}
 
     @Override
-    public float knockback() {return 0.5f;}
+    public float knockback() {return 0.1f;}
+
+    @Override
+    public float armorPiercing() {return 0.3f;}
 
     @Override
     public int maxAmmo() {return 1;}

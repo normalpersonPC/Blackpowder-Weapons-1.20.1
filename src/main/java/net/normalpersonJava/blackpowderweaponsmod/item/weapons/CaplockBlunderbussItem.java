@@ -24,7 +24,7 @@ public class CaplockBlunderbussItem extends GunItem {
 
     @Override
     public float bulletDamage() {
-        return 18;
+        return 15;
     }
 
     @Override
@@ -44,8 +44,11 @@ public class CaplockBlunderbussItem extends GunItem {
 
     @Override
     public float knockback() {
-        return 2;
+        return 1;
     }
+
+    @Override
+    public float armorPiercing() {return 0.2f;}
 
     @Override
     public int maxAmmo() {
@@ -54,7 +57,7 @@ public class CaplockBlunderbussItem extends GunItem {
 
     @Override
     public int pelletCount() {
-        return 12;
+        return 10;
     }
 
     @Override

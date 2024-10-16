@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    {
+      "item": "blackpowderweaponsmod:bullet_mold"
+    },
+    {
+      "item": "minecraft:iron_ingot"
+    },
+    {
+      "item": "blackpowderweaponsmod:toolkit"
+    }
+  ],
+  "result": {
+    "item": "blackpowderweaponsmod:pistol_bullet",
+    "count": 4
+  }
+}

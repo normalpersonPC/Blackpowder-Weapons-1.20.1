@@ -23,7 +23,7 @@ public class FlintlockBlunderbussItem extends GunItem {
 
     @Override
     public float bulletDamage() {
-        return 16;
+        return 15;
     }
 
     @Override
@@ -33,7 +33,7 @@ public class FlintlockBlunderbussItem extends GunItem {
 
     @Override
     public float bulletSpread() {
-        return 10;
+        return 12;
     }
 
     @Override
@@ -43,8 +43,11 @@ public class FlintlockBlunderbussItem extends GunItem {
 
     @Override
     public float knockback() {
-        return 2;
+        return 1;
     }
+
+    @Override
+    public float armorPiercing() {return 0.2f;}
 
     @Override
     public int maxAmmo() {
@@ -53,7 +56,7 @@ public class FlintlockBlunderbussItem extends GunItem {
 
     @Override
     public int pelletCount() {
-        return 12;
+        return 10;
     }
 
     @Override

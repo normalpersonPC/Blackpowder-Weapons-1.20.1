@@ -50,6 +50,7 @@ public abstract class GunItem extends Item {
     public abstract float bulletSpread();
     public abstract float piercing();
     public abstract float knockback();
+    public abstract float armorPiercing();
     public abstract int maxAmmo();
     public abstract int pelletCount();
     public abstract boolean hasAmmo(Player player);
@@ -180,7 +181,7 @@ public abstract class GunItem extends Item {
 
     public void playSound(LevelAccessor world, Entity entity, SoundEvent sound) {
         if (world instanceof Level level) {
-            level.playSeededSound(null, entity.getX(), entity.getY(), entity.getZ(), sound, SoundSource.PLAYERS, 1, 1, 0);
+            level.playSeededSound(null, entity.getX(), entity.getY(), entity.getZ(), sound, SoundSource.PLAYERS, 2, 1, 0);
         }
     }
 
@@ -208,8 +209,8 @@ public abstract class GunItem extends Item {
             if (getAmmoCount(stack) > 0) {
                 if (level instanceof ServerLevel serverLevel) {
                     for (int i = 0; i < pelletCount(); i++) {
-                        BulletEntity bullet = new BulletEntity(serverLevel, entity, bulletDamage(), piercing(), knockback());
-                        bullet.setPos((entity.getX() + entity.getLookAngle().x), (entity.getY() + entity.getLookAngle().y + 1.2), (entity.getZ() + entity.getLookAngle().z));
+                        BulletEntity bullet = new BulletEntity(serverLevel, entity, bulletDamage(), piercing(), knockback(), armorPiercing());
+                        bullet.setPos((entity.getX() + entity.getLookAngle().x), (entity.getY() + entity.getLookAngle().y + 1.3), (entity.getZ() + entity.getLookAngle().z));
                         //bullet.shoot(entity.getLookAngle().x, entity.getLookAngle().y, entity.getLookAngle().z, bulletSpeed(), bulletSpread());
                         bullet.shootFromRotation(entity, entity.getXRot(), entity.getYRot(), 0.0F, bulletSpeed(), bulletSpread());
                         bullet.setOwner(entity);

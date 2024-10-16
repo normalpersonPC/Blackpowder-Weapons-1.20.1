@@ -21,10 +21,10 @@ public class CaplockBreechloadingRifleItem extends GunItem {
     public double meleeDamage() {return 2;}
 
     @Override
-    public float bulletDamage() {return 24;}
+    public float bulletDamage() {return 30;}
 
     @Override
-    public float bulletSpeed() {return 8.5f;}
+    public float bulletSpeed() {return 8f;}
 
     @Override
     public float bulletSpread() {return 1.3f;}
@@ -33,7 +33,10 @@ public class CaplockBreechloadingRifleItem extends GunItem {
     public float piercing() {return 3;}
 
     @Override
-    public float knockback() {return 1f;}
+    public float knockback() {return 0.5f;}
+
+    @Override
+    public float armorPiercing() {return 0.75f;}
 
     @Override
     public int maxAmmo() {return 1;}

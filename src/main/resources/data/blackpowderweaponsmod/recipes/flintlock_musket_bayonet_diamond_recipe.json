@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    {
+      "item": "blackpowderweaponsmod:flintlock_musket"
+    },
+    {
+      "item": "minecraft:diamond_sword"
+    }
+  ],
+  "result": {
+    "item": "blackpowderweaponsmod:flintlock_musket_bayonet_diamond",
+    "count": 1
+  }
+}

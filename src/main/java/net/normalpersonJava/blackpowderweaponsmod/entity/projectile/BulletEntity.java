@@ -22,21 +22,23 @@ import net.normalpersonJava.blackpowderweaponsmod.platform.Services;
 
 public class BulletEntity extends Projectile {
 
-    private float damage;
+    private float baseDamage;
     private float piercing;
     private float knockback;
+    private float armorPiercing;
 
     public BulletEntity(EntityType<BulletEntity> entityType, Level level) {
         super(entityType, level);
 
     }
 
-    public BulletEntity(Level level, Entity owner, float damage, float piercing, float knockback) {
+    public BulletEntity(Level level, Entity owner, float baseDamage, float piercing, float knockback, float armorPiercing) {
         super(ModEntities.BULLET_ENTITY.get(), level);
         this.setOwner(owner);
-        this.damage = damage;
+        this.baseDamage = baseDamage;
         this.knockback = knockback;
         this.piercing = piercing;
+        this.armorPiercing = armorPiercing;
     }
 
     public BulletEntity(PlayMessages.SpawnEntity spawnEntity, Level level) {
@@ -55,6 +57,7 @@ public class BulletEntity extends Projectile {
 
         this.checkInsideBlocks();
         this.setDeltaMovement(this.getDeltaMovement().add(0, -0.03D, 0));
+
         //slow down in water
         if (this.level().getFluidState(this.blockPosition()).getType() == Fluids.WATER) {
             this.setDeltaMovement(this.getDeltaMovement().multiply(0.95f, 0.95f, 0.95f));
@@ -68,11 +71,22 @@ public class BulletEntity extends Projectile {
         Entity entity = result.getEntity();
         Entity target = Services.PLATFORM.getHitEntity(entity);
 
-        entity.hurt(damageSources().playerAttack((Player) getOwner()), this.damage);
-
         if (target instanceof LivingEntity) {
+            //Knockback
             ((LivingEntity) target).knockback(this.knockback, this.getX() - target.getX(),this.getZ() - target.getZ());
+
+            //armor piercing
+            float armorValue = ((LivingEntity) target).getArmorValue();
+            float armorReduction = Math.max(0, armorValue * (1 - this.armorPiercing));
+            float damage = this.baseDamage - armorReduction;
+            entity.hurt(damageSources().playerAttack((Player) getOwner()), damage);
+
+            //IFrame bypass
             target.invulnerableTime = 0;
+
+
+        } else {
+            entity.hurt(damageSources().playerAttack((Player) getOwner()), this.baseDamage);
         }
 
         if (this.piercing > 0) {
@@ -86,11 +100,11 @@ public class BulletEntity extends Projectile {
     @Override
     protected void onHitBlock(BlockHitResult hitResult) {
         BlockState blockstate = this.level().getBlockState(hitResult.getBlockPos());
-        if (blockstate.is(Blocks.GLASS) || blockstate.is(Blocks.GLASS_PANE)) {
+        if (blockstate.is(Blocks.GLASS) || blockstate.is(Blocks.GLASS_PANE) || blockstate.is(Blocks.ICE)) {
             this.level().destroyBlock(hitResult.getBlockPos(), true);
-        } else if (!blockstate.is(Blocks.WATER)) {
+        } else if (!(blockstate.is(Blocks.WATER) || blockstate.is(Blocks.GLASS) || blockstate.is(Blocks.GLASS_PANE) || blockstate.is(Blocks.ICE))) {
             this.discard();
-            this.level().playSound(null, this.getX(), this.getY(), this.getZ(), ModSounds.BULLET_HIT.get(), SoundSource.NEUTRAL, 1.0f, 2.0f);
+            this.level().playSound(null, this.getX(), this.getY(), this.getZ(), ModSounds.BULLET_HIT.get(), SoundSource.BLOCKS, 1.0f, 2.0f);
         }
     }
 

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    {
+      "item": "blackpowderweaponsmod:flintlock_musket"
+    },
+    {
+      "item": "minecraft:iron_sword"
+    }
+  ],
+  "result": {
+    "item": "blackpowderweaponsmod:flintlock_musket_bayonet",
+    "count": 1
+  }
+}
