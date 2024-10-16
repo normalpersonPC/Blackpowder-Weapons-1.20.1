@@ -1,3 +1,4 @@
+
 package net.normalpersonJava.blackpowderweaponsmod.item.base;
 
 import com.google.common.collect.ImmutableMultimap;
@@ -24,6 +25,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.normalpersonJava.blackpowderweaponsmod.entity.projectile.BulletEntity;
 import net.normalpersonJava.blackpowderweaponsmod.init.ModParticles;
+
+import javax.annotation.Nullable;
 
 public abstract class GunItem extends Item {
     public GunItem(Properties properties) {
@@ -57,12 +60,16 @@ public abstract class GunItem extends Item {
         return true;
     }
 
-    public boolean canUse(Level level, Entity player, ItemStack stack) {
-        BlockPos blockpos = player.blockPosition();
+    public boolean isFlintlock() {
+        return false;
+    }
+
+    public static boolean canUse(Level level, Entity entity, ItemStack stack) {
+        BlockPos blockpos = entity.blockPosition();
         if (stack.is(ItemTags.create(new ResourceLocation("blackpowderweaponsmod:flintlock")))) {
-            return !(level.isRainingAt(blockpos) || level.isRainingAt(BlockPos.containing(blockpos.getX(), player.getBoundingBox().maxY, blockpos.getZ())) || player.isUnderWater());
+            return !(level.isRainingAt(blockpos) || level.isRainingAt(BlockPos.containing(blockpos.getX(), entity.getBoundingBox().maxY, blockpos.getZ())) || entity.isUnderWater());
         }
-        return !player.isUnderWater();
+        return !entity.isUnderWater();
     }
 
     public boolean canUseFrom(LivingEntity entity, InteractionHand hand) {
@@ -80,6 +87,13 @@ public abstract class GunItem extends Item {
         return true;
     }
 
+    @Nullable
+    public static InteractionHand getHoldingHand(LivingEntity entity) {
+        if (isInHand(entity, InteractionHand.MAIN_HAND)) return InteractionHand.MAIN_HAND;
+        if (isInHand(entity, InteractionHand.OFF_HAND)) return InteractionHand.OFF_HAND;
+        return null;
+    }
+
     public static boolean isInHand(LivingEntity entity, InteractionHand hand) {
         ItemStack stack = entity.getItemInHand(hand);
         if (stack.isEmpty()) return false;
@@ -87,6 +101,10 @@ public abstract class GunItem extends Item {
             return gun.canUseFrom(entity, hand);
         }
         return false;
+    }
+
+    public static boolean isHoldingGun(LivingEntity entity) {
+        return getHoldingHand(entity) != null;
     }
 
     public static void setLoaded(ItemStack stack, boolean loaded) {

@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "a b",
+    " cd",
+    "  e"
+  ],
+  "key": {
+    "a": {
+      "item": "minecraft:iron_ingot"
+    },
+    "b": {
+      "item": "blackpowderweaponsmod:toolkit"
+    },
+    "c": {
+      "item": "blackpowderweaponsmod:barrel_medium"
+    },
+    "d": {
+      "item": "blackpowderweaponsmod:caplock_mechanism"
+    },
+    "e": {
+      "item": "blackpowderweaponsmod:stock_long"
+    }
+  },
+  "result": {
+    "item": "blackpowderweaponsmod:caplock_blunderbuss",
+    "count": 1
+  }
+}

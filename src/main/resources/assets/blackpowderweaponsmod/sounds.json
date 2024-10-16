@@ -71,6 +71,14 @@
       }
     ]
   },
+  "rifle_fire_2": {
+    "sounds": [
+      {
+        "name": "blackpowderweaponsmod:rifle_fire_2",
+        "stream": false
+      }
+    ]
+  },
   "bullet_hit": {
     "sounds": [
       {
@@ -78,5 +86,30 @@
         "stream": false
       }
     ]
+  },
+  "bolt_0": {
+    "sounds": [
+      {
+        "name": "blackpowderweaponsmod:bolt_0",
+        "stream": false
+      }
+    ]
+  },
+  "bolt_1": {
+    "sounds": [
+      {
+        "name": "blackpowderweaponsmod:bolt_1",
+        "stream": false
+      }
+    ]
+  },
+  "bolt_2": {
+    "sounds": [
+      {
+        "name": "blackpowderweaponsmod:bolt_2",
+        "stream": false
+      }
+    ]
   }
+
 }

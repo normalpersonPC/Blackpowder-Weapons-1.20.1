@@ -77,7 +77,7 @@ public class ModItems {
             });
 
     public static final RegistryObject<Item> CAPLOCK_BLUNDERBUSS = ITEMS.register("caplock_blunderbuss",
-            () -> new FlintlockBlunderbussItem());
+            () -> new CaplockBlunderbussItem());
 
     public static final RegistryObject<Item> CAPLOCK_BREECHLOADING_RIFLE = ITEMS.register("caplock_breechloading_rifle",
             () -> new CaplockBreechloadingRifleItem());
@@ -103,6 +103,7 @@ public class ModItems {
 
     public static final RegistryObject<Item> REVOLVER = ITEMS.register("revolver",
             () -> new CaplockMusketItem());
+
 
     //ammo
     public static final RegistryObject<Item> MUSKETBALL = ITEMS.register("musketball",
@@ -208,8 +209,12 @@ public class ModItems {
 
             ItemProperties.register(CAPLOCK_MUSKET.get(), new ResourceLocation("blackpowderweaponsmod:modelstate"), (itemStackToRender, clientWorld, entity, itemEntityId) -> (float) renderModelState(itemStackToRender));
             ItemProperties.register(CAPLOCK_MUSKET.get(), new ResourceLocation("blackpowderweaponsmod:hasfired"), (itemStackToRender, clientWorld, entity, itemEntityId) -> hasFired(itemStackToRender) ? 1.0f : 0.0f);
+            ItemProperties.register(CAPLOCK_BLUNDERBUSS.get(), new ResourceLocation("blackpowderweaponsmod:modelstate"), (itemStackToRender, clientWorld, entity, itemEntityId) -> (float) renderModelState(itemStackToRender));
+            ItemProperties.register(CAPLOCK_BLUNDERBUSS.get(), new ResourceLocation("blackpowderweaponsmod:hasfired"), (itemStackToRender, clientWorld, entity, itemEntityId) -> hasFired(itemStackToRender) ? 1.0f : 0.0f);
             ItemProperties.register(CAPLOCK_PISTOL.get(), new ResourceLocation("blackpowderweaponsmod:modelstate"), (itemStackToRender, clientWorld, entity, itemEntityId) -> (float) renderModelState(itemStackToRender));
             ItemProperties.register(CAPLOCK_PISTOL.get(), new ResourceLocation("blackpowderweaponsmod:hasfired"), (itemStackToRender, clientWorld, entity, itemEntityId) -> hasFired(itemStackToRender) ? 1.0f : 0.0f);
+            ItemProperties.register(CAPLOCK_REVOLVER.get(), new ResourceLocation("blackpowderweaponsmod:modelstate"), (itemStackToRender, clientWorld, entity, itemEntityId) -> (float) renderModelState(itemStackToRender));
+            ItemProperties.register(CAPLOCK_REVOLVER.get(), new ResourceLocation("blackpowderweaponsmod:hasfired"), (itemStackToRender, clientWorld, entity, itemEntityId) -> hasFired(itemStackToRender) ? 1.0f : 0.0f);
             ItemProperties.register(CAPLOCK_BREECHLOADING_RIFLE.get(), new ResourceLocation("blackpowderweaponsmod:modelstate"), (itemStackToRender, clientWorld, entity, itemEntityId) -> (float) renderModelState(itemStackToRender));
             ItemProperties.register(CAPLOCK_BREECHLOADING_RIFLE.get(), new ResourceLocation("blackpowderweaponsmod:hasfired"), (itemStackToRender, clientWorld, entity, itemEntityId) -> hasFired(itemStackToRender) ? 1.0f : 0.0f);
 
@@ -227,6 +232,10 @@ public class ModItems {
 
     public static double RevolveState (ItemStack itemStack) {
         return itemStack.getOrCreateTag().getDouble("revolveState");
+    }
+
+    public static double ammoCount (ItemStack itemStack) {
+        return itemStack.getOrCreateTag().getDouble("ammoCount");
     }
 
 }

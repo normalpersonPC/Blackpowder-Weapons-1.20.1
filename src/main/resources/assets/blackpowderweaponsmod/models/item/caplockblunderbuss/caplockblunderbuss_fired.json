@@ -1,0 +1,22 @@
+{
+  "parent": "minecraft:item/handheld",
+  "loader": "forge:separate_transforms",
+  "base": {
+    "parent": "blackpowderweaponsmod:custom/caplockblunderbuss/caplock_blunderbuss_fired",
+    "textures": {
+      "0": "blackpowderweaponsmod:item/caplock_blunderbuss",
+      "particles": "blackpowderweaponsmod:item/caplock_blunderbuss"
+    }
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "blackpowderweaponsmod:item/caplockblunderbuss/caplock_blunderbuss_item"
+    },
+    "ground": {
+      "parent": "blackpowderweaponsmod:item/caplockblunderbuss/caplock_blunderbuss_item"
+    },
+    "fixed": {
+      "parent": "blackpowderweaponsmod:item/caplockblunderbuss/caplock_blunderbuss_item"
+    }
+  }
+}

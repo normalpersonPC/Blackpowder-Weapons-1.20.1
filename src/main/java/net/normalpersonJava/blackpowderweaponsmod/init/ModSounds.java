@@ -14,11 +14,14 @@ public class ModSounds {
     public static final RegistryObject<SoundEvent> FLINTLOCK_ROD1 = REGISTRY.register("flintlock_rod1", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("blackpowderweaponsmod", "flintlock_rod1")));
     public static final RegistryObject<SoundEvent> FLINTLOCK_READY = REGISTRY.register("flintlock_ready", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("blackpowderweaponsmod", "flintlock_ready")));
     public static final RegistryObject<SoundEvent> FLINTLOCK_POWDER = REGISTRY.register("flintlock_powder", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("blackpowderweaponsmod", "flintlock_powder")));
-    public static final RegistryObject<SoundEvent> FLINTLOCK_FIRE = REGISTRY.register("flintlock_fire", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("blackpowderweaponsmod", "flintlock_fire")));
-    public static final RegistryObject<SoundEvent> FLINLOCK_FIRE_1 = REGISTRY.register("flinlock_fire_1", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("blackpowderweaponsmod", "flinlock_fire_1")));
     public static final RegistryObject<SoundEvent> FLINTLOCK_MUSKET_SHOOT = REGISTRY.register("flintlock_musket_shoot", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("blackpowderweaponsmod", "flintlock_musket_shoot")));
     public static final RegistryObject<SoundEvent> FLINTLOCK_PISTOL_SHOOT = REGISTRY.register("flintlock_pistol_shoot", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("blackpowderweaponsmod", "flintlock_pistol_shoot")));
     public static final RegistryObject<SoundEvent> RIFLE_FIRE = REGISTRY.register("rifle_fire", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("blackpowderweaponsmod", "rifle_fire")));
+    public static final RegistryObject<SoundEvent> RIFLE_FIRE_2 = REGISTRY.register("rifle_fire_2", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("blackpowderweaponsmod", "rifle_fire_2")));
     public static final RegistryObject<SoundEvent> BULLET_HIT = REGISTRY.register("bullet_hit", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("blackpowderweaponsmod", "bullet_hit")));
+    public static final RegistryObject<SoundEvent> BOLT_0 = REGISTRY.register("bolt_0", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("blackpowderweaponsmod", "bolt_0")));
+    public static final RegistryObject<SoundEvent> BOLT_1 = REGISTRY.register("bolt_1", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("blackpowderweaponsmod", "bolt_1")));
+    public static final RegistryObject<SoundEvent> BOLT_2 = REGISTRY.register("bolt_2", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("blackpowderweaponsmod", "bolt_2")));
+
 
 }

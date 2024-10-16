@@ -17,18 +17,19 @@ public class ModGlobaLootModifiersProvider extends GlobalLootModifierProvider {
 
     @Override
     protected void start() {
-        add("blueprint_caplock_mechanism_loot_location", new AddItemModifier(new LootItemCondition[] {
-                new LootTableIdCondition.Builder(new ResourceLocation("chests/village/village_weaponsmith")).build(),
-                LootItemRandomChanceCondition.randomChance(0.35f).build()
-        }, ModItems.BLUEPRINT_CAPLOCK_MECHANISM.get()));
-
         add("blueprint_breechblock_loot_location", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("chests/pillager_outpost")).build(),
-                LootItemRandomChanceCondition.randomChance(0.35f).build()
+                LootItemRandomChanceCondition.randomChance(0.40f).build()
         }, ModItems.BLUEPRINT_BREECHBLOCK.get()));
 
         add("blueprint_needlefire_bolt_loot_location", new AddItemModifier(new LootItemCondition[] {
-                new LootTableIdCondition.Builder(new ResourceLocation("chests/bastion_treasure")).build()
-        }, ModItems.BLUEPRINT_BREECHBLOCK.get()));
+                new LootTableIdCondition.Builder(new ResourceLocation("chests/bastion_treasure")).build(),
+                LootItemRandomChanceCondition.randomChance(0.40f).build()
+        }, ModItems.BLUEPRINT_NEEDLEFIRE_BOLT.get()));
+
+        add("blueprint_needlefire_bolt_loot_location2", new AddItemModifier(new LootItemCondition[] {
+                new LootTableIdCondition.Builder(new ResourceLocation("chests/pillager_outpost")).build(),
+                LootItemRandomChanceCondition.randomChance(0.20f).build()
+        }, ModItems.BLUEPRINT_NEEDLEFIRE_BOLT.get()));
     }
 }

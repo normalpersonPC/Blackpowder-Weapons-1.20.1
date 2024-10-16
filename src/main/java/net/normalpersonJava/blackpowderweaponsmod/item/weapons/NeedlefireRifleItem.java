@@ -63,16 +63,16 @@ public class NeedlefireRifleItem extends GunItem {
                         setModelState(stack, modelstate);
                         //reload
                         if (modelstate == 1) {
-                            playSound(world, player, SoundEvents.IRON_TRAPDOOR_OPEN);
+                            playSound(world, player, ModSounds.BOLT_0.get());
                         }
                         if (modelstate == 2) {
-                            playSound(world, player, SoundEvents.IRON_TRAPDOOR_OPEN);
+                            playSound(world, player, ModSounds.BOLT_1.get());
                         }
                         if (modelstate == 4) {
                             playSound(world, player, SoundEvents.WOOL_PLACE);
                         }
                         if (modelstate == 5) {
-                            playSound(world, player, SoundEvents.IRON_TRAPDOOR_CLOSE);
+                            playSound(world, player,  ModSounds.BOLT_2.get());
                         }
                         if (modelstate >= 6) {
                             setModelState(stack, 6);// If fully loaded
@@ -85,7 +85,7 @@ public class NeedlefireRifleItem extends GunItem {
 
                             player.getCooldowns().addCooldown(stack.getItem(), 4);
 
-                            playSound(world, player, SoundEvents.IRON_TRAPDOOR_CLOSE);
+                            playSound(world, player,  ModSounds.BOLT_0.get());
                         }
                     }
                     setDelay(stack, delay);
@@ -95,6 +95,6 @@ public class NeedlefireRifleItem extends GunItem {
     }
     @Override
     public SoundEvent fireSFX() {
-        return ModSounds.RIFLE_FIRE.get();
+        return ModSounds.RIFLE_FIRE_2.get();
     }
 }

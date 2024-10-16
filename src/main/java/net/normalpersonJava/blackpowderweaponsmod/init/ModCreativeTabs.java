@@ -31,6 +31,7 @@ public class ModCreativeTabs {
                         output.accept(ModItems.CAPLOCK_MUSKET.get());
                         output.accept(ModItems.CAPLOCK_PISTOL.get());
                         output.accept(ModItems.CAPLOCK_BREECHLOADING_RIFLE.get());
+                        output.accept(ModItems.CAPLOCK_BLUNDERBUSS.get());
 
                         //other
                         output.accept(ModItems.NEEDLEFIRE_RIFLE.get());
