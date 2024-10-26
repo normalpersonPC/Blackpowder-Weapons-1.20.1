@@ -23,7 +23,7 @@ public class CaplockPistolItem extends GunItem {
     public double meleeDamage() {return 1;}
 
     @Override
-    public float bulletDamage() {return 25;}
+    public float bulletDamage() {return 20;}
 
     @Override
     public float bulletSpeed() {return 7.5f;}
@@ -38,7 +38,7 @@ public class CaplockPistolItem extends GunItem {
     public float knockback() {return 0.2f;}
 
     @Override
-    public float armorPiercing() {return 0.5f;}
+    public float armorPiercing() {return 0.3f;}
 
     @Override
     public int maxAmmo() {return 1;}

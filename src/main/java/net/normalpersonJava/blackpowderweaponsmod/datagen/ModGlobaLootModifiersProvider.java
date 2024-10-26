@@ -19,12 +19,17 @@ public class ModGlobaLootModifiersProvider extends GlobalLootModifierProvider {
     protected void start() {
         add("blueprint_breechblock_loot_location", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("chests/pillager_outpost")).build(),
-                LootItemRandomChanceCondition.randomChance(0.40f).build()
+                LootItemRandomChanceCondition.randomChance(0.30f).build()
         }, ModItems.BLUEPRINT_BREECHBLOCK.get()));
 
+        add("blueprint_caplock_loot_location", new AddItemModifier(new LootItemCondition[] {
+                new LootTableIdCondition.Builder(new ResourceLocation("chests/village/village_weaponsmith")).build(),
+                LootItemRandomChanceCondition.randomChance(0.30f).build(),
+        }, ModItems.BLUEPRINT_CAPLOCK_MECHANISM.get()));
+
         add("blueprint_needlefire_bolt_loot_location", new AddItemModifier(new LootItemCondition[] {
-                new LootTableIdCondition.Builder(new ResourceLocation("chests/pillager_outpost")).build(),
-                LootItemRandomChanceCondition.randomChance(0.40f).build(),
+                new LootTableIdCondition.Builder(new ResourceLocation("chests/nether_bridge")).build(),
+                LootItemRandomChanceCondition.randomChance(0.30f).build(),
         }, ModItems.BLUEPRINT_NEEDLEFIRE_BOLT.get()));
     }
 }

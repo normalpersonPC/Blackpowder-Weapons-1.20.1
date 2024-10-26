@@ -66,6 +66,18 @@ public class BulletEntity extends Projectile {
         this.setPos(this.getX() + vec3.x, this.getY() + vec3.y, this.getZ() + vec3.z);
     }
 
+    // Calculate damage with armor bypass
+    private float calculateArmorBypassDamage(LivingEntity entity, float armorValue, float baseDamage) {
+        float effectiveArmor = armorValue * (1.0F - this.armorPiercing);  // Apply bypass percentage to armor
+        float armorReduction = effectiveArmor * 0.04F;  // Armor reduces damage by 4% per point
+
+        // Calculate final damage after applying armor reduction
+        float damageAfterArmor = baseDamage * (1.0F - armorReduction);
+
+        // Ensure at least some damage is done
+        return Math.max(damageAfterArmor, 0.0F);
+    }
+
     @Override
     protected void onHitEntity(EntityHitResult result) {
         Entity entity = result.getEntity();
@@ -73,22 +85,25 @@ public class BulletEntity extends Projectile {
 
         if (target instanceof LivingEntity) {
             //Knockback
-            ((LivingEntity) target).knockback(this.knockback, this.getX() - target.getX(),this.getZ() - target.getZ());
+            ((LivingEntity) target).knockback(this.knockback, this.getX() - target.getX(), this.getZ() - target.getZ());
 
             //armor piercing
             float armorValue = ((LivingEntity) target).getArmorValue();
-            float armorReduction = Math.max(0, armorValue * (1 - this.armorPiercing));
-            float damage = this.baseDamage - armorReduction;
-            entity.hurt(damageSources().playerAttack((Player) getOwner()), damage);
-
-            //IFrame bypass
-            target.invulnerableTime = 0;
-
-
-        } else {
+            if (armorValue > 0) {
+                float damage = calculateArmorBypassDamage((LivingEntity) target, armorValue, this.baseDamage);
+                entity.hurt(damageSources().playerAttack((Player) getOwner()), damage);
+            } else {
+                entity.hurt(damageSources().playerAttack((Player) getOwner()), this.baseDamage);
+            }
+        }
+        else {
             entity.hurt(damageSources().playerAttack((Player) getOwner()), this.baseDamage);
         }
 
+        //IFrame bypass
+        target.invulnerableTime = 0;
+
+        //piercing
         if (this.piercing > 0) {
             this.piercing--;
         } else {
@@ -96,19 +111,16 @@ public class BulletEntity extends Projectile {
         }
     }
 
-
     @Override
     protected void onHitBlock(BlockHitResult hitResult) {
         BlockState blockstate = this.level().getBlockState(hitResult.getBlockPos());
         if (blockstate.is(Blocks.GLASS) || blockstate.is(Blocks.GLASS_PANE) || blockstate.is(Blocks.ICE)) {
-            this.level().destroyBlock(hitResult.getBlockPos(), true);
+            this.level().destroyBlock(hitResult.getBlockPos(), false);
         } else if (!(blockstate.is(Blocks.WATER) || blockstate.is(Blocks.GLASS) || blockstate.is(Blocks.GLASS_PANE) || blockstate.is(Blocks.ICE))) {
-            this.discard();
             this.level().playSound(null, this.getX(), this.getY(), this.getZ(), ModSounds.BULLET_HIT.get(), SoundSource.BLOCKS, 1.0f, 2.0f);
+            this.discard();
         }
     }
-
-
 
     @Override
     protected void defineSynchedData() {

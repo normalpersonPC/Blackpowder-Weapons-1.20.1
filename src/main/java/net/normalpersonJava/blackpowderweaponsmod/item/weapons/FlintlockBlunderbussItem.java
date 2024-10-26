@@ -47,7 +47,7 @@ public class FlintlockBlunderbussItem extends GunItem {
     }
 
     @Override
-    public float armorPiercing() {return 0.2f;}
+    public float armorPiercing() {return 0.25f;}
 
     @Override
     public int maxAmmo() {
