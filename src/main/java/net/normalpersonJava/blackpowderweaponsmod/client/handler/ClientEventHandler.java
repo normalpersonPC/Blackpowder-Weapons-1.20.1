@@ -1,22 +1,33 @@
-package net.normalpersonJava.blackpowderweaponsmod.client;
+package net.normalpersonJava.blackpowderweaponsmod.client.handler;
 
+import ca.weblite.objc.Client;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.PlayerModel;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.HumanoidArm;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.InputEvent;
 import net.minecraftforge.client.event.RenderHandEvent;
 import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.normalpersonJava.blackpowderweaponsmod.BlackpowderWeaponsMod;
+import net.normalpersonJava.blackpowderweaponsmod.client.ClientUtils;
+import net.normalpersonJava.blackpowderweaponsmod.client.KeyBindings;
+import net.normalpersonJava.blackpowderweaponsmod.item.base.GunItem;
+import net.normalpersonJava.blackpowderweaponsmod.item.base.RevolverItem;
+import net.normalpersonJava.blackpowderweaponsmod.network.Network;
+import net.normalpersonJava.blackpowderweaponsmod.network.packet.ReloadPacket;
 
 import java.util.Optional;
 
@@ -26,6 +37,39 @@ public class ClientEventHandler {
     public ClientEventHandler(IEventBus bus) {
         MinecraftForge.EVENT_BUS.addListener(this::onRenderPlayer);
         MinecraftForge.EVENT_BUS.addListener(this::onRenderHand);
+        MinecraftForge.EVENT_BUS.addListener(this::onClientTick);
+    }
+
+    //keybinds
+    @SubscribeEvent
+    public void onClientTick(TickEvent.ServerTickEvent event) {
+        if (event.phase == TickEvent.Phase.END) {
+            Player player = Minecraft.getInstance().player;
+            while (KeyBindings.INSTANCE.reload.consumeClick() && player != null) {
+                reloadHandler();
+            }
+        }
+    }
+
+    public void reloadHandler() {
+        Player player = Minecraft.getInstance().player;
+        assert player != null;
+        ItemStack heldItem = player.getMainHandItem();
+
+        //revolver reload
+        if (heldItem.getItem() instanceof RevolverItem revolverItem) {
+            if (!revolverItem.fullyLoaded(heldItem) && revolverItem.hasAmmo(player) && !revolverItem.isReloading(heldItem)) {
+                Network.sendToServer(new ReloadPacket());
+                revolverItem.setCondition(heldItem, true);
+                player.displayClientMessage(Component.literal("reloading"), true);
+            } else if (!revolverItem.hasAmmo(player)) {
+                player.displayClientMessage(Component.literal("No Ammo!"), true);
+            } else if (revolverItem.fullyLoaded(heldItem)) {
+                player.displayClientMessage(Component.literal("Already Fully Loaded!"), true);
+            } else if (revolverItem.isReloading(heldItem)) {
+                player.displayClientMessage(Component.literal("Already Reloading!"), true);
+            }
+        }
     }
 
     @SubscribeEvent

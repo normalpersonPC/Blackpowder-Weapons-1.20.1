@@ -1,0 +1,22 @@
+{
+  "parent": "minecraft:item/handheld",
+  "loader": "forge:separate_transforms",
+  "base": {
+    "parent": "blackpowderweaponsmod:custom/caplockrevolver/caplock_revolver_reload_4",
+    "textures": {
+      "0": "blackpowderweaponsmod:item/caplock_revolver",
+      "particles": "blackpowderweaponsmod:item/caplock_revolver"
+    }
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "blackpowderweaponsmod:item/caplockrevolver/caplock_revolver_item"
+    },
+    "ground": {
+      "parent": "blackpowderweaponsmod:item/caplockrevolver/caplock_revolver_item"
+    },
+    "fixed": {
+      "parent": "blackpowderweaponsmod:item/caplockrevolver/caplock_revolver_item"
+    }
+  }
+}

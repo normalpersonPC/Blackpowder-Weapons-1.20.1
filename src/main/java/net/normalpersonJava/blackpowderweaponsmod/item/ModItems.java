@@ -89,7 +89,7 @@ public class ModItems {
             () -> new CaplockMusketItem());
 
     public static final RegistryObject<Item> CAPLOCK_REVOLVER = ITEMS.register("caplock_revolver",
-            () -> new CaplockMusketItem());
+            () -> new CaplockRevolverItem());
 
     //other
     public static final RegistryObject<Item> NEEDLEFIRE_RIFLE = ITEMS.register("needlefire_rifle",
@@ -214,6 +214,7 @@ public class ModItems {
             ItemProperties.register(CAPLOCK_PISTOL.get(), new ResourceLocation("blackpowderweaponsmod:modelstate"), (itemStackToRender, clientWorld, entity, itemEntityId) -> (float) renderModelState(itemStackToRender));
             ItemProperties.register(CAPLOCK_PISTOL.get(), new ResourceLocation("blackpowderweaponsmod:hasfired"), (itemStackToRender, clientWorld, entity, itemEntityId) -> hasFired(itemStackToRender) ? 1.0f : 0.0f);
             ItemProperties.register(CAPLOCK_REVOLVER.get(), new ResourceLocation("blackpowderweaponsmod:modelstate"), (itemStackToRender, clientWorld, entity, itemEntityId) -> (float) renderModelState(itemStackToRender));
+            ItemProperties.register(CAPLOCK_REVOLVER.get(), new ResourceLocation("blackpowderweaponsmod:revolve"), (itemStackToRender, clientWorld, entity, itemEntityId) -> (float) revolve(itemStackToRender));
             ItemProperties.register(CAPLOCK_REVOLVER.get(), new ResourceLocation("blackpowderweaponsmod:hasfired"), (itemStackToRender, clientWorld, entity, itemEntityId) -> hasFired(itemStackToRender) ? 1.0f : 0.0f);
             ItemProperties.register(CAPLOCK_BREECHLOADING_RIFLE.get(), new ResourceLocation("blackpowderweaponsmod:modelstate"), (itemStackToRender, clientWorld, entity, itemEntityId) -> (float) renderModelState(itemStackToRender));
             ItemProperties.register(CAPLOCK_BREECHLOADING_RIFLE.get(), new ResourceLocation("blackpowderweaponsmod:hasfired"), (itemStackToRender, clientWorld, entity, itemEntityId) -> hasFired(itemStackToRender) ? 1.0f : 0.0f);
@@ -230,8 +231,8 @@ public class ModItems {
         return itemStack.getOrCreateTag().getBoolean("hasfired");
     }
 
-    public static double RevolveState (ItemStack itemStack) {
-        return itemStack.getOrCreateTag().getDouble("revolveState");
+    public static double revolve (ItemStack itemStack) {
+        return itemStack.getOrCreateTag().getDouble("revolve");
     }
 
     public static double ammoCount (ItemStack itemStack) {

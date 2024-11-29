@@ -2,7 +2,6 @@ package net.normalpersonJava.blackpowderweaponsmod;
 
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.TickEvent;
@@ -10,20 +9,18 @@ import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DistExecutor;
-import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.util.thread.SidedThreadGroups;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.normalpersonJava.blackpowderweaponsmod.client.ClientEventHandler;
+import net.normalpersonJava.blackpowderweaponsmod.client.handler.ClientEventHandler;
 import net.normalpersonJava.blackpowderweaponsmod.common.CommonEventHandler;
 import net.normalpersonJava.blackpowderweaponsmod.entity.ModEntities;
 import net.normalpersonJava.blackpowderweaponsmod.init.*;
 import net.normalpersonJava.blackpowderweaponsmod.init.ModLootModifiers;
 import net.normalpersonJava.blackpowderweaponsmod.item.ModItems;
+import net.normalpersonJava.blackpowderweaponsmod.network.Network;
 import org.slf4j.Logger;
 
 import java.util.AbstractMap;
@@ -57,13 +54,16 @@ public class BlackpowderWeaponsMod
 
         modEventBus.addListener(this::commonSetup);
 
-
         MinecraftForge.EVENT_BUS.register(this);
 
     }
 
     private void commonSetup(final FMLCommonSetupEvent event)
     {
+        event.enqueueWork(
+                Network::register
+
+        );
 
     }
 

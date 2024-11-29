@@ -28,8 +28,8 @@ import net.normalpersonJava.blackpowderweaponsmod.init.ModParticles;
 
 import javax.annotation.Nullable;
 
-public abstract class GunItem extends Item {
-    public GunItem(Properties properties) {
+public abstract class RevolverItem extends Item {
+    public RevolverItem(Properties properties) {
         super(properties);
     }
     @Override
@@ -55,6 +55,7 @@ public abstract class GunItem extends Item {
     public abstract int pelletCount();
     public abstract boolean hasAmmo(Player player);
     public abstract void reload(LevelAccessor world, Entity entity, ItemStack stack);
+    public abstract void revolve(LevelAccessor world, Entity entity, ItemStack stack);
     public abstract SoundEvent fireSFX();
 
     public boolean twoHanded() {
@@ -65,11 +66,7 @@ public abstract class GunItem extends Item {
         return false;
     }
 
-    public boolean isSingleShot() {
-        return true;
-    }
-
-    public static boolean canUse(Level level, Entity entity, ItemStack stack) {
+    public boolean canUse(Level level, Entity entity, ItemStack stack) {
         BlockPos blockpos = entity.blockPosition();
         if (stack.is(ItemTags.create(new ResourceLocation("blackpowderweaponsmod:flintlock")))) {
             return !(level.isRainingAt(blockpos) || level.isRainingAt(BlockPos.containing(blockpos.getX(), entity.getBoundingBox().maxY, blockpos.getZ())) || entity.isUnderWater());
@@ -84,7 +81,7 @@ public abstract class GunItem extends Item {
         if (twoHanded()) {
             return false;
         }
-        // pistol in offhand is unusable if musket is equipped in main hand
+        //pistol in offhand is unusable if two-handed is equipped in main hand
         ItemStack stack = entity.getMainHandItem();
         if (!stack.isEmpty() && stack.getItem() instanceof GunItem gun) {
             return !gun.twoHanded();
@@ -102,52 +99,65 @@ public abstract class GunItem extends Item {
     public static boolean isInHand(LivingEntity entity, InteractionHand hand) {
         ItemStack stack = entity.getItemInHand(hand);
         if (stack.isEmpty()) return false;
-        if (stack.getItem() instanceof GunItem gun) {
+        if (stack.getItem() instanceof RevolverItem gun) {
             return gun.canUseFrom(entity, hand);
         }
         return false;
     }
 
-    public static boolean isHoldingGun(LivingEntity entity) {
+    public boolean isHoldingGun(LivingEntity entity) {
         return getHoldingHand(entity) != null;
     }
-
-    public static void setLoaded(ItemStack stack, boolean loaded) {
-        stack.getOrCreateTag().putBoolean("isloaded", loaded);
+    public boolean condition(ItemStack stack) {
+        return stack.getOrCreateTag().getBoolean("condition");
     }
-    public static boolean isLoaded(ItemStack stack) {
-        return stack.getOrCreateTag().getBoolean("isloaded");
+    public void setCondition(ItemStack stack, boolean condition) {
+        stack.getOrCreateTag().putBoolean("condition", condition);
     }
-    public static void setFired(ItemStack stack, boolean fired) {
-        stack.getOrCreateTag().putBoolean("hasfired", fired);
-    }
-    public static boolean hasFired(ItemStack stack) {
-        return stack.getOrCreateTag().getBoolean("hasfired");
-    }
-    public static void setModelState(ItemStack stack, double state) {
-        stack.getOrCreateTag().putDouble("modelstate", state);
-    }
-    public static double getModelState(ItemStack stack) {
-        return stack.getOrCreateTag().getDouble("modelstate");
-    }
-    public static void setRevolveState(ItemStack stack, double state) {
-        stack.getOrCreateTag().putDouble("revolve", state);
-    }
-    public static double getRevolveState(ItemStack stack) {
-        return stack.getOrCreateTag().getDouble("revolve");
-    }
-    public static void setDelay(ItemStack stack, double state) {
-        stack.getOrCreateTag().putDouble("delay", state);
-    }
-    public static double getDelay(ItemStack stack) {
-        return stack.getOrCreateTag().getDouble("delay");
-    }
-
-    public static void setAmmoCount(ItemStack stack, int count) {
+    public void setAmmoCount(ItemStack stack, int count) {
         stack.getOrCreateTag().putInt("ammo", count);
     }
-    public static int getAmmoCount(ItemStack stack) {
+    public int getAmmoCount(ItemStack stack) {
         return stack.getOrCreateTag().getInt("ammo");
+    }
+    public boolean isEmpty(ItemStack stack) {
+        return getAmmoCount(stack) == 0;
+    }
+    public boolean isLoaded(ItemStack stack) {
+        return getAmmoCount(stack) > 0 && getAmmoCount(stack) < maxAmmo();
+    }
+    public boolean fullyLoaded(ItemStack stack) {
+        return getAmmoCount(stack) == maxAmmo();
+    }
+    public void setReloading(ItemStack stack, boolean reloading) {
+        stack.getOrCreateTag().putBoolean("isReloading", reloading);
+    }
+    public boolean isReloading(ItemStack stack) {
+        return stack.getOrCreateTag().getBoolean("isReloading");
+    }
+    public void setFired(ItemStack stack, boolean fired) {
+        stack.getOrCreateTag().putBoolean("hasfired", fired);
+    }
+    public boolean hasFired(ItemStack stack) {
+        return stack.getOrCreateTag().getBoolean("hasfired");
+    }
+    public void setModelState(ItemStack stack, double state) {
+        stack.getOrCreateTag().putDouble("modelstate", state);
+    }
+    public double getModelState(ItemStack stack) {
+        return stack.getOrCreateTag().getDouble("modelstate");
+    }
+    public void setRevolveState(ItemStack stack, double state) {
+        stack.getOrCreateTag().putDouble("revolve", state);
+    }
+    public double getRevolveState(ItemStack stack) {
+        return stack.getOrCreateTag().getDouble("revolve");
+    }
+    public void setDelay(ItemStack stack, double state) {
+        stack.getOrCreateTag().putDouble("delay", state);
+    }
+    public double getDelay(ItemStack stack) {
+        return stack.getOrCreateTag().getDouble("delay");
     }
 
     public void smokeEffect(LevelAccessor world, LivingEntity entity) {
@@ -190,7 +200,7 @@ public abstract class GunItem extends Item {
 
     public void playSound(LevelAccessor world, Entity entity, SoundEvent sound) {
         if (world instanceof Level level) {
-            level.playSeededSound(null, entity.getX(), entity.getY(), entity.getZ(), sound, SoundSource.PLAYERS, 2, 1, 0);
+            level.playSeededSound(null, entity.getX(), entity.getY(), entity.getZ(), sound, SoundSource.PLAYERS, 1.5f, 1, 0);
         }
     }
 
@@ -215,7 +225,7 @@ public abstract class GunItem extends Item {
             if (entity instanceof Player _player)
                 _player.getCooldowns().addCooldown(stack.getItem(), 4);
 
-            if (isLoaded(stack) && !hasFired(stack)) {
+            if (!hasFired(stack)) {
                 if (level instanceof ServerLevel serverLevel) {
                     for (int i = 0; i < pelletCount(); i++) {
                         BulletEntity bullet = new BulletEntity(serverLevel, entity, bulletDamage(), piercing(), knockback(), armorPiercing());
@@ -232,10 +242,23 @@ public abstract class GunItem extends Item {
                 setDelay(stack, 0);
                 setModelState(stack, 0);
                 setAmmoCount(stack, getAmmoCount(stack) - 1);
-                if (getAmmoCount(stack) == 0) {
-                    setLoaded(stack, false);
-                }
                 setFired(stack, true);
+                setReloading(stack, false);
+            }
+        }
+    }
+
+    @Override
+    public void inventoryTick(ItemStack stack, Level level, Entity entity, int slotID, boolean selected) {
+        super.inventoryTick(stack, level, entity, slotID, selected);
+        if (entity instanceof Player player) {
+            if (selected) {
+                if (isReloading(stack)) {
+                    reload(level, player, stack);
+                }
+                if (isLoaded(stack) && hasFired(stack)) {
+                    revolve(level, entity, stack);
+                }
             }
         }
     }
@@ -260,21 +283,18 @@ public abstract class GunItem extends Item {
             level.playSeededSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.COMPARATOR_CLICK, SoundSource.PLAYERS, 0.5f, 3f, 0);
             return InteractionResultHolder.fail(player.getItemInHand(hand));
         }
-        if (isLoaded(itemstack) && getAmmoCount(itemstack) > 0) {
+        if (isLoaded(itemstack) || fullyLoaded(itemstack)) {
             fire(level, player, used.getObject());
+            setReloading(itemstack, false);
+        } else {
+            level.playSeededSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.COMPARATOR_CLICK, SoundSource.PLAYERS, 0.5f, 3f, 0);
+            return InteractionResultHolder.fail(player.getItemInHand(hand));
         }
 
         return used;
     }
 
-    public void onUseTick(Level level, LivingEntity entity, ItemStack itemstack, int useDuration) {
-        super.onUseTick(level, entity, itemstack, useDuration);
-        if (entity instanceof Player player) {
-            if (!isLoaded(itemstack) && hasAmmo(player) && canUse(level, player, itemstack)) {
-                reload(level, entity, itemstack);
-            }
-        }
-    }
+
 
     @Override
     public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) {

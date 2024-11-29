@@ -25,7 +25,7 @@ public class ForgePlatformHelper implements IPlatformHelper {
 
     @Override
     public void playSound(SoundEvent sound, SoundSource source, ServerLevel level, Vec3 origin) {
-        Network.S2CSound(sound, source, level.dimension(), origin);
+
     }
 
     @Override

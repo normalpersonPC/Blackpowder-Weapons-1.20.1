@@ -1,0 +1,89 @@
+{
+  "parent": "minecraft:item/handheld",
+  "loader": "forge:separate_transforms",
+  "gui_light": "front",
+  "base": {
+    "parent": "blackpowderweaponsmod:item/caplockrevolver/caplock_revolver_unloaded"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "blackpowderweaponsmod:item/caplockrevolver/caplock_revolver_item"
+    },
+    "ground": {
+      "parent": "blackpowderweaponsmod:item/caplockrevolver/caplock_revolver_item"
+    },
+    "fixed": {
+      "parent": "blackpowderweaponsmod:item/caplockrevolver/caplock_revolver_item"
+    }
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "blackpowderweaponsmod:modelstate": 0
+      },
+      "model": "blackpowderweaponsmod:item/caplockrevolver/caplockrevolver_unloaded"
+    },
+    {
+      "predicate": {
+        "blackpowderweaponsmod:modelstate": 1,
+        "blackpowderweaponsmod:hasfired": 1,
+        "blackpowderweaponsmod:revolve": 1
+      },
+      "model": "blackpowderweaponsmod:item/caplockrevolver/caplockrevolver_revolve_1"
+    },
+    {
+      "predicate": {
+        "blackpowderweaponsmod:modelstate": 2
+      },
+      "model": "blackpowderweaponsmod:item/caplockrevolver/caplockrevolver_reload_4"
+    },
+    {
+      "predicate": {
+        "blackpowderweaponsmod:modelstate": 3
+      },
+      "model": "blackpowderweaponsmod:item/caplockrevolver/caplockrevolver_reload_1"
+    },
+    {
+      "predicate": {
+        "blackpowderweaponsmod:modelstate": 4
+      },
+      "model": "blackpowderweaponsmod:item/caplockrevolver/caplockrevolver_reload_2"
+    },
+    {
+      "predicate": {
+        "blackpowderweaponsmod:modelstate": 5
+      },
+      "model": "blackpowderweaponsmod:item/caplockrevolver/caplockrevolver_reload_3"
+    },
+    {
+      "predicate": {
+        "blackpowderweaponsmod:modelstate": 6
+      },
+      "model": "blackpowderweaponsmod:item/caplockrevolver/caplockrevolver_reload_4"
+    },
+    {
+      "predicate": {
+        "blackpowderweaponsmod:modelstate": 7
+      },
+      "model": "blackpowderweaponsmod:item/caplockrevolver/caplockrevolver_reload_5"
+    },
+    {
+      "predicate": {
+        "blackpowderweaponsmod:modelstate": 8
+      },
+      "model": "blackpowderweaponsmod:item/caplockrevolver/caplockrevolver_reload_6"
+    },
+    {
+      "predicate": {
+        "blackpowderweaponsmod:modelstate": 9
+      },
+      "model": "blackpowderweaponsmod:item/caplockrevolver/caplockrevolver_reload_4"
+    },
+    {
+      "predicate": {
+        "blackpowderweaponsmod:modelstate": 10
+      },
+      "model": "blackpowderweaponsmod:item/caplockrevolver/caplockrevolver_loaded"
+    }
+  ]
+}

@@ -1,19 +1,15 @@
 package net.normalpersonJava.blackpowderweaponsmod.network;
 
-import net.normalpersonJava.blackpowderweaponsmod.Constants;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundSource;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.network.NetworkDirection;
-import net.minecraftforge.network.NetworkRegistry;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.network.PacketDistributor;
+import net.normalpersonJava.blackpowderweaponsmod.Constants;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.simple.SimpleChannel;
+import net.normalpersonJava.blackpowderweaponsmod.network.packet.ReloadPacket;
 
 public class Network {
-    private static SimpleChannel instance;
+    private static SimpleChannel INSTANCE;
     private static int packetID = 0;
 
     private static int id() {
@@ -22,23 +18,23 @@ public class Network {
 
     public static void register() {
 
-        SimpleChannel network = NetworkRegistry.ChannelBuilder.named(new ResourceLocation(Constants.MOD_ID, "messages"))
+        SimpleChannel network = NetworkRegistry.ChannelBuilder
+                .named(new ResourceLocation(Constants.MOD_ID, "messages"))
                 .networkProtocolVersion(() -> "1")
                 .clientAcceptedVersions(string -> true)
                 .serverAcceptedVersions(string -> true)
                 .simpleChannel();
 
-        instance = network;
+        INSTANCE = network;
 
-        network.messageBuilder(S2CSoundPacket.class, id(), NetworkDirection.PLAY_TO_CLIENT)
-                .decoder(S2CSoundPacket::new)
-                .encoder(S2CSoundPacket::toBytes)
-                .consumerMainThread(S2CSoundPacket::handleS2CSound)
-                .add();
+        network.registerMessage(0, ReloadPacket.class, ReloadPacket::encode, ReloadPacket::decode, ReloadPacket::handle);
     }
 
-    public static void S2CSound(SoundEvent sound, SoundSource source, ResourceKey<Level> dimension, Vec3 origin) {
-        instance.send(PacketDistributor.NEAR.with(PacketDistributor.TargetPoint.p(origin.x, origin.y, origin.z, 128, dimension)),
-                new S2CSoundPacket(sound, source, origin.toVector3f()));
+    public static <MSG> void sendToServer(MSG message) {
+        INSTANCE.sendToServer(message);
+    }
+
+    public static <MSG> void sendToPlayer(MSG message, ServerPlayer player) {
+        INSTANCE.send(PacketDistributor.PLAYER.with(() -> player), message);
     }
 }
