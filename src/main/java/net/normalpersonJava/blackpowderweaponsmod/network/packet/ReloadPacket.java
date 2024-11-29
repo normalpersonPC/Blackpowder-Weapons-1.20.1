@@ -4,7 +4,9 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.network.NetworkEvent;
+import net.normalpersonJava.blackpowderweaponsmod.item.base.GunItem;
 import net.normalpersonJava.blackpowderweaponsmod.item.base.RevolverItem;
+import net.normalpersonJava.blackpowderweaponsmod.item.base.RevolverItemOld;
 
 import java.util.Objects;
 import java.util.function.Supplier;
@@ -34,6 +36,12 @@ public class ReloadPacket {
                 } else if (revolverItem.isLoaded(heldItem) && revolverItem.hasAmmo(player) && !revolverItem.isReloading(heldItem)) {
                     revolverItem.setReloading(heldItem, true);
                     revolverItem.setModelState(heldItem, 0);
+                }
+            }
+            //single shot reload
+            if (heldItem.getItem() instanceof GunItem gunItem) {
+                if (gunItem.isEmpty(heldItem) && gunItem.hasAmmo(player) && !gunItem.isReloading(heldItem)) {
+                    gunItem.setReloading(heldItem, true);
                 }
             }
 

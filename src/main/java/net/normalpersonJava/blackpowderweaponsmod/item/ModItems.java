@@ -235,8 +235,8 @@ public class ModItems {
         return itemStack.getOrCreateTag().getDouble("revolve");
     }
 
-    public static double ammoCount (ItemStack itemStack) {
-        return itemStack.getOrCreateTag().getDouble("ammoCount");
+    public static double ammo (ItemStack itemStack) {
+        return itemStack.getOrCreateTag().getDouble("ammo");
     }
 
 }

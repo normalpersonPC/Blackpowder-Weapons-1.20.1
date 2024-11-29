@@ -69,57 +69,46 @@ public class CaplockBlunderbussItem extends GunItem {
 
     @Override
     public void reload(LevelAccessor world, Entity entity, ItemStack stack) {
-        if (entity == null) {
+        if (!(entity instanceof Player player) || world.isClientSide()) {
             return;
         }
-        if (!world.isClientSide()) {
-            if (entity instanceof Player player) {
-                double modelstate = getModelState(stack);
-                double delay = getDelay(stack);
+        double modelstate = getModelState(stack);
+        double delay = getDelay(stack);
 
-                // Ensure the item is not already loaded and that the player has ammo
-                if (!isLoaded(stack) && hasAmmo(player)) {
-                    delay++;
-                    if (delay >= 10) { // Check if 10 ticks have passed
-                        delay = 0; // Reset delay for next tick
-                        modelstate++;
-                        setModelState(stack, modelstate);
-                        if (modelstate == 1 && hasFired(stack)) {
-                            playSound(world, player, ModSounds.FLINTLOCK_READY.get());
-                        }
-                        if (modelstate == 2) {
-                            playSound(world, player, ModSounds.FLINTLOCK_POWDER.get());
-                        }
-                        if (modelstate == 4 || modelstate == 13) {
-                            playSound(world, player, ModSounds.FLINTLOCK_ROD0.get());
-                        }
-                        if (modelstate == 6 || modelstate == 8) {
-                            playSound(world, player, ModSounds.FLINTLOCK_ROD1.get());
-                        }
-                        if (modelstate == 14) {
-                            playSound(world, player, SoundEvents.COPPER_PLACE);
-                        }
-                        if (modelstate >= 15) { // If fully loaded
-                            setModelState(stack, 16);
-                            setAmmoCount(stack, getAmmoCount(stack) + 1);
-                            setDelay(stack, 0); // Reset delay
-                            setLoaded(stack, true);
-                            setFired(stack, false);
+        delay++;
+        if (delay >= 9) { // Check if 10 ticks have passed
+            delay = 0; // Reset delay for next tick
+            modelstate++;
+            setModelState(stack, modelstate);
 
-                            // Consume the ammo
-                            consumeItem(player, Items.GUNPOWDER, 1);
-                            consumeItem(player, ModItems.PERCUSSION_CAP.get(), 1);
-                            consumeItem(player, ModItems.SHOTGUN_PELLETS.get(), 1);
-
-                            player.getCooldowns().addCooldown(stack.getItem(), 5);
-
-                            playSound(world, player, ModSounds.FLINTLOCK_READY.get());
-                        }
-                    }
-                    setDelay(stack, delay);
-                }
+            if (modelstate == 1 && hasFired(stack)) {
+                playSound(world, player, ModSounds.FLINTLOCK_READY.get());
+            } else if (modelstate == 2) {
+                playSound(world, player, ModSounds.FLINTLOCK_POWDER.get());
+            } else if (modelstate == 4 || modelstate == 13) {
+                playSound(world, player, ModSounds.FLINTLOCK_ROD0.get());
+            } else if (modelstate == 6 || modelstate == 8) {
+                playSound(world, player, ModSounds.FLINTLOCK_ROD1.get());
+            } else if (modelstate == 14) {
+                playSound(world, player, SoundEvents.COPPER_PLACE);
+            } else if (modelstate == 15) { // If fully loaded
+                finalizeReload(world, player, stack);
             }
         }
+        setDelay(stack, delay);
+    }
+
+    private void finalizeReload(LevelAccessor world, Player player, ItemStack stack) {
+        playSound(world, player, ModSounds.FLINTLOCK_READY.get());
+        consumeItem(player, Items.GUNPOWDER, 1);
+        consumeItem(player, ModItems.SHOTGUN_PELLETS.get(), 1);
+        consumeItem(player, ModItems.PERCUSSION_CAP.get(), 1);
+        setAmmoCount(stack, 1);
+        setFired(stack, false);
+        setModelState(stack, 15);
+        setDelay(stack, 0);
+        setReloading(stack, false);
+        player.getCooldowns().addCooldown(stack.getItem(), 5);
     }
 
     @Override

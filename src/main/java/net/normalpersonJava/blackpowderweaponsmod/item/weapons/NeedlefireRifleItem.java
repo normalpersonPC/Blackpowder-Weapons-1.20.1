@@ -6,6 +6,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.LevelAccessor;
 import net.normalpersonJava.blackpowderweaponsmod.item.ModItems;
@@ -51,51 +52,44 @@ public class NeedlefireRifleItem extends GunItem {
 
     @Override
     public void reload(LevelAccessor world, Entity entity, ItemStack stack) {
-        if (entity == null) {
+        if (!(entity instanceof Player player) || world.isClientSide()) {
             return;
         }
-        if (!world.isClientSide()) {
-            if (entity instanceof Player player) {
-                double modelstate = getModelState(stack);
-                double delay = getDelay(stack);
-                if (!isLoaded(stack) && hasAmmo(player)) {
-                    delay++;
-                    if (delay >= 10) { // Check if 10 ticks have passed
-                        delay = 0; // Reset delay for next tick
-                        modelstate++;
-                        setModelState(stack, modelstate);
-                        //reload
-                        if (modelstate == 1) {
-                            playSound(world, player, ModSounds.BOLT_0.get());
-                        }
-                        if (modelstate == 2) {
-                            playSound(world, player, ModSounds.BOLT_1.get());
-                        }
-                        if (modelstate == 4) {
-                            playSound(world, player, SoundEvents.WOOL_PLACE);
-                        }
-                        if (modelstate == 5) {
-                            playSound(world, player,  ModSounds.BOLT_2.get());
-                        }
-                        if (modelstate >= 6) {
-                            setModelState(stack, 6);// If fully loaded
-                            setAmmoCount(stack, getAmmoCount(stack) + 1);
-                            setDelay(stack, 0); // Reset delay
-                            setLoaded(stack, true);
-                            setFired(stack, false);
+        double modelstate = getModelState(stack);
+        double delay = getDelay(stack);
+        delay++;
 
-                            consumeItem(player, ModItems.PAPER_CARTRIDGE_RIFLE.get(), 1);
-
-                            player.getCooldowns().addCooldown(stack.getItem(), 4);
-
-                            playSound(world, player,  ModSounds.BOLT_0.get());
-                        }
-                    }
-                    setDelay(stack, delay);
-                }
+        if (delay >= 10) { // Check if 10 ticks have passed
+            delay = 0; // Reset delay for next tick
+            modelstate++;
+            setModelState(stack, modelstate);
+            //reload
+            if (modelstate == 1) {
+                playSound(world, player, ModSounds.BOLT_0.get());
+            } else if (modelstate == 2) {
+                playSound(world, player, ModSounds.BOLT_1.get());
+            } else if (modelstate == 4) {
+                playSound(world, player, SoundEvents.WOOL_PLACE);
+            } else if (modelstate == 5) {
+                playSound(world, player,  ModSounds.BOLT_2.get());
+            } else if (modelstate == 6) {
+                finalizeReload(world, player, stack);
             }
         }
+        setDelay(stack, delay);
     }
+
+    private void finalizeReload(LevelAccessor world, Player player, ItemStack stack) {
+        playSound(world, player, ModSounds.BOLT_0.get());
+        consumeItem(player, ModItems.PAPER_CARTRIDGE_RIFLE.get(), 1);
+        setFired(stack, false);
+        setModelState(stack, 6);
+        setAmmoCount(stack, 1);
+        setDelay(stack, 0);
+        setReloading(stack, false);
+        player.getCooldowns().addCooldown(stack.getItem(), 5);
+    }
+
     @Override
     public SoundEvent fireSFX() {
         return ModSounds.RIFLE_FIRE_2.get();

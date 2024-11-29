@@ -1,6 +1,5 @@
 package net.normalpersonJava.blackpowderweaponsmod.client.handler;
 
-import ca.weblite.objc.Client;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.PlayerModel;
@@ -10,10 +9,8 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.HumanoidArm;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.event.InputEvent;
 import net.minecraftforge.client.event.RenderHandEvent;
 import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.common.MinecraftForge;
@@ -25,7 +22,7 @@ import net.normalpersonJava.blackpowderweaponsmod.BlackpowderWeaponsMod;
 import net.normalpersonJava.blackpowderweaponsmod.client.ClientUtils;
 import net.normalpersonJava.blackpowderweaponsmod.client.KeyBindings;
 import net.normalpersonJava.blackpowderweaponsmod.item.base.GunItem;
-import net.normalpersonJava.blackpowderweaponsmod.item.base.RevolverItem;
+import net.normalpersonJava.blackpowderweaponsmod.item.base.RevolverItemOld;
 import net.normalpersonJava.blackpowderweaponsmod.network.Network;
 import net.normalpersonJava.blackpowderweaponsmod.network.packet.ReloadPacket;
 
@@ -57,11 +54,10 @@ public class ClientEventHandler {
         ItemStack heldItem = player.getMainHandItem();
 
         //revolver reload
-        if (heldItem.getItem() instanceof RevolverItem revolverItem) {
+        if (heldItem.getItem() instanceof RevolverItemOld revolverItem) {
             if (!revolverItem.fullyLoaded(heldItem) && revolverItem.hasAmmo(player) && !revolverItem.isReloading(heldItem)) {
                 Network.sendToServer(new ReloadPacket());
-                revolverItem.setCondition(heldItem, true);
-                player.displayClientMessage(Component.literal("reloading"), true);
+                player.displayClientMessage(Component.literal("Reloading!"), true);
             } else if (!revolverItem.hasAmmo(player)) {
                 player.displayClientMessage(Component.literal("No Ammo!"), true);
             } else if (revolverItem.fullyLoaded(heldItem)) {
@@ -70,6 +66,20 @@ public class ClientEventHandler {
                 player.displayClientMessage(Component.literal("Already Reloading!"), true);
             }
         }
+        //single shot reload
+        if (heldItem.getItem() instanceof GunItem gunItem) {
+            if (!gunItem.fullyLoaded(heldItem) && gunItem.hasAmmo(player) && !gunItem.isReloading(heldItem)) {
+                Network.sendToServer(new ReloadPacket());
+                player.displayClientMessage(Component.literal("Reloading!"), true);
+            } else if (!gunItem.hasAmmo(player)) {
+                player.displayClientMessage(Component.literal("No Ammo!"), true);
+            } else if (gunItem.fullyLoaded(heldItem)) {
+                player.displayClientMessage(Component.literal("Already Fully Loaded!"), true);
+            } else if (gunItem.isReloading(heldItem)) {
+                player.displayClientMessage(Component.literal("Already Reloading!"), true);
+            }
+        }
+
     }
 
     @SubscribeEvent

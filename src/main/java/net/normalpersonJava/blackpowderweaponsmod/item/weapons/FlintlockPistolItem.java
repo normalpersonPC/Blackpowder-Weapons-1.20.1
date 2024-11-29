@@ -53,53 +53,43 @@ public class FlintlockPistolItem extends GunItem {
 
     @Override
     public void reload (LevelAccessor world, Entity entity, ItemStack stack) {
-        if (entity == null) {
+        if (!(entity instanceof Player player) || world.isClientSide()) {
             return;
         }
-        if (!world.isClientSide()) {
-            if (entity instanceof Player player) {
-                double modelstate = getModelState(stack);
-                double delay = getDelay(stack);
-                // Ensure the item is not already loaded and that the player has ammo
-                if (!isLoaded(stack) && hasAmmo(player)) {
-                    delay++;
-                    if (delay >= 9) { // Check if 8 ticks have passed
-                        delay = 0; // Reset delay for next tick
-                        modelstate++;
-                        setModelState(stack, modelstate);
-                        if (modelstate == 1) {
-                            playSound(world, player, ModSounds.FLINTLOCK_POWDER.get());
-                        }
-                        if (modelstate == 2) {
-                            playSound(world, player, ModSounds.FLINTLOCK_READY.get());
-                        }
-                        if (modelstate == 4 || modelstate == 9) {
-                            playSound(world, player, ModSounds.FLINTLOCK_ROD0.get());
-                        }
-                        if (modelstate == 6) {
-                            playSound(world, player, ModSounds.FLINTLOCK_ROD1.get());
-                        }
-                        if (modelstate >= 10) { // If fully loaded
-                            setModelState(stack, 10);
-                            setAmmoCount(stack, getAmmoCount(stack) + 1);
-                            setDelay(stack, 0); // Reset delay
-                            setLoaded(stack, true);
-                            setFired(stack, false);
+        double modelstate = getModelState(stack);
+        double delay = getDelay(stack);
+        delay++;
 
-                            // Consume the ammo
-                            consumeItem(player, Items.GUNPOWDER, 1);
-                            consumeItem(player, ModItems.MUSKETBALL_SMALL.get(), 1);
+        if (delay >= 9) { // Check if 8 ticks have passed
+            delay = 0; // Reset delay for next tick
+            modelstate++;
+            setModelState(stack, modelstate);
 
-                            player.getCooldowns().addCooldown(stack.getItem(), 2);
-
-                            // Play the sound
-                            playSound(world, player, ModSounds.FLINTLOCK_READY.get());
-                        }
-                    }
-                    setDelay(stack, delay);
-                }
+            if (modelstate == 1) {
+                playSound(world, player, ModSounds.FLINTLOCK_POWDER.get());
+            } else if (modelstate == 2) {
+                playSound(world, player, ModSounds.FLINTLOCK_READY.get());
+            } else if (modelstate == 4 || modelstate == 9) {
+                playSound(world, player, ModSounds.FLINTLOCK_ROD0.get());
+            } else if (modelstate == 6) {
+                playSound(world, player, ModSounds.FLINTLOCK_ROD1.get());
+            } else if (modelstate == 10) {
+                finalizeReload(world, player, stack);
             }
         }
+        setDelay(stack, delay);
+    }
+
+    private void finalizeReload(LevelAccessor world, Player player, ItemStack stack) {
+        playSound(world, player, ModSounds.FLINTLOCK_READY.get());
+        consumeItem(player, Items.GUNPOWDER, 1);
+        consumeItem(player, ModItems.MUSKETBALL_SMALL.get(), 1);
+        setAmmoCount(stack, 1);
+        setFired(stack, false);
+        setModelState(stack, 10);
+        setDelay(stack, 0);
+        setReloading(stack, false);
+        player.getCooldowns().addCooldown(stack.getItem(), 5);
     }
 
     @Override

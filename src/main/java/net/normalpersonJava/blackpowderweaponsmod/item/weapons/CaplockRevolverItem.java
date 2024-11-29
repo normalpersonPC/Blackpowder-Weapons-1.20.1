@@ -3,17 +3,12 @@ package net.normalpersonJava.blackpowderweaponsmod.item.weapons;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Rarity;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
-import net.normalpersonJava.blackpowderweaponsmod.BlackpowderWeaponsMod;
 import net.normalpersonJava.blackpowderweaponsmod.init.ModSounds;
 import net.normalpersonJava.blackpowderweaponsmod.item.ModItems;
-import net.normalpersonJava.blackpowderweaponsmod.item.base.GunItem;
 import net.normalpersonJava.blackpowderweaponsmod.item.base.RevolverItem;
 
 public class CaplockRevolverItem extends RevolverItem {
@@ -107,7 +102,6 @@ public class CaplockRevolverItem extends RevolverItem {
                     setModelState(stack, 2);
                     setDelay(stack, 0);
                     setFired(stack, false);
-                    setCondition(stack, false);
                 } else if (!hasAmmo(player) && isLoaded(stack)) {
                     //if out of bullets during reload
                     finalizeReload(world, player, stack);
@@ -129,7 +123,6 @@ public class CaplockRevolverItem extends RevolverItem {
         setFired(stack, false);
         setModelState(stack, 10);
         setDelay(stack, 0);
-        setCondition(stack, false);
         setReloading(stack, false);
         player.getCooldowns().addCooldown(stack.getItem(), 5);
     }

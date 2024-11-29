@@ -28,8 +28,8 @@ import net.normalpersonJava.blackpowderweaponsmod.init.ModParticles;
 
 import javax.annotation.Nullable;
 
-public abstract class GunItem extends Item {
-    public GunItem(Properties properties) {
+public abstract class RevolverItemOld extends Item {
+    public RevolverItemOld(Properties properties) {
         super(properties);
     }
     @Override
@@ -55,6 +55,7 @@ public abstract class GunItem extends Item {
     public abstract int pelletCount();
     public abstract boolean hasAmmo(Player player);
     public abstract void reload(LevelAccessor world, Entity entity, ItemStack stack);
+    public abstract void revolve(LevelAccessor world, Entity entity, ItemStack stack);
     public abstract SoundEvent fireSFX();
 
     public boolean twoHanded() {
@@ -80,7 +81,7 @@ public abstract class GunItem extends Item {
         if (twoHanded()) {
             return false;
         }
-        // pistol in offhand is unusable if musket is equipped in main hand
+        //pistol in offhand is unusable if two-handed is equipped in main hand
         ItemStack stack = entity.getMainHandItem();
         if (!stack.isEmpty() && stack.getItem() instanceof GunItem gun) {
             return !gun.twoHanded();
@@ -98,7 +99,7 @@ public abstract class GunItem extends Item {
     public boolean isInHand(LivingEntity entity, InteractionHand hand) {
         ItemStack stack = entity.getItemInHand(hand);
         if (stack.isEmpty()) return false;
-        if (stack.getItem() instanceof GunItem gun) {
+        if (stack.getItem() instanceof RevolverItemOld gun) {
             return gun.canUseFrom(entity, hand);
         }
         return false;
@@ -140,14 +141,18 @@ public abstract class GunItem extends Item {
     public double getModelState(ItemStack stack) {
         return stack.getOrCreateTag().getDouble("modelstate");
     }
+    public void setRevolveState(ItemStack stack, double state) {
+        stack.getOrCreateTag().putDouble("revolve", state);
+    }
+    public double getRevolveState(ItemStack stack) {
+        return stack.getOrCreateTag().getDouble("revolve");
+    }
     public void setDelay(ItemStack stack, double state) {
         stack.getOrCreateTag().putDouble("delay", state);
     }
     public double getDelay(ItemStack stack) {
         return stack.getOrCreateTag().getDouble("delay");
     }
-
-
     public void smokeEffect(LevelAccessor world, LivingEntity entity) {
         ItemStack stack = entity.getMainHandItem();
         double speed = 0.1;
@@ -188,7 +193,7 @@ public abstract class GunItem extends Item {
 
     public void playSound(LevelAccessor world, Entity entity, SoundEvent sound) {
         if (world instanceof Level level) {
-            level.playSeededSound(null, entity.getX(), entity.getY(), entity.getZ(), sound, SoundSource.PLAYERS, 2, 1, 0);
+            level.playSeededSound(null, entity.getX(), entity.getY(), entity.getZ(), sound, SoundSource.PLAYERS, 1.5f, 1, 0);
         }
     }
 
@@ -235,9 +240,14 @@ public abstract class GunItem extends Item {
     @Override
     public void inventoryTick(ItemStack stack, Level level, Entity entity, int slotID, boolean selected) {
         super.inventoryTick(stack, level, entity, slotID, selected);
-        if (entity instanceof Player player && selected) {
-            if (isReloading(stack)) {
-                reload(level, player, stack);
+        if (entity instanceof Player player) {
+            if (selected) {
+                if (isReloading(stack)) {
+                    reload(level, player, stack);
+                }
+                if (isLoaded(stack) && hasFired(stack)) {
+                    revolve(level, entity, stack);
+                }
             }
         }
     }
@@ -262,7 +272,7 @@ public abstract class GunItem extends Item {
             level.playSeededSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.COMPARATOR_CLICK, SoundSource.PLAYERS, 0.5f, 3f, 0);
             return InteractionResultHolder.fail(player.getItemInHand(hand));
         }
-        if ((isLoaded(itemstack) || fullyLoaded(itemstack)) && !hasFired(itemstack)) {
+        if (isLoaded(itemstack) || fullyLoaded(itemstack)) {
             fire(level, player, used.getObject());
             setReloading(itemstack, false);
         } else {
@@ -272,6 +282,7 @@ public abstract class GunItem extends Item {
 
         return used;
     }
+
 
 
     @Override
