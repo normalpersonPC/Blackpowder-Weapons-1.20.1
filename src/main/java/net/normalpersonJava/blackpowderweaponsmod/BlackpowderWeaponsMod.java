@@ -55,7 +55,6 @@ public class BlackpowderWeaponsMod
         modEventBus.addListener(this::commonSetup);
 
         MinecraftForge.EVENT_BUS.register(this);
-
     }
 
     private void commonSetup(final FMLCommonSetupEvent event)

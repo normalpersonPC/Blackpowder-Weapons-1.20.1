@@ -57,6 +57,7 @@ public class ModCreativeTabs {
                         output.accept(ModItems.CAPLOCK_MECHANISM.get());
                         output.accept(ModItems.NEEDLEFIRE_BOLT.get());
                         output.accept(ModItems.BREECHBLOCK.get());
+                        output.accept(ModItems.REVOLVER_CYLINDER.get());
 
                         //blueprints
                         output.accept(ModItems.BLUEPRINT_BREECHBLOCK.get());

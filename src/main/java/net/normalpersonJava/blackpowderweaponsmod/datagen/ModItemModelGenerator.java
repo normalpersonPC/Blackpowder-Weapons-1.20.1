@@ -37,6 +37,7 @@ public class ModItemModelGenerator extends ItemModelProvider {
         partsItem(ModItems.CAPLOCK_MECHANISM);
         partsItem(ModItems.NEEDLEFIRE_BOLT);
         partsItem(ModItems.BREECHBLOCK);
+        partsItem(ModItems.REVOLVER_CYLINDER);
 
         //tools
         partsItem(ModItems.TOOLKIT);

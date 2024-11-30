@@ -34,6 +34,11 @@ public class ModItems {
                 public double meleeDamage() {
                     return 5;
                 }
+                @Override
+                public double meleeRange() {
+                    return 4.0;
+                }
+
             });
 
     public static final RegistryObject<Item> FLINTLOCK_MUSKET_BAYONET_DIAMOND = ITEMS.register("flintlock_musket_bayonet_diamond",
@@ -41,6 +46,10 @@ public class ModItems {
                 @Override
                 public double meleeDamage() {
                     return 6;
+                }
+                @Override
+                public double meleeRange() {
+                    return 4.0;
                 }
             });
 
@@ -171,6 +180,10 @@ public class ModItems {
 
     public static final RegistryObject<Item> BREECHBLOCK = ITEMS.register("breechblock",
             () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> REVOLVER_CYLINDER = ITEMS.register("revolver_cylinder",
+            () -> new Item(new Item.Properties()));
+
 
     //tools
     public static final RegistryObject<Item> BULLET_MOLD = ITEMS.register("bullet_mold",

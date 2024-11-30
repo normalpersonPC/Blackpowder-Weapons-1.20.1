@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "a b",
+    " ce",
+    "  d"
+  ],
+  "key": {
+    "a": {
+      "item": "blackpowderweaponsmod:barrel_short"
+    },
+    "b": {
+      "item": "blackpowderweaponsmod:toolkit"
+    },
+    "c": {
+      "item": "blackpowderweaponsmod:revolver_cylinder"
+    },
+    "d": {
+      "item": "blackpowderweaponsmod:stock_pistol"
+    },
+    "e": {
+      "item": "blackpowderweaponsmod:caplock_mechanism"
+    }
+  },
+  "result": {
+    "item": "blackpowderweaponsmod:caplock_revolver",
+    "count": 1
+  }
+}

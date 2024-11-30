@@ -53,19 +53,6 @@ public class ClientEventHandler {
         assert player != null;
         ItemStack heldItem = player.getMainHandItem();
 
-        //revolver reload
-        if (heldItem.getItem() instanceof RevolverItemOld revolverItem) {
-            if (!revolverItem.fullyLoaded(heldItem) && revolverItem.hasAmmo(player) && !revolverItem.isReloading(heldItem)) {
-                Network.sendToServer(new ReloadPacket());
-                player.displayClientMessage(Component.literal("Reloading!"), true);
-            } else if (!revolverItem.hasAmmo(player)) {
-                player.displayClientMessage(Component.literal("No Ammo!"), true);
-            } else if (revolverItem.fullyLoaded(heldItem)) {
-                player.displayClientMessage(Component.literal("Already Fully Loaded!"), true);
-            } else if (revolverItem.isReloading(heldItem)) {
-                player.displayClientMessage(Component.literal("Already Reloading!"), true);
-            }
-        }
         //single shot reload
         if (heldItem.getItem() instanceof GunItem gunItem) {
             if (!gunItem.fullyLoaded(heldItem) && gunItem.hasAmmo(player) && !gunItem.isReloading(heldItem)) {

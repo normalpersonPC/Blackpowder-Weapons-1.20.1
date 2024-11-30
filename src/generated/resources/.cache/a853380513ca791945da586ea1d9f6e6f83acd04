@@ -1,4 +1,4 @@
-// 1.20.1	2024-09-11T15:50:41.4372868	Item Models: blackpowderweaponsmod
+// 1.20.1	2024-11-30T21:14:24.4321114	Item Models: blackpowderweaponsmod
 dd27b6c48f54a61cfa09d1055989cfad3104fc78 assets/blackpowderweaponsmod/models/item/barrel_long.json
 b6e45d3bac6e9240d77d4510396f7b03f281ffdb assets/blackpowderweaponsmod/models/item/barrel_medium.json
 e3f3e5b59c315fe90933f2f66a2e1e18b3811e29 assets/blackpowderweaponsmod/models/item/barrel_short.json
@@ -16,6 +16,7 @@ ac164b0b603f2455cfff8c23f489a9ddf6ab850e assets/blackpowderweaponsmod/models/ite
 163b4d3ec40a9b436fe85a31096910d56825aeba assets/blackpowderweaponsmod/models/item/paper_cartridge_rifle.json
 196b203a3863f2d44fe04436c649e3993be37667 assets/blackpowderweaponsmod/models/item/percussion_cap.json
 2ed18ceac3307c06964fe9e4655c60feec118b17 assets/blackpowderweaponsmod/models/item/pistol_bullet.json
+b451af614eca8afeb105af5fe73dd700a0d4dd5b assets/blackpowderweaponsmod/models/item/revolver_cylinder.json
 b70bd19e4763262aeda62f761e23288b1e1d76b3 assets/blackpowderweaponsmod/models/item/rifle_bullet.json
 7da39d0ab9f483b3e3a2bf5d75d76c9ee014b206 assets/blackpowderweaponsmod/models/item/shotgun_pellets.json
 7da3540a9c012bd15418d3adb3f12d45b38e528c assets/blackpowderweaponsmod/models/item/stock_long.json

@@ -23,8 +23,10 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.phys.Vec3;
 import net.normalpersonJava.blackpowderweaponsmod.entity.projectile.BulletEntity;
 import net.normalpersonJava.blackpowderweaponsmod.init.ModParticles;
+import net.normalpersonJava.blackpowderweaponsmod.init.ModSounds;
 
 import javax.annotation.Nullable;
 
@@ -56,6 +58,10 @@ public abstract class GunItem extends Item {
     public abstract boolean hasAmmo(Player player);
     public abstract void reload(LevelAccessor world, Entity entity, ItemStack stack);
     public abstract SoundEvent fireSFX();
+
+    public double meleeRange() {
+        return 2.0;
+    }
 
     public boolean twoHanded() {
         return true;
@@ -94,7 +100,6 @@ public abstract class GunItem extends Item {
         if (isInHand(entity, InteractionHand.OFF_HAND)) return InteractionHand.OFF_HAND;
         return null;
     }
-
     public boolean isInHand(LivingEntity entity, InteractionHand hand) {
         ItemStack stack = entity.getItemInHand(hand);
         if (stack.isEmpty()) return false;
@@ -103,7 +108,6 @@ public abstract class GunItem extends Item {
         }
         return false;
     }
-
     public boolean isHoldingGun(LivingEntity entity) {
         return getHoldingHand(entity) != null;
     }
@@ -273,6 +277,36 @@ public abstract class GunItem extends Item {
         return used;
     }
 
+
+    //melee stuff
+    @Override
+    public boolean onLeftClickEntity(ItemStack stack, Player player, Entity target) {
+        // Ensure this logic applies only to FlintlockMusketItem
+        if (player.level().isClientSide() || !(target instanceof LivingEntity)) {
+            return false; // Skip if not the correct item or not the main hand
+        }
+
+        LivingEntity targetEntity = (LivingEntity) target;
+        if (isWithinMeleeRange(player, targetEntity)) {
+            // Apply melee damage
+            targetEntity.hurt(player.damageSources().playerAttack(player), (float) meleeDamage());
+
+            // Apply knockback or additional effects (optional)
+            targetEntity.knockback(0.4F, player.getX() - target.getX(), player.getZ() - target.getZ());
+
+            return true; // Successful melee attack
+        }
+
+        return false; // Out of range
+    }
+
+    public boolean isWithinMeleeRange(Player player, LivingEntity target) {
+        Vec3 playerPosition = player.position();
+        Vec3 targetPosition = target.position();
+
+        // Calculate distance and compare with MELEE_RANGE
+        return playerPosition.distanceTo(targetPosition) <= meleeRange();
+    }
 
     @Override
     public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) {
