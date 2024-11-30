@@ -110,6 +110,22 @@
         "stream": false
       }
     ]
+  },
+  "cat_infdev": {
+    "sounds": [
+      {
+        "name": "blackpowderweaponsmod:cat_infdev",
+        "stream": true
+      }
+    ]
+  },
+  "my_way": {
+    "sounds": [
+      {
+        "name": "blackpowderweaponsmod:my_way",
+        "stream": true
+      }
+    ]
   }
 
 }

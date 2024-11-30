@@ -42,5 +42,11 @@
   "item.blackpowderweaponsmod.blueprint_caplock_mechanism": "Caplock Mechanism Blueprint",
   "item.blackpowderweaponsmod.blueprint_needlefire_bolt": "Needlefire Bolt Mechanism Blueprint",
 
+  "item.blackpowderweaponsmod.disc_cat_infdev": "Cat (Infdev Mix)",
+  "item.blackpowderweaponsmod.disc_cat_infdev.desc": "SiIvaGunner - Cat (Infdev Mix)",
+  "item.blackpowderweaponsmod.disc_my_way": "My Way",
+  "item.blackpowderweaponsmod.disc_my_way.desc": "Villager - My Way",
+
+
   "creativetab.blackpowder_weapons": "Blackpowder Weapons"
 }

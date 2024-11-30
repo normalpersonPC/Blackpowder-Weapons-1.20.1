@@ -1,4 +1,4 @@
-// 1.20.1	2024-11-30T21:14:24.4321114	Item Models: blackpowderweaponsmod
+// 1.20.1	2024-11-30T21:56:08.6614835	Item Models: blackpowderweaponsmod
 dd27b6c48f54a61cfa09d1055989cfad3104fc78 assets/blackpowderweaponsmod/models/item/barrel_long.json
 b6e45d3bac6e9240d77d4510396f7b03f281ffdb assets/blackpowderweaponsmod/models/item/barrel_medium.json
 e3f3e5b59c315fe90933f2f66a2e1e18b3811e29 assets/blackpowderweaponsmod/models/item/barrel_short.json
@@ -8,6 +8,8 @@ f4d591ee0149dc0b535fda83f1b8c3f9ac433453 assets/blackpowderweaponsmod/models/ite
 028d760dc903523b6ddaea72d9674b38a45ee7be assets/blackpowderweaponsmod/models/item/breechblock.json
 b6061c91ddf9fdf9f006d40070e7cd913cc320a9 assets/blackpowderweaponsmod/models/item/bullet_mold.json
 abb0a92a214e1653fdf99dd791802bb481f37846 assets/blackpowderweaponsmod/models/item/caplock_mechanism.json
+603b062af4a2a70240a193c1346b3a4d99a43be2 assets/blackpowderweaponsmod/models/item/disc_cat_infdev.json
+232056fa0f7e93a52f830452dd08dbf9ae235cce assets/blackpowderweaponsmod/models/item/disc_my_way.json
 7aaba95a75fbe9fb1748b1541c62707e5bb2324b assets/blackpowderweaponsmod/models/item/flintlock_mechanism.json
 af17682b2966a8efb1f2ade5c64f0f45a89d182d assets/blackpowderweaponsmod/models/item/musketball.json
 ac164b0b603f2455cfff8c23f489a9ddf6ab850e assets/blackpowderweaponsmod/models/item/musketball_small.json

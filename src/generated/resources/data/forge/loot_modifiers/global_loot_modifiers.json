@@ -1,8 +1,11 @@
 {
   "entries": [
     "blackpowderweaponsmod:blueprint_breechblock_loot_location",
+    "blackpowderweaponsmod:disc_cat_infdev_loot_location",
     "blackpowderweaponsmod:blueprint_caplock_loot_location",
-    "blackpowderweaponsmod:blueprint_needlefire_bolt_loot_location"
+    "blackpowderweaponsmod:disc_my_way_loot_location2",
+    "blackpowderweaponsmod:blueprint_needlefire_bolt_loot_location",
+    "blackpowderweaponsmod:disc_my_way_loot_location"
   ],
   "replace": false
 }

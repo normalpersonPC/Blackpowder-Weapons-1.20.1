@@ -2,8 +2,11 @@ package net.normalpersonJava.blackpowderweaponsmod;
 
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -53,7 +56,7 @@ public class BlackpowderWeaponsMod
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> new ClientEventHandler(modEventBus));
 
         modEventBus.addListener(this::commonSetup);
-
+        modEventBus.addListener(this::addCreative);
         MinecraftForge.EVENT_BUS.register(this);
     }
 
@@ -65,6 +68,15 @@ public class BlackpowderWeaponsMod
         );
 
     }
+
+    private void addCreative(BuildCreativeModeTabContentsEvent event) {
+        if(event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
+            event.accept(ModItems.DISC_MY_WAY.get());
+            event.accept(ModItems.DISC_CAT_INFDEV.get());
+        }
+
+    }
+
 
     private static final Collection<AbstractMap.SimpleEntry<Runnable, Integer>> workQueue = new ConcurrentLinkedQueue<>();
 

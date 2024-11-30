@@ -1,18 +1,18 @@
-[30Nov2024 21:14:18.068] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgedatauserdev, --assetIndex, 5, --assetsDir, C:\Users\Admin\.gradle\caches\forge_gradle\assets, --gameDir, ., --fml.forgeVersion, 47.3.12, --fml.mcVersion, 1.20.1, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20230612.114412, --mod, blackpowderweaponsmod, --all, --output, D:\Forge Modding\1.20.1\Projects\Blackpowder-Weapons-1.20.1\src\generated\resources, --existing, D:\Forge Modding\1.20.1\Projects\Blackpowder-Weapons-1.20.1\src\main\resources]
-[30Nov2024 21:14:18.072] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.0.9+10.0.9+main.dcd20f30 starting: java version 17.0.12 by Eclipse Adoptium; OS Windows 11 arch amd64 version 10.0
-[30Nov2024 21:14:18.177] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgedatauserdev
-[30Nov2024 21:14:18.229] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/C:/Users/Admin/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23128!/ Service=ModLauncher Env=CLIENT
-[30Nov2024 21:14:18.535] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\Admin\.gradle\caches\modules-2\files-2.1\net.minecraftforge\javafmllanguage\1.20.1-47.3.12\f6b9f7f45e33548b47f78d9f54c7b4eb1e94e9bd\javafmllanguage-1.20.1-47.3.12.jar is missing mods.toml file
-[30Nov2024 21:14:18.539] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\Admin\.gradle\caches\modules-2\files-2.1\net.minecraftforge\lowcodelanguage\1.20.1-47.3.12\81de74e1180787af25604b6ecb3728fc485bd3c7\lowcodelanguage-1.20.1-47.3.12.jar is missing mods.toml file
-[30Nov2024 21:14:18.544] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\Admin\.gradle\caches\modules-2\files-2.1\net.minecraftforge\mclanguage\1.20.1-47.3.12\1ff4ed058e0774b82d8da352d9e051e6d2a154eb\mclanguage-1.20.1-47.3.12.jar is missing mods.toml file
-[30Nov2024 21:14:18.548] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\Admin\.gradle\caches\modules-2\files-2.1\net.minecraftforge\fmlcore\1.20.1-47.3.12\9a4d9f99e106aa2358cdbe6777921855d353371\fmlcore-1.20.1-47.3.12.jar is missing mods.toml file
-[30Nov2024 21:14:18.630] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: No dependencies to load found. Skipping!
-[30Nov2024 21:14:19.871] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgedatauserdev' with arguments [--gameDir, ., --assetsDir, C:\Users\Admin\.gradle\caches\forge_gradle\assets, --assetIndex, 5, --mod, blackpowderweaponsmod, --all, --output, D:\Forge Modding\1.20.1\Projects\Blackpowder-Weapons-1.20.1\src\generated\resources, --existing, D:\Forge Modding\1.20.1\Projects\Blackpowder-Weapons-1.20.1\src\main\resources]
-[30Nov2024 21:14:20.121] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [blackpowderweaponsmod]
-[30Nov2024 21:14:23.653] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 47.3.12, for MC 1.20.1 with MCP 20230612.114412
-[30Nov2024 21:14:23.653] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v47.3.12 Initialized
-[30Nov2024 21:14:23.832] [modloading-worker-0/ERROR] [mezz.jei.common.config.file.ConfigSchema/]: Failed to save config file: 'D:\Forge Modding\1.20.1\Projects\Blackpowder-Weapons-1.20.1\run-data\config\jei\jei-debug.ini'
-java.nio.file.FileSystemException: D:\Forge Modding\1.20.1\Projects\Blackpowder-Weapons-1.20.1\run-data\config\jei\9654561377563429094.tmp -> D:\Forge Modding\1.20.1\Projects\Blackpowder-Weapons-1.20.1\run-data\config\jei\jei-debug.ini: The process cannot access the file because it is being used by another process
+[30Nov2024 22:41:43.905] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgedatauserdev, --assetIndex, 5, --assetsDir, C:\Users\Admin\.gradle\caches\forge_gradle\assets, --gameDir, ., --fml.forgeVersion, 47.3.12, --fml.mcVersion, 1.20.1, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20230612.114412, --mod, blackpowderweaponsmod, --all, --output, D:\Forge Modding\1.20.1\Projects\Blackpowder-Weapons-1.20.1\src\generated\resources, --existing, D:\Forge Modding\1.20.1\Projects\Blackpowder-Weapons-1.20.1\src\main\resources]
+[30Nov2024 22:41:43.909] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.0.9+10.0.9+main.dcd20f30 starting: java version 17.0.12 by Eclipse Adoptium; OS Windows 11 arch amd64 version 10.0
+[30Nov2024 22:41:44.035] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgedatauserdev
+[30Nov2024 22:41:44.081] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/C:/Users/Admin/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23128!/ Service=ModLauncher Env=CLIENT
+[30Nov2024 22:41:44.330] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\Admin\.gradle\caches\modules-2\files-2.1\net.minecraftforge\javafmllanguage\1.20.1-47.3.12\f6b9f7f45e33548b47f78d9f54c7b4eb1e94e9bd\javafmllanguage-1.20.1-47.3.12.jar is missing mods.toml file
+[30Nov2024 22:41:44.332] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\Admin\.gradle\caches\modules-2\files-2.1\net.minecraftforge\lowcodelanguage\1.20.1-47.3.12\81de74e1180787af25604b6ecb3728fc485bd3c7\lowcodelanguage-1.20.1-47.3.12.jar is missing mods.toml file
+[30Nov2024 22:41:44.334] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\Admin\.gradle\caches\modules-2\files-2.1\net.minecraftforge\mclanguage\1.20.1-47.3.12\1ff4ed058e0774b82d8da352d9e051e6d2a154eb\mclanguage-1.20.1-47.3.12.jar is missing mods.toml file
+[30Nov2024 22:41:44.337] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\Admin\.gradle\caches\modules-2\files-2.1\net.minecraftforge\fmlcore\1.20.1-47.3.12\9a4d9f99e106aa2358cdbe6777921855d353371\fmlcore-1.20.1-47.3.12.jar is missing mods.toml file
+[30Nov2024 22:41:44.403] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: No dependencies to load found. Skipping!
+[30Nov2024 22:41:46.952] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgedatauserdev' with arguments [--gameDir, ., --assetsDir, C:\Users\Admin\.gradle\caches\forge_gradle\assets, --assetIndex, 5, --mod, blackpowderweaponsmod, --all, --output, D:\Forge Modding\1.20.1\Projects\Blackpowder-Weapons-1.20.1\src\generated\resources, --existing, D:\Forge Modding\1.20.1\Projects\Blackpowder-Weapons-1.20.1\src\main\resources]
+[30Nov2024 22:41:47.208] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [blackpowderweaponsmod]
+[30Nov2024 22:41:50.488] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 47.3.12, for MC 1.20.1 with MCP 20230612.114412
+[30Nov2024 22:41:50.488] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v47.3.12 Initialized
+[30Nov2024 22:41:50.759] [modloading-worker-0/ERROR] [mezz.jei.common.config.file.ConfigSchema/]: Failed to save config file: 'D:\Forge Modding\1.20.1\Projects\Blackpowder-Weapons-1.20.1\run-data\config\jei\jei-colors.ini'
+java.nio.file.FileSystemException: D:\Forge Modding\1.20.1\Projects\Blackpowder-Weapons-1.20.1\run-data\config\jei\15120733517505894934.tmp -> D:\Forge Modding\1.20.1\Projects\Blackpowder-Weapons-1.20.1\run-data\config\jei\jei-colors.ini: The process cannot access the file because it is being used by another process
 	at sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:92) ~[?:?]
 	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103) ~[?:?]
 	at sun.nio.fs.WindowsFileCopy.move(WindowsFileCopy.java:317) ~[?:?]
@@ -20,68 +20,6 @@ java.nio.file.FileSystemException: D:\Forge Modding\1.20.1\Projects\Blackpowder-
 	at java.nio.file.Files.move(Files.java:1432) ~[?:?]
 	at mezz.jei.core.util.PathUtil.moveAtomicReplace(PathUtil.java:33) ~[jei-1.20.1-forge-15.14.0.64_mapped_parchment_2023.09.03-1.20.1.jar%23198!/:15.14.0.64]
 	at mezz.jei.core.util.PathUtil.writeUsingTempFile(PathUtil.java:22) ~[jei-1.20.1-forge-15.14.0.64_mapped_parchment_2023.09.03-1.20.1.jar%23198!/:15.14.0.64]
-	at mezz.jei.common.config.file.ConfigSerializer.save(ConfigSerializer.java:130) ~[jei-1.20.1-forge-15.14.0.64_mapped_parchment_2023.09.03-1.20.1.jar%23198!/:15.14.0.64]
-	at mezz.jei.common.config.file.ConfigSchema.save(ConfigSchema.java:65) ~[jei-1.20.1-forge-15.14.0.64_mapped_parchment_2023.09.03-1.20.1.jar%23198!/:15.14.0.64]
-	at mezz.jei.common.config.file.ConfigSchema.register(ConfigSchema.java:57) ~[jei-1.20.1-forge-15.14.0.64_mapped_parchment_2023.09.03-1.20.1.jar%23198!/:15.14.0.64]
-	at mezz.jei.library.startup.JeiStarter.<init>(JeiStarter.java:77) ~[jei-1.20.1-forge-15.14.0.64_mapped_parchment_2023.09.03-1.20.1.jar%23198!/:15.14.0.64]
-	at mezz.jei.forge.JustEnoughItemsClient.<init>(JustEnoughItemsClient.java:58) ~[jei-1.20.1-forge-15.14.0.64_mapped_parchment_2023.09.03-1.20.1.jar%23198!/:15.14.0.64]
-	at mezz.jei.forge.JustEnoughItemsClientSafeRunner.registerClient(JustEnoughItemsClientSafeRunner.java:23) ~[jei-1.20.1-forge-15.14.0.64_mapped_parchment_2023.09.03-1.20.1.jar%23198!/:15.14.0.64]
-	at net.minecraftforge.fml.DistExecutor.safeRunWhenOn(DistExecutor.java:123) ~[fmlcore-1.20.1-47.3.12.jar%23195!/:?]
-	at mezz.jei.forge.JustEnoughItems.<init>(JustEnoughItems.java:35) ~[jei-1.20.1-forge-15.14.0.64_mapped_parchment_2023.09.03-1.20.1.jar%23198!/:15.14.0.64]
-	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:?]
-	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77) ~[?:?]
-	at jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[?:?]
-	at java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500) ~[?:?]
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:481) ~[?:?]
-	at net.minecraftforge.fml.javafmlmod.FMLModContainer.constructMod(FMLModContainer.java:77) ~[javafmllanguage-1.20.1-47.3.12.jar%23192!/:?]
-	at net.minecraftforge.fml.ModContainer.lambda$buildTransitionHandler$4(ModContainer.java:124) ~[fmlcore-1.20.1-47.3.12.jar%23195!/:?]
-	at java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) ~[?:?]
-	at java.util.concurrent.CompletableFuture$AsyncRun.exec(CompletableFuture.java:1796) ~[?:?]
-	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:373) ~[?:?]
-	at java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182) ~[?:?]
-	at java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655) ~[?:?]
-	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622) ~[?:?]
-	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165) ~[?:?]
-[30Nov2024 21:14:23.843] [modloading-worker-0/ERROR] [mezz.jei.common.config.file.ConfigSchema/]: Failed to save config file: 'D:\Forge Modding\1.20.1\Projects\Blackpowder-Weapons-1.20.1\run-data\config\jei\jei-mod-id-format.ini'
-java.nio.file.FileSystemException: D:\Forge Modding\1.20.1\Projects\Blackpowder-Weapons-1.20.1\run-data\config\jei\964973893257418304.tmp -> D:\Forge Modding\1.20.1\Projects\Blackpowder-Weapons-1.20.1\run-data\config\jei\jei-mod-id-format.ini: The process cannot access the file because it is being used by another process
-	at sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:92) ~[?:?]
-	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103) ~[?:?]
-	at sun.nio.fs.WindowsFileCopy.move(WindowsFileCopy.java:317) ~[?:?]
-	at sun.nio.fs.WindowsFileSystemProvider.move(WindowsFileSystemProvider.java:293) ~[?:?]
-	at java.nio.file.Files.move(Files.java:1432) ~[?:?]
-	at mezz.jei.core.util.PathUtil.moveAtomicReplace(PathUtil.java:33) ~[jei-1.20.1-forge-15.14.0.64_mapped_parchment_2023.09.03-1.20.1.jar%23198!/:15.14.0.64]
-	at mezz.jei.core.util.PathUtil.writeUsingTempFile(PathUtil.java:22) ~[jei-1.20.1-forge-15.14.0.64_mapped_parchment_2023.09.03-1.20.1.jar%23198!/:15.14.0.64]
-	at mezz.jei.common.config.file.ConfigSerializer.save(ConfigSerializer.java:130) ~[jei-1.20.1-forge-15.14.0.64_mapped_parchment_2023.09.03-1.20.1.jar%23198!/:15.14.0.64]
-	at mezz.jei.common.config.file.ConfigSchema.save(ConfigSchema.java:65) ~[jei-1.20.1-forge-15.14.0.64_mapped_parchment_2023.09.03-1.20.1.jar%23198!/:15.14.0.64]
-	at mezz.jei.common.config.file.ConfigSchema.register(ConfigSchema.java:57) ~[jei-1.20.1-forge-15.14.0.64_mapped_parchment_2023.09.03-1.20.1.jar%23198!/:15.14.0.64]
-	at mezz.jei.library.startup.JeiStarter.<init>(JeiStarter.java:81) ~[jei-1.20.1-forge-15.14.0.64_mapped_parchment_2023.09.03-1.20.1.jar%23198!/:15.14.0.64]
-	at mezz.jei.forge.JustEnoughItemsClient.<init>(JustEnoughItemsClient.java:58) ~[jei-1.20.1-forge-15.14.0.64_mapped_parchment_2023.09.03-1.20.1.jar%23198!/:15.14.0.64]
-	at mezz.jei.forge.JustEnoughItemsClientSafeRunner.registerClient(JustEnoughItemsClientSafeRunner.java:23) ~[jei-1.20.1-forge-15.14.0.64_mapped_parchment_2023.09.03-1.20.1.jar%23198!/:15.14.0.64]
-	at net.minecraftforge.fml.DistExecutor.safeRunWhenOn(DistExecutor.java:123) ~[fmlcore-1.20.1-47.3.12.jar%23195!/:?]
-	at mezz.jei.forge.JustEnoughItems.<init>(JustEnoughItems.java:35) ~[jei-1.20.1-forge-15.14.0.64_mapped_parchment_2023.09.03-1.20.1.jar%23198!/:15.14.0.64]
-	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:?]
-	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77) ~[?:?]
-	at jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[?:?]
-	at java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500) ~[?:?]
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:481) ~[?:?]
-	at net.minecraftforge.fml.javafmlmod.FMLModContainer.constructMod(FMLModContainer.java:77) ~[javafmllanguage-1.20.1-47.3.12.jar%23192!/:?]
-	at net.minecraftforge.fml.ModContainer.lambda$buildTransitionHandler$4(ModContainer.java:124) ~[fmlcore-1.20.1-47.3.12.jar%23195!/:?]
-	at java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) ~[?:?]
-	at java.util.concurrent.CompletableFuture$AsyncRun.exec(CompletableFuture.java:1796) ~[?:?]
-	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:373) ~[?:?]
-	at java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182) ~[?:?]
-	at java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655) ~[?:?]
-	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622) ~[?:?]
-	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165) ~[?:?]
-[30Nov2024 21:14:23.853] [modloading-worker-0/ERROR] [mezz.jei.common.config.file.ConfigSchema/]: Failed to save config file: 'D:\Forge Modding\1.20.1\Projects\Blackpowder-Weapons-1.20.1\run-data\config\jei\jei-colors.ini'
-java.nio.file.FileSystemException: D:\Forge Modding\1.20.1\Projects\Blackpowder-Weapons-1.20.1\run-data\config\jei\5156283349910723558.tmp: The process cannot access the file because it is being used by another process
-	at sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:92) ~[?:?]
-	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103) ~[?:?]
-	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108) ~[?:?]
-	at sun.nio.fs.WindowsFileSystemProvider.implDelete(WindowsFileSystemProvider.java:275) ~[?:?]
-	at sun.nio.fs.AbstractFileSystemProvider.delete(AbstractFileSystemProvider.java:105) ~[?:?]
-	at java.nio.file.Files.delete(Files.java:1152) ~[?:?]
-	at mezz.jei.core.util.PathUtil.writeUsingTempFile(PathUtil.java:25) ~[jei-1.20.1-forge-15.14.0.64_mapped_parchment_2023.09.03-1.20.1.jar%23198!/:15.14.0.64]
 	at mezz.jei.common.config.file.ConfigSerializer.save(ConfigSerializer.java:130) ~[jei-1.20.1-forge-15.14.0.64_mapped_parchment_2023.09.03-1.20.1.jar%23198!/:15.14.0.64]
 	at mezz.jei.common.config.file.ConfigSchema.save(ConfigSchema.java:65) ~[jei-1.20.1-forge-15.14.0.64_mapped_parchment_2023.09.03-1.20.1.jar%23198!/:15.14.0.64]
 	at mezz.jei.common.config.file.ConfigSchema.register(ConfigSchema.java:57) ~[jei-1.20.1-forge-15.14.0.64_mapped_parchment_2023.09.03-1.20.1.jar%23198!/:15.14.0.64]
@@ -104,45 +42,17 @@ java.nio.file.FileSystemException: D:\Forge Modding\1.20.1\Projects\Blackpowder-
 	at java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655) ~[?:?]
 	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622) ~[?:?]
 	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165) ~[?:?]
-[30Nov2024 21:14:23.871] [modloading-worker-0/ERROR] [mezz.jei.common.config.file.ConfigSchema/]: Failed to save config file: 'D:\Forge Modding\1.20.1\Projects\Blackpowder-Weapons-1.20.1\run-data\config\jei\jei-client.ini'
-java.nio.file.FileSystemException: D:\Forge Modding\1.20.1\Projects\Blackpowder-Weapons-1.20.1\run-data\config\jei\3382299675700405976.tmp -> D:\Forge Modding\1.20.1\Projects\Blackpowder-Weapons-1.20.1\run-data\config\jei\jei-client.ini: The process cannot access the file because it is being used by another process
-	at sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:92) ~[?:?]
-	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103) ~[?:?]
-	at sun.nio.fs.WindowsFileCopy.move(WindowsFileCopy.java:317) ~[?:?]
-	at sun.nio.fs.WindowsFileSystemProvider.move(WindowsFileSystemProvider.java:293) ~[?:?]
-	at java.nio.file.Files.move(Files.java:1432) ~[?:?]
-	at mezz.jei.core.util.PathUtil.moveAtomicReplace(PathUtil.java:33) ~[jei-1.20.1-forge-15.14.0.64_mapped_parchment_2023.09.03-1.20.1.jar%23198!/:15.14.0.64]
-	at mezz.jei.core.util.PathUtil.writeUsingTempFile(PathUtil.java:22) ~[jei-1.20.1-forge-15.14.0.64_mapped_parchment_2023.09.03-1.20.1.jar%23198!/:15.14.0.64]
-	at mezz.jei.common.config.file.ConfigSerializer.save(ConfigSerializer.java:130) ~[jei-1.20.1-forge-15.14.0.64_mapped_parchment_2023.09.03-1.20.1.jar%23198!/:15.14.0.64]
-	at mezz.jei.common.config.file.ConfigSchema.save(ConfigSchema.java:65) ~[jei-1.20.1-forge-15.14.0.64_mapped_parchment_2023.09.03-1.20.1.jar%23198!/:15.14.0.64]
-	at mezz.jei.common.config.file.ConfigSchema.register(ConfigSchema.java:57) ~[jei-1.20.1-forge-15.14.0.64_mapped_parchment_2023.09.03-1.20.1.jar%23198!/:15.14.0.64]
-	at mezz.jei.common.config.JeiClientConfigs.register(JeiClientConfigs.java:31) ~[jei-1.20.1-forge-15.14.0.64_mapped_parchment_2023.09.03-1.20.1.jar%23198!/:15.14.0.64]
-	at mezz.jei.library.startup.JeiStarter.<init>(JeiStarter.java:88) ~[jei-1.20.1-forge-15.14.0.64_mapped_parchment_2023.09.03-1.20.1.jar%23198!/:15.14.0.64]
-	at mezz.jei.forge.JustEnoughItemsClient.<init>(JustEnoughItemsClient.java:58) ~[jei-1.20.1-forge-15.14.0.64_mapped_parchment_2023.09.03-1.20.1.jar%23198!/:15.14.0.64]
-	at mezz.jei.forge.JustEnoughItemsClientSafeRunner.registerClient(JustEnoughItemsClientSafeRunner.java:23) ~[jei-1.20.1-forge-15.14.0.64_mapped_parchment_2023.09.03-1.20.1.jar%23198!/:15.14.0.64]
-	at net.minecraftforge.fml.DistExecutor.safeRunWhenOn(DistExecutor.java:123) ~[fmlcore-1.20.1-47.3.12.jar%23195!/:?]
-	at mezz.jei.forge.JustEnoughItems.<init>(JustEnoughItems.java:35) ~[jei-1.20.1-forge-15.14.0.64_mapped_parchment_2023.09.03-1.20.1.jar%23198!/:15.14.0.64]
-	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:?]
-	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77) ~[?:?]
-	at jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[?:?]
-	at java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500) ~[?:?]
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:481) ~[?:?]
-	at net.minecraftforge.fml.javafmlmod.FMLModContainer.constructMod(FMLModContainer.java:77) ~[javafmllanguage-1.20.1-47.3.12.jar%23192!/:?]
-	at net.minecraftforge.fml.ModContainer.lambda$buildTransitionHandler$4(ModContainer.java:124) ~[fmlcore-1.20.1-47.3.12.jar%23195!/:?]
-	at java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) ~[?:?]
-	at java.util.concurrent.CompletableFuture$AsyncRun.exec(CompletableFuture.java:1796) ~[?:?]
-	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:373) ~[?:?]
-	at java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182) ~[?:?]
-	at java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655) ~[?:?]
-	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622) ~[?:?]
-	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165) ~[?:?]
-[30Nov2024 21:14:23.877] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager...
-[30Nov2024 21:14:23.882] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager took 3.585 ms
-[30Nov2024 21:14:24.213] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/Admin/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.3.12_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.3.12_mapped_parchment_2023.09.03-1.20.1.jar%23191!/assets/.mcassetsroot' uses unexpected schema
-[30Nov2024 21:14:24.214] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/Admin/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.3.12_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.3.12_mapped_parchment_2023.09.03-1.20.1.jar%23191!/data/.mcassetsroot' uses unexpected schema
-[30Nov2024 21:14:24.376] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Item Models: blackpowderweaponsmod
-[30Nov2024 21:14:24.408] [main/INFO] [net.minecraft.data.DataGenerator/]: Item Models: blackpowderweaponsmod finished after 32 ms
-[30Nov2024 21:14:24.409] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Global Loot Modifiers : blackpowderweaponsmod
-[30Nov2024 21:14:24.430] [main/INFO] [net.minecraft.data.DataGenerator/]: Global Loot Modifiers : blackpowderweaponsmod finished after 21 ms
-[30Nov2024 21:14:24.430] [main/INFO] [net.minecraft.data.DataGenerator/]: All providers took: 55 ms
-[30Nov2024 21:14:24.436] [main/INFO] [net.minecraft.data.HashCache/]: Caching: total files: 28, old count: 27, new count: 29, removed stale: 0, written: 1
+[30Nov2024 22:41:50.790] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager...
+[30Nov2024 22:41:50.797] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager took 4.220 ms
+[30Nov2024 22:41:51.052] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/Admin/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.3.12_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.3.12_mapped_parchment_2023.09.03-1.20.1.jar%23191!/assets/.mcassetsroot' uses unexpected schema
+[30Nov2024 22:41:51.053] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/Admin/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.3.12_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.3.12_mapped_parchment_2023.09.03-1.20.1.jar%23191!/data/.mcassetsroot' uses unexpected schema
+[30Nov2024 22:41:51.222] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Item Models: blackpowderweaponsmod
+[30Nov2024 22:41:51.379] [main/INFO] [net.minecraft.data.DataGenerator/]: Item Models: blackpowderweaponsmod finished after 156 ms
+[30Nov2024 22:41:51.379] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:block mod id blackpowderweaponsmod
+[30Nov2024 22:41:51.382] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:block mod id blackpowderweaponsmod finished after 2 ms
+[30Nov2024 22:41:51.382] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:item mod id blackpowderweaponsmod
+[30Nov2024 22:41:51.389] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:item mod id blackpowderweaponsmod finished after 7 ms
+[30Nov2024 22:41:51.389] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Global Loot Modifiers : blackpowderweaponsmod
+[30Nov2024 22:41:51.401] [main/INFO] [net.minecraft.data.DataGenerator/]: Global Loot Modifiers : blackpowderweaponsmod finished after 11 ms
+[30Nov2024 22:41:51.401] [main/INFO] [net.minecraft.data.DataGenerator/]: All providers took: 179 ms
+[30Nov2024 22:41:51.406] [main/INFO] [net.minecraft.data.HashCache/]: Caching: total files: 34, old count: 34, new count: 35, removed stale: 0, written: 1

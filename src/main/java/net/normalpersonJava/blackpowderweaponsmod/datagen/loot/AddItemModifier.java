@@ -1,4 +1,4 @@
-package net.normalpersonJava.blackpowderweaponsmod.loot;
+package net.normalpersonJava.blackpowderweaponsmod.datagen.loot;
 
 import com.google.common.base.Suppliers;
 import com.mojang.serialization.Codec;

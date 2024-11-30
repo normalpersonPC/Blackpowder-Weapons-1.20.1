@@ -23,5 +23,7 @@ public class ModSounds {
     public static final RegistryObject<SoundEvent> BOLT_1 = REGISTRY.register("bolt_1", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("blackpowderweaponsmod", "bolt_1")));
     public static final RegistryObject<SoundEvent> BOLT_2 = REGISTRY.register("bolt_2", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("blackpowderweaponsmod", "bolt_2")));
 
-
+    //music discs
+    public static final RegistryObject<SoundEvent> CAT_INFDEV = REGISTRY.register("cat_infdev", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("blackpowderweaponsmod", "cat_infdev")));
+    public static final RegistryObject<SoundEvent> MY_WAY = REGISTRY.register("my_way", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("blackpowderweaponsmod", "my_way")));
 }

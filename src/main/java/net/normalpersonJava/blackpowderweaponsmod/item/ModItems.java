@@ -5,6 +5,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
+import net.minecraft.world.item.RecordItem;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -14,6 +15,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.normalpersonJava.blackpowderweaponsmod.BlackpowderWeaponsMod;
+import net.normalpersonJava.blackpowderweaponsmod.init.ModSounds;
 import net.normalpersonJava.blackpowderweaponsmod.item.tools.BlueprintItem;
 import net.normalpersonJava.blackpowderweaponsmod.item.tools.ToolkitItem;
 import net.normalpersonJava.blackpowderweaponsmod.item.weapons.*;
@@ -204,6 +206,13 @@ public class ModItems {
 
     public static final RegistryObject<Item> BLUEPRINT_NEEDLEFIRE_BOLT = ITEMS.register("blueprint_needlefire_bolt",
             () -> new BlueprintItem(new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
+
+
+    //music disc
+    public static final RegistryObject<Item> DISC_CAT_INFDEV = ITEMS.register("disc_cat_infdev",
+            () -> new RecordItem(6, ModSounds.CAT_INFDEV, new Item.Properties().stacksTo(1).rarity(Rarity.EPIC), 5240));
+    public static final RegistryObject<Item> DISC_MY_WAY = ITEMS.register("disc_my_way",
+            () -> new RecordItem(6, ModSounds.MY_WAY, new Item.Properties().stacksTo(1).rarity(Rarity.EPIC), 6240));
 
 
     public static void register(IEventBus eventBus) {

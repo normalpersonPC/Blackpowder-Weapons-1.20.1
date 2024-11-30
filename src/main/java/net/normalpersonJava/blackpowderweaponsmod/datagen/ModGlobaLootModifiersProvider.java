@@ -8,7 +8,7 @@ import net.minecraftforge.common.data.GlobalLootModifierProvider;
 import net.minecraftforge.common.loot.LootTableIdCondition;
 import net.normalpersonJava.blackpowderweaponsmod.BlackpowderWeaponsMod;
 import net.normalpersonJava.blackpowderweaponsmod.item.ModItems;
-import net.normalpersonJava.blackpowderweaponsmod.loot.AddItemModifier;
+import net.normalpersonJava.blackpowderweaponsmod.datagen.loot.AddItemModifier;
 
 public class ModGlobaLootModifiersProvider extends GlobalLootModifierProvider {
     public ModGlobaLootModifiersProvider(PackOutput output) {
@@ -31,5 +31,20 @@ public class ModGlobaLootModifiersProvider extends GlobalLootModifierProvider {
                 new LootTableIdCondition.Builder(new ResourceLocation("chests/nether_bridge")).build(),
                 LootItemRandomChanceCondition.randomChance(0.30f).build(),
         }, ModItems.BLUEPRINT_NEEDLEFIRE_BOLT.get()));
+
+        add("disc_my_way_loot_location", new AddItemModifier(new LootItemCondition[] {
+                new LootTableIdCondition.Builder(new ResourceLocation("chests/bastion_other")).build(),
+                LootItemRandomChanceCondition.randomChance(0.15f).build(),
+        }, ModItems.DISC_MY_WAY.get()));
+
+        add("disc_my_way_loot_location2", new AddItemModifier(new LootItemCondition[] {
+                new LootTableIdCondition.Builder(new ResourceLocation("chests/bastion_treasure")).build(),
+                LootItemRandomChanceCondition.randomChance(0.20f).build(),
+        }, ModItems.DISC_MY_WAY.get()));
+
+        add("disc_cat_infdev_loot_location", new AddItemModifier(new LootItemCondition[] {
+                new LootTableIdCondition.Builder(new ResourceLocation("chests/simple_dungeon")).build(),
+                LootItemRandomChanceCondition.randomChance(0.15f).build(),
+        }, ModItems.DISC_CAT_INFDEV.get()));
     }
 }

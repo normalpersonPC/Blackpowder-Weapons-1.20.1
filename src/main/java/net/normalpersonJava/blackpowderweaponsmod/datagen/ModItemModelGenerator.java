@@ -39,6 +39,10 @@ public class ModItemModelGenerator extends ItemModelProvider {
         partsItem(ModItems.BREECHBLOCK);
         partsItem(ModItems.REVOLVER_CYLINDER);
 
+        //music disc
+        partsItem(ModItems.DISC_CAT_INFDEV);
+        partsItem(ModItems.DISC_MY_WAY);
+
         //tools
         partsItem(ModItems.TOOLKIT);
         partsItem(ModItems.TOOLKIT_CONVERSION);

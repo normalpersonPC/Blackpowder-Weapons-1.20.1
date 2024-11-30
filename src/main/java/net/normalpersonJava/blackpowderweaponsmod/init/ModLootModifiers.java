@@ -7,7 +7,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.normalpersonJava.blackpowderweaponsmod.BlackpowderWeaponsMod;
-import net.normalpersonJava.blackpowderweaponsmod.loot.AddItemModifier;
+import net.normalpersonJava.blackpowderweaponsmod.datagen.loot.AddItemModifier;
 
 public class ModLootModifiers {
     public static final DeferredRegister<Codec<? extends IGlobalLootModifier>> LOOT_MODIFIER_SERIALIZERS =

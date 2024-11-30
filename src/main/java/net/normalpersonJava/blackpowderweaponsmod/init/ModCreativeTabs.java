@@ -69,7 +69,6 @@ public class ModCreativeTabs {
                         output.accept(ModItems.TOOLKIT_CONVERSION.get());
                         output.accept(ModItems.BULLET_MOLD.get());
 
-
                     }).build());
 
     public static void register(IEventBus eventBus) {
