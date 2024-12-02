@@ -25,7 +25,7 @@ public class FlintlockBreechloadingRifleItem extends GunItem {
 
     @Override
     public float bulletDamage() {
-        return 24;
+        return 20;
     }
 
     @Override
@@ -62,9 +62,11 @@ public class FlintlockBreechloadingRifleItem extends GunItem {
     }
 
     @Override
-    public boolean hasAmmo(Player player) {
-        return player.getInventory().contains(new ItemStack(ModItems.MUSKETBALL.get())) &&
-                player.getInventory().contains(new ItemStack(Items.GUNPOWDER));
+    public ItemStack[] ammoNeeded() {
+        return new ItemStack[] {
+                new ItemStack(ModItems.MUSKETBALL.get()),
+                new ItemStack(Items.GUNPOWDER)
+        };
     }
 
     public void reload (LevelAccessor world, Entity entity, ItemStack stack) {

@@ -3,7 +3,9 @@ package net.normalpersonJava.blackpowderweaponsmod.item.base;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
@@ -21,6 +23,7 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.phys.Vec3;
@@ -29,11 +32,27 @@ import net.normalpersonJava.blackpowderweaponsmod.init.ModParticles;
 import net.normalpersonJava.blackpowderweaponsmod.init.ModSounds;
 
 import javax.annotation.Nullable;
+import java.awt.*;
+import java.util.List;
 
 public abstract class GunItem extends Item {
     public GunItem(Properties properties) {
         super(properties);
     }
+
+    public abstract double meleeDamage();
+    public abstract float bulletDamage();
+    public abstract float bulletSpeed();
+    public abstract float bulletSpread();
+    public abstract float piercing();
+    public abstract float knockback();
+    public abstract float armorPiercing();
+    public abstract int maxAmmo();
+    public abstract int pelletCount();
+    public abstract ItemStack[] ammoNeeded();
+    public abstract void reload(LevelAccessor world, Entity entity, ItemStack stack);
+    public abstract SoundEvent fireSFX();
+
     @Override
     public Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(EquipmentSlot equipmentSlot) {
         if (equipmentSlot == EquipmentSlot.MAINHAND) {
@@ -46,18 +65,26 @@ public abstract class GunItem extends Item {
         return super.getDefaultAttributeModifiers(equipmentSlot);
     }
 
-    public abstract double meleeDamage();
-    public abstract float bulletDamage();
-    public abstract float bulletSpeed();
-    public abstract float bulletSpread();
-    public abstract float piercing();
-    public abstract float knockback();
-    public abstract float armorPiercing();
-    public abstract int maxAmmo();
-    public abstract int pelletCount();
-    public abstract boolean hasAmmo(Player player);
-    public abstract void reload(LevelAccessor world, Entity entity, ItemStack stack);
-    public abstract SoundEvent fireSFX();
+    @Override
+    public void appendHoverText(ItemStack stack, @org.jetbrains.annotations.Nullable Level level, List<Component> tooltip, TooltipFlag isAdvanced) {
+        super.appendHoverText(stack, level, tooltip, isAdvanced);
+        tooltip.add(Component.literal("Bullet Damage: " + bulletDamage()).withStyle(ChatFormatting.DARK_GREEN));
+        tooltip.add(Component.literal("Pellet Count: " + pelletCount()).withStyle(ChatFormatting.DARK_GREEN));
+        tooltip.add(Component.literal("Required Ammo: " ));
+        for (ItemStack ammo : ammoNeeded()) {
+            tooltip.add(Component.literal(ammo.getDisplayName().getString()).withStyle(ChatFormatting.GRAY));
+        }
+    }
+
+    public boolean hasAmmo(Player player) {
+        ItemStack[] requiredAmmo = ammoNeeded();
+        for (ItemStack ammo : requiredAmmo) {
+            if (player.getInventory().contains(ammo)) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     public double meleeRange() {
         return 2.0;

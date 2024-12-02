@@ -21,7 +21,7 @@ public class CaplockBreechloadingRifleItem extends GunItem {
     public double meleeDamage() {return 2;}
 
     @Override
-    public float bulletDamage() {return 24;}
+    public float bulletDamage() {return 22;}
 
     @Override
     public float bulletSpeed() {return 8f;}
@@ -45,10 +45,12 @@ public class CaplockBreechloadingRifleItem extends GunItem {
     public int pelletCount() {return 1;}
 
     @Override
-    public boolean hasAmmo(Player player) {
-        return player.getInventory().contains(new ItemStack(ModItems.RIFLE_BULLET.get())) &&
-                player.getInventory().contains(new ItemStack(Items.GUNPOWDER)) &&
-                player.getInventory().contains(new ItemStack(ModItems.PERCUSSION_CAP.get()));
+    public ItemStack[] ammoNeeded() {
+        return new ItemStack[] {
+                new ItemStack(ModItems.RIFLE_BULLET.get()),
+                new ItemStack(Items.GUNPOWDER),
+                new ItemStack(ModItems.PERCUSSION_CAP.get())
+        };
     }
 
     @Override

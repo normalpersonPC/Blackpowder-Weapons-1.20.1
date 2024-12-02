@@ -61,10 +61,12 @@ public class CaplockBlunderbussItem extends GunItem {
     }
 
     @Override
-    public boolean hasAmmo(Player player) {
-        return player.getInventory().contains(new ItemStack(ModItems.SHOTGUN_PELLETS.get())) &&
-                player.getInventory().contains(new ItemStack(ModItems.PERCUSSION_CAP.get())) &&
-                player.getInventory().contains(new ItemStack(Items.GUNPOWDER));
+    public ItemStack[] ammoNeeded() {
+        return new ItemStack[] {
+                new ItemStack(ModItems.SHOTGUN_PELLETS.get()),
+                new ItemStack(ModItems.PERCUSSION_CAP.get()),
+                new ItemStack(Items.GUNPOWDER)
+        };
     }
 
     @Override

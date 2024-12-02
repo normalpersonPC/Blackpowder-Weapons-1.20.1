@@ -66,8 +66,10 @@ public class CaplockRevolverItem extends RevolverItem {
     }
 
     @Override
-    public boolean hasAmmo(Player player) {
-        return player.getInventory().contains(new ItemStack(ModItems.PAPER_CARTRIDGE_PISTOL.get()));
+    public ItemStack[] ammoNeeded() {
+        return new ItemStack[] {
+                new ItemStack(ModItems.PAPER_CARTRIDGE_PISTOL.get())
+        };
     }
 
     @Override

@@ -1,6 +1,11 @@
 package net.normalpersonJava.blackpowderweaponsmod.client.handler;
 
+import com.mojang.blaze3d.systems.RenderSystem;
+import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.Font;
+import net.minecraft.client.gui.Gui;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.PlayerModel;
 import net.minecraft.network.chat.Component;
@@ -11,8 +16,10 @@ import net.minecraft.world.entity.HumanoidArm;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.RenderGuiOverlayEvent;
 import net.minecraftforge.client.event.RenderHandEvent;
 import net.minecraftforge.client.event.RenderLivingEvent;
+import net.minecraftforge.client.gui.overlay.GuiOverlayManager;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -35,6 +42,44 @@ public class ClientEventHandler {
         MinecraftForge.EVENT_BUS.addListener(this::onRenderPlayer);
         MinecraftForge.EVENT_BUS.addListener(this::onRenderHand);
         MinecraftForge.EVENT_BUS.addListener(this::onClientTick);
+        MinecraftForge.EVENT_BUS.addListener(this::onRenderGuiOverlay);
+    }
+    //gui overlay
+    @SubscribeEvent
+    public void onRenderGuiOverlay(RenderGuiOverlayEvent.Post event) {
+        Minecraft mc = Minecraft.getInstance();
+        Player player = mc.player;
+
+        if (player == null || mc.level == null) {
+            return;
+        }
+
+        ItemStack heldItem = player.getMainHandItem();
+
+        // Check if the held item is an instance of your gun item
+        if (heldItem.getItem() instanceof GunItem gun) {
+            // Get ammo count
+            int ammoCount = gun.getAmmoCount(heldItem);
+            int maxAmmo = gun.maxAmmo();
+
+            // Render ammo count on the bottom right of the screen
+            renderAmmoCounter(event.getGuiGraphics(), ammoCount, maxAmmo);
+        }
+    }
+
+    public void renderAmmoCounter(GuiGraphics gui, int ammoCount, int maxAmmo) {
+        Minecraft mc = Minecraft.getInstance();
+        Font font = mc.font;
+
+        // Position on screen (bottom right corner)
+        int screenWidth = mc.getWindow().getGuiScaledWidth();
+        int screenHeight = mc.getWindow().getGuiScaledHeight();
+        int x = screenWidth - 100; // Adjust X position
+        int y = screenHeight - 30; // Adjust Y position
+
+        // Render the text
+        RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
+        gui.drawString(font, Component.literal("Ammo: " + ammoCount + "/" + maxAmmo), x + 20, y + 4, 0xFFFFFF, true);
     }
 
     //keybinds

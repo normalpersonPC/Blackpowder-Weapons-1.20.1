@@ -60,6 +60,14 @@ public class FlintlockBlunderbussItem extends GunItem {
     }
 
     @Override
+    public ItemStack[] ammoNeeded() {
+        return new ItemStack[] {
+                new ItemStack(ModItems.SHOTGUN_PELLETS.get()),
+                new ItemStack(Items.GUNPOWDER)
+        };
+    }
+
+    @Override
     public boolean hasAmmo(Player player) {
         return player.getInventory().contains(new ItemStack(ModItems.SHOTGUN_PELLETS.get())) &&
                 player.getInventory().contains(new ItemStack(Items.GUNPOWDER));

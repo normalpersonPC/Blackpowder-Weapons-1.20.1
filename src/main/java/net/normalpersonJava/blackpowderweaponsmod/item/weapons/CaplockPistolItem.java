@@ -47,10 +47,12 @@ public class CaplockPistolItem extends GunItem {
     public int pelletCount() {return 1;}
 
     @Override
-    public boolean hasAmmo(Player player) {
-        return player.getInventory().contains(new ItemStack(ModItems.PISTOL_BULLET.get())) &&
-                player.getInventory().contains(new ItemStack(Items.GUNPOWDER)) &&
-                player.getInventory().contains(new ItemStack(ModItems.PERCUSSION_CAP.get()));
+    public ItemStack[] ammoNeeded() {
+        return new ItemStack[] {
+                new ItemStack(ModItems.PISTOL_BULLET.get()),
+                new ItemStack(Items.GUNPOWDER),
+                new ItemStack(ModItems.PERCUSSION_CAP.get())
+        };
     }
 
     @Override

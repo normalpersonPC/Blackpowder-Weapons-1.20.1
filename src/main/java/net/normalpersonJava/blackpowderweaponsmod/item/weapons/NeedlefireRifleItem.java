@@ -22,13 +22,13 @@ public class NeedlefireRifleItem extends GunItem {
     public double meleeDamage() {return 2;}
 
     @Override
-    public float bulletDamage() {return 24;}
+    public float bulletDamage() {return 22;}
 
     @Override
     public float bulletSpeed() {return 9;}
 
     @Override
-    public float bulletSpread() {return 1.2f;}
+    public float bulletSpread() {return 1.15f;}
 
     @Override
     public float piercing() {return 3;}
@@ -46,8 +46,10 @@ public class NeedlefireRifleItem extends GunItem {
     public int pelletCount() {return 1;}
 
     @Override
-    public boolean hasAmmo(Player player) {
-        return player.getInventory().contains(new ItemStack(ModItems.PAPER_CARTRIDGE_RIFLE.get()));
+    public ItemStack[] ammoNeeded() {
+        return new ItemStack[]{
+                new ItemStack(ModItems.PAPER_CARTRIDGE_RIFLE.get())
+        };
     }
 
     @Override

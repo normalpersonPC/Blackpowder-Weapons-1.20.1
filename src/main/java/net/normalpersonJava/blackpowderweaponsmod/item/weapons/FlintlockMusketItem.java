@@ -63,6 +63,14 @@ public class FlintlockMusketItem extends GunItem {
     }
 
     @Override
+    public ItemStack[] ammoNeeded() {
+        return new ItemStack[] {
+                new ItemStack(ModItems.MUSKETBALL.get()),
+                new ItemStack(Items.GUNPOWDER)
+        };
+    }
+
+    @Override
     public boolean hasAmmo(Player player) {
         return player.getInventory().contains(new ItemStack(ModItems.MUSKETBALL.get())) &&
                 player.getInventory().contains(new ItemStack(Items.GUNPOWDER));

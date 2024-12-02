@@ -43,9 +43,11 @@ public class FlintlockPistolItem extends GunItem {
     public int pelletCount() {return 1;}
 
     @Override
-    public boolean hasAmmo(Player player) {
-        return player.getInventory().contains(new ItemStack(ModItems.MUSKETBALL_SMALL.get())) &&
-                player.getInventory().contains(new ItemStack(Items.GUNPOWDER));
+    public ItemStack[] ammoNeeded() {
+        return new ItemStack[] {
+                new ItemStack(ModItems.MUSKETBALL_SMALL.get()),
+                new ItemStack(Items.GUNPOWDER),
+        };
     }
 
     @Override
