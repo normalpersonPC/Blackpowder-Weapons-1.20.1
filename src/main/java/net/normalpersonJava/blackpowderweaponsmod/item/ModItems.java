@@ -61,31 +61,12 @@ public class ModItems {
     public static final RegistryObject<Item> FLINTLOCK_PISTOL = ITEMS.register("flintlock_pistol",
             () -> new FlintlockPistolItem());
 
-    public static final RegistryObject<Item> FLINTLOCK_PEPPERBOX_PISTOL = ITEMS.register("flintlock_pepperbox_pistol",
-            () -> new Item(new Item.Properties()));
-
     public static final RegistryObject<Item> FLINTLOCK_BREECHLOADING_RIFLE = ITEMS.register("flintlock_breechloading_rifle",
             () -> new FlintlockBreechloadingRifleItem());
 
     //caplocks
     public static final RegistryObject<Item> CAPLOCK_MUSKET = ITEMS.register("caplock_musket",
             () -> new CaplockMusketItem());
-
-    public static final RegistryObject<Item> CAPLOCK_MUSKET_BAYONET = ITEMS.register("caplock_musket_bayonet",
-            () -> new CaplockMusketItem(){
-                @Override
-                public double meleeDamage() {
-                    return 5;
-                }
-            });
-
-    public static final RegistryObject<Item> CAPLOCK_MUSKET_BAYONET_DIAMOND = ITEMS.register("caplock_musket_bayonet_diamond",
-            () -> new CaplockMusketItem(){
-                @Override
-                public double meleeDamage() {
-                    return 6;
-                }
-            });
 
     public static final RegistryObject<Item> CAPLOCK_BLUNDERBUSS = ITEMS.register("caplock_blunderbuss",
             () -> new CaplockBlunderbussItem());
@@ -96,24 +77,12 @@ public class ModItems {
     public static final RegistryObject<Item> CAPLOCK_PISTOL = ITEMS.register("caplock_pistol",
             () -> new CaplockPistolItem());
 
-    public static final RegistryObject<Item> CAPLOCK_PEPPERBOX_PISTOL = ITEMS.register("caplock_pepperbox_pistol",
-            () -> new CaplockMusketItem());
-
     public static final RegistryObject<Item> CAPLOCK_REVOLVER = ITEMS.register("caplock_revolver",
             () -> new CaplockRevolverItem());
 
-    //other
+    //bolt rifles
     public static final RegistryObject<Item> NEEDLEFIRE_RIFLE = ITEMS.register("needlefire_rifle",
             () -> new NeedlefireRifleItem());
-
-    public static final RegistryObject<Item> TRAPDOOR_RIFLE = ITEMS.register("trapdoor_rifle",
-            () -> new CaplockMusketItem());
-
-    public static final RegistryObject<Item> FALLINGBLOCK_RIFLE = ITEMS.register("fallingblock_rifle",
-            () -> new CaplockMusketItem());
-
-    public static final RegistryObject<Item> REVOLVER = ITEMS.register("revolver",
-            () -> new CaplockMusketItem());
 
 
     //ammo
@@ -140,19 +109,6 @@ public class ModItems {
 
     public static final RegistryObject<Item> PAPER_CARTRIDGE_PISTOL = ITEMS.register("paper_cartridge_pistol",
             () -> new Item(new Item.Properties()));
-
-    public static final RegistryObject<Item> METAL_CARTRIDGE_RIFLE = ITEMS.register("metal_cartridge_rifle",
-            () -> new Item(new Item.Properties()));
-
-    public static final RegistryObject<Item> METAL_CARTRIDGE_PISTOL = ITEMS.register("metal_cartridge_pistol",
-            () -> new Item(new Item.Properties()));
-
-    public static final RegistryObject<Item> METAL_CARTRIDGE_SHOTGUN = ITEMS.register("metal_cartridge_shotgun",
-            () -> new Item(new Item.Properties()));
-
-    public static final RegistryObject<Item> METAL_CARTRIDGE_EMPTY = ITEMS.register("metal_cartridge_empty",
-            () -> new Item(new Item.Properties()));
-
 
 
     //parts
