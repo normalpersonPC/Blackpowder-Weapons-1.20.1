@@ -2,7 +2,6 @@ package net.normalpersonJava.blackpowderweaponsmod;
 
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -18,7 +17,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.util.thread.SidedThreadGroups;
 import net.normalpersonJava.blackpowderweaponsmod.client.handler.ClientEventHandler;
-import net.normalpersonJava.blackpowderweaponsmod.common.CommonEventHandler;
+import net.normalpersonJava.blackpowderweaponsmod.eventhandlers.CommonEventHandler;
 import net.normalpersonJava.blackpowderweaponsmod.entity.ModEntities;
 import net.normalpersonJava.blackpowderweaponsmod.init.*;
 import net.normalpersonJava.blackpowderweaponsmod.init.ModLootModifiers;

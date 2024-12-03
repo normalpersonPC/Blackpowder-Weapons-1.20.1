@@ -27,13 +27,13 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.phys.Vec3;
+import net.minecraftforge.common.ForgeMod;
 import net.normalpersonJava.blackpowderweaponsmod.entity.projectile.BulletEntity;
 import net.normalpersonJava.blackpowderweaponsmod.init.ModParticles;
-import net.normalpersonJava.blackpowderweaponsmod.init.ModSounds;
 
 import javax.annotation.Nullable;
-import java.awt.*;
 import java.util.List;
+import java.util.UUID;
 
 public abstract class GunItem extends Item {
     public GunItem(Properties properties) {
@@ -86,7 +86,10 @@ public abstract class GunItem extends Item {
         return false;
     }
 
-    public double meleeRange() {
+    public double meleeReach() {
+        if (hasBayonet()) {
+            return 3.0;
+        }
         return 2.0;
     }
 
@@ -95,6 +98,10 @@ public abstract class GunItem extends Item {
     }
 
     public boolean isFlintlock() {
+        return false;
+    }
+
+    public boolean hasBayonet() {
         return false;
     }
 
@@ -266,9 +273,11 @@ public abstract class GunItem extends Item {
     @Override
     public void inventoryTick(ItemStack stack, Level level, Entity entity, int slotID, boolean selected) {
         super.inventoryTick(stack, level, entity, slotID, selected);
-        if (entity instanceof Player player && selected) {
-            if (isReloading(stack)) {
-                reload(level, player, stack);
+        if (entity instanceof Player player) {
+            if (selected) {
+                if (isReloading(stack)) {
+                    reload(level, player, stack);
+                }
             }
         }
     }
@@ -304,37 +313,6 @@ public abstract class GunItem extends Item {
         return used;
     }
 
-
-    //melee stuff
-    @Override
-    public boolean onLeftClickEntity(ItemStack stack, Player player, Entity target) {
-        // Ensure this logic applies only to FlintlockMusketItem
-        if (player.level().isClientSide() || !(target instanceof LivingEntity)) {
-            return false; // Skip if not the correct item or not the main hand
-        }
-
-        LivingEntity targetEntity = (LivingEntity) target;
-        if (isWithinMeleeRange(player, targetEntity)) {
-            // Apply melee damage
-            targetEntity.hurt(player.damageSources().playerAttack(player), (float) meleeDamage());
-
-            // Apply knockback or additional effects (optional)
-            targetEntity.knockback(0.4F, player.getX() - target.getX(), player.getZ() - target.getZ());
-
-            return true; // Successful melee attack
-        }
-
-        return false; // Out of range
-    }
-
-    public boolean isWithinMeleeRange(Player player, LivingEntity target) {
-        Vec3 playerPosition = player.position();
-        Vec3 targetPosition = target.position();
-
-        // Calculate distance and compare with MELEE_RANGE
-        return playerPosition.distanceTo(targetPosition) <= meleeRange();
-    }
-
     @Override
     public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) {
         return oldStack.getItem() != newStack.getItem();
@@ -344,4 +322,5 @@ public abstract class GunItem extends Item {
     public int getUseDuration(ItemStack pStack) {
         return 200;
     }
+
 }

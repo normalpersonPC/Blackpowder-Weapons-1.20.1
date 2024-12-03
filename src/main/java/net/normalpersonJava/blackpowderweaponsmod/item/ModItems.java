@@ -33,26 +33,13 @@ public class ModItems {
     public static final RegistryObject<Item> FLINTLOCK_MUSKET_BAYONET = ITEMS.register("flintlock_musket_bayonet",
             () -> new FlintlockMusketItem(){
                 @Override
-                public double meleeDamage() {
-                    return 5;
-                }
-                @Override
-                public double meleeRange() {
-                    return 4.0;
-                }
-
+                public boolean hasBayonet() {return true;}
             });
 
     public static final RegistryObject<Item> FLINTLOCK_MUSKET_BAYONET_DIAMOND = ITEMS.register("flintlock_musket_bayonet_diamond",
             () -> new FlintlockMusketItem(){
                 @Override
-                public double meleeDamage() {
-                    return 6;
-                }
-                @Override
-                public double meleeRange() {
-                    return 4.0;
-                }
+                public boolean hasBayonet() {return true;}
             });
 
     public static final RegistryObject<Item> FLINTLOCK_BLUNDERBUSS = ITEMS.register("flintlock_blunderbuss",
