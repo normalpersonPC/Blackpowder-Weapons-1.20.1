@@ -25,7 +25,7 @@ public class FlintlockBreechloadingRifleItem extends GunItem {
 
     @Override
     public float bulletDamage() {
-        return 20;
+        return 22;
     }
 
     @Override

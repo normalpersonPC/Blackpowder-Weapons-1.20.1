@@ -19,7 +19,7 @@ public class FlintlockPistolItem extends GunItem {
     public double meleeDamage() {return 2;}
 
     @Override
-    public float bulletDamage() {return 16;}
+    public float bulletDamage() {return 18;}
 
     @Override
     public float bulletSpeed() {return 7f;}

@@ -24,7 +24,7 @@ public class FlintlockMusketItem extends GunItem {
 
     @Override
     public float bulletDamage() {
-        return 22;
+        return 24;
     }
 
     @Override

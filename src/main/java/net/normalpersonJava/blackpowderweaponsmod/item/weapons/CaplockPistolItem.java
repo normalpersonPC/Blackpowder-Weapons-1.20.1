@@ -23,7 +23,7 @@ public class CaplockPistolItem extends GunItem {
     public double meleeDamage() {return 1;}
 
     @Override
-    public float bulletDamage() {return 20;}
+    public float bulletDamage() {return 18;}
 
     @Override
     public float bulletSpeed() {return 7.5f;}
