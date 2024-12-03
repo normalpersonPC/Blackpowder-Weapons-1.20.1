@@ -1,8 +1,7 @@
-package net.normalpersonJava.blackpowderweaponsmod.common;
+package net.normalpersonJava.blackpowderweaponsmod.eventhandlers;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
