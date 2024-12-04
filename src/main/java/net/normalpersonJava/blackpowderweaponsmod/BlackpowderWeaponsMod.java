@@ -63,7 +63,6 @@ public class BlackpowderWeaponsMod
     {
         event.enqueueWork(
                 Network::register
-
         );
 
     }

@@ -41,7 +41,6 @@ public class ClientEventHandler {
     public ClientEventHandler(IEventBus bus) {
         MinecraftForge.EVENT_BUS.addListener(this::onRenderPlayer);
         MinecraftForge.EVENT_BUS.addListener(this::onRenderHand);
-        MinecraftForge.EVENT_BUS.addListener(this::onClientTick);
         MinecraftForge.EVENT_BUS.addListener(this::onRenderGuiOverlay);
     }
     //gui overlay
@@ -82,37 +81,6 @@ public class ClientEventHandler {
         gui.drawString(font, Component.literal("Ammo: " + ammoCount + "/" + maxAmmo), x + 20, y + 4, 0xFFFFFF, true);
     }
 
-    //keybinds
-    @SubscribeEvent
-    public void onClientTick(TickEvent.ServerTickEvent event) {
-        if (event.phase == TickEvent.Phase.END) {
-            Player player = Minecraft.getInstance().player;
-            while (KeyBindings.INSTANCE.reload.consumeClick() && player != null) {
-                reloadHandler();
-            }
-        }
-    }
-
-    public void reloadHandler() {
-        Player player = Minecraft.getInstance().player;
-        assert player != null;
-        ItemStack heldItem = player.getMainHandItem();
-
-        //single shot reload
-        if (heldItem.getItem() instanceof GunItem gunItem) {
-            if (!gunItem.fullyLoaded(heldItem) && gunItem.hasAmmo(player) && !gunItem.isReloading(heldItem)) {
-                Network.sendToServer(new ReloadPacket());
-                player.displayClientMessage(Component.literal("Reloading!"), true);
-            } else if (!gunItem.hasAmmo(player)) {
-                player.displayClientMessage(Component.literal("No Ammo!"), true);
-            } else if (gunItem.fullyLoaded(heldItem)) {
-                player.displayClientMessage(Component.literal("Already Fully Loaded!"), true);
-            } else if (gunItem.isReloading(heldItem)) {
-                player.displayClientMessage(Component.literal("Already Reloading!"), true);
-            }
-        }
-
-    }
 
     @SubscribeEvent
     public void onRenderPlayer(final RenderLivingEvent.Pre<Player, PlayerModel<Player>> event) {

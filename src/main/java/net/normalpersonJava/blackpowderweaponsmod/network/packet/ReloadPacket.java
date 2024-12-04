@@ -1,6 +1,8 @@
 package net.normalpersonJava.blackpowderweaponsmod.network.packet;
 
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.network.NetworkEvent;
@@ -16,18 +18,21 @@ public class ReloadPacket {
 
     }
 
-    public static void encode(ReloadPacket msg, FriendlyByteBuf buf) {
+    public ReloadPacket(FriendlyByteBuf buf) {
         // No data to send
     }
 
-    public static ReloadPacket decode(FriendlyByteBuf buf) {
-        return new ReloadPacket();
+    public void toBytes(FriendlyByteBuf buf) {
+
     }
 
-    public static void handle(ReloadPacket msg, Supplier<NetworkEvent.Context> ctx) {
-        ctx.get().enqueueWork(() -> {
-            Player player = ctx.get().getSender();
+    public boolean handle(Supplier<NetworkEvent.Context> supplier) {
+        NetworkEvent.Context ctx = supplier.get();
+        ctx.enqueueWork(() -> {
+            ServerPlayer player = ctx.getSender();
             assert player != null;
+            ServerLevel level = player.serverLevel();
+
             ItemStack heldItem = Objects.requireNonNull(player.getMainHandItem());
             //revolver reload
             if (heldItem.getItem() instanceof RevolverItem revolverItem) {
@@ -44,9 +49,8 @@ public class ReloadPacket {
                     gunItem.setReloading(heldItem, true);
                 }
             }
-
         });
-        ctx.get().setPacketHandled(true);
+        return true;
     }
 }
 

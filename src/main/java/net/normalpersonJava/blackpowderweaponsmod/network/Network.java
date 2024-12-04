@@ -1,7 +1,9 @@
 package net.normalpersonJava.blackpowderweaponsmod.network;
 
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraftforge.network.NetworkDirection;
 import net.minecraftforge.network.PacketDistributor;
+import net.normalpersonJava.blackpowderweaponsmod.BlackpowderWeaponsMod;
 import net.normalpersonJava.blackpowderweaponsmod.Constants;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.network.NetworkRegistry;
@@ -19,19 +21,23 @@ public class Network {
     public static void register() {
 
         SimpleChannel network = NetworkRegistry.ChannelBuilder
-                .named(new ResourceLocation(Constants.MOD_ID, "messages"))
-                .networkProtocolVersion(() -> "1")
+                .named(new ResourceLocation(BlackpowderWeaponsMod.MODID, "messages"))
+                .networkProtocolVersion(() -> "1.0")
                 .clientAcceptedVersions(string -> true)
                 .serverAcceptedVersions(string -> true)
                 .simpleChannel();
 
         INSTANCE = network;
 
-        network.registerMessage(0, ReloadPacket.class, ReloadPacket::encode, ReloadPacket::decode, ReloadPacket::handle);
+        network.messageBuilder(ReloadPacket.class, id(), NetworkDirection.PLAY_TO_SERVER)
+                .encoder(ReloadPacket::toBytes)
+                .decoder(ReloadPacket::new)
+                .consumerMainThread(ReloadPacket::handle)
+                .add();
     }
 
     public static <MSG> void sendToServer(MSG message) {
-        INSTANCE.sendToServer(message);
+        INSTANCE.send(PacketDistributor.SERVER.noArg(), message);
     }
 
     public static <MSG> void sendToPlayer(MSG message, ServerPlayer player) {

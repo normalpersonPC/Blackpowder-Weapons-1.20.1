@@ -297,11 +297,6 @@ public abstract class GunItem extends Item {
             level.playSeededSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.FIRE_EXTINGUISH, SoundSource.PLAYERS, 0.5f, 2f, 0);
             return InteractionResultHolder.fail(player.getItemInHand(hand));
         }
-        if (!hasAmmo(player) && !isLoaded(itemstack)) {
-            player.getCooldowns().addCooldown(itemstack.getItem(), 10);
-            level.playSeededSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.COMPARATOR_CLICK, SoundSource.PLAYERS, 0.5f, 3f, 0);
-            return InteractionResultHolder.fail(player.getItemInHand(hand));
-        }
         if ((isLoaded(itemstack) || fullyLoaded(itemstack)) && !hasFired(itemstack)) {
             fire(level, player, used.getObject());
             setReloading(itemstack, false);
