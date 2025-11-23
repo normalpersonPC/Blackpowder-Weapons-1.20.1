@@ -263,7 +263,7 @@
 [30Nov2024 22:41:50.451] [main/DEBUG] [net.minecraftforge.fml.javafmlmod.FMLJavaModLanguageProvider/LOADING]: Loading FMLModContainer from classloader cpw.mods.modlauncher.TransformingClassLoader@1fc713c9 - got cpw.mods.cl.ModuleClassLoader@cda0432
 [30Nov2024 22:41:50.452] [main/DEBUG] [net.minecraftforge.fml.javafmlmod.FMLModContainer/LOADING]: Creating FMLModContainer instance for net.minecraftforge.common.ForgeMod
 [30Nov2024 22:41:50.457] [main/DEBUG] [net.minecraftforge.fml.javafmlmod.FMLJavaModLanguageProvider/LOADING]: Loading FMLModContainer from classloader cpw.mods.modlauncher.TransformingClassLoader@1fc713c9 - got cpw.mods.cl.ModuleClassLoader@cda0432
-[30Nov2024 22:41:50.457] [main/DEBUG] [net.minecraftforge.fml.javafmlmod.FMLModContainer/LOADING]: Creating FMLModContainer instance for net.normalpersonJava.blackpowderweaponsmod.BlackpowderWeaponsMod
+[30Nov2024 22:41:50.457] [main/DEBUG] [net.minecraftforge.fml.javafmlmod.FMLModContainer/LOADING]: Creating FMLModContainer instance for net.normalpersonjava.blackpowderweaponsmod.BlackpowderWeaponsMod
 [30Nov2024 22:41:50.458] [main/DEBUG] [net.minecraftforge.fml.javafmlmod.FMLJavaModLanguageProvider/LOADING]: Loading FMLModContainer from classloader cpw.mods.modlauncher.TransformingClassLoader@1fc713c9 - got cpw.mods.cl.ModuleClassLoader@cda0432
 [30Nov2024 22:41:50.458] [main/DEBUG] [net.minecraftforge.fml.javafmlmod.FMLModContainer/LOADING]: Creating FMLModContainer instance for mezz.jei.forge.JustEnoughItems
 [30Nov2024 22:41:50.486] [modloading-worker-0/DEBUG] [net.minecraftforge.versions.forge.ForgeVersion/CORE]: Forge Version package package net.minecraftforge.versions.forge, Forge, version 47.3 from cpw.mods.modlauncher.TransformingClassLoader@1fc713c9
@@ -278,20 +278,20 @@
 [30Nov2024 22:41:50.494] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.config.ConfigTracker/CONFIG]: Config file jei-server.toml for jei tracking
 [30Nov2024 22:41:50.543] [modloading-worker-0/DEBUG] [mezz.jei.common.platform.Services/]: Loaded mezz.jei.forge.platform.PlatformHelper@64644fcf for service interface mezz.jei.common.platform.IPlatformHelper
 [30Nov2024 22:41:50.567] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Attempting to inject @EventBusSubscriber classes into the eventbus for blackpowderweaponsmod
-[30Nov2024 22:41:50.571] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.normalpersonJava.blackpowderweaponsmod.BlackpowderWeaponsMod$ClientModEvents to MOD
-[30Nov2024 22:41:50.574] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.normalpersonJava.blackpowderweaponsmod.client.handler.ClientEventHandler to FORGE
-[30Nov2024 22:41:50.574] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.normalpersonJava.blackpowderweaponsmod.client.handler.ClientModHandler to MOD
-[30Nov2024 22:41:50.576] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.normalpersonJava.blackpowderweaponsmod.common.CommonEventHandler to FORGE
-[30Nov2024 22:41:50.576] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.normalpersonJava.blackpowderweaponsmod.Config to MOD
+[30Nov2024 22:41:50.571] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.normalpersonjava.blackpowderweaponsmod.BlackpowderWeaponsMod$ClientModEvents to MOD
+[30Nov2024 22:41:50.574] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.normalpersonjava.blackpowderweaponsmod.client.handler.ClientEventHandler to FORGE
+[30Nov2024 22:41:50.574] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.normalpersonjava.blackpowderweaponsmod.client.handler.ClientModHandler to MOD
+[30Nov2024 22:41:50.576] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.normalpersonjava.blackpowderweaponsmod.common.CommonEventHandler to FORGE
+[30Nov2024 22:41:50.576] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.normalpersonjava.blackpowderweaponsmod.Config to MOD
 [30Nov2024 22:41:50.578] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent0/]: -Dio.netty.noUnsafe: false
 [30Nov2024 22:41:50.578] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent0/]: Java version: 17
 [30Nov2024 22:41:50.578] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent0/]: sun.misc.Unsafe.theUnsafe: available
 [30Nov2024 22:41:50.579] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent0/]: sun.misc.Unsafe.copyMemory: available
 [30Nov2024 22:41:50.579] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent0/]: sun.misc.Unsafe.storeFence: available
 [30Nov2024 22:41:50.579] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent0/]: java.nio.Buffer.address: available
-[30Nov2024 22:41:50.584] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.normalpersonJava.blackpowderweaponsmod.datagen.DataGenerators to MOD
-[30Nov2024 22:41:50.587] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.normalpersonJava.blackpowderweaponsmod.entity.ModEntities to MOD
-[30Nov2024 22:41:50.588] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.normalpersonJava.blackpowderweaponsmod.event.ModEvents to FORGE
+[30Nov2024 22:41:50.584] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.normalpersonjava.blackpowderweaponsmod.datagen.DataGenerators to MOD
+[30Nov2024 22:41:50.587] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.normalpersonjava.blackpowderweaponsmod.entity.ModEntities to MOD
+[30Nov2024 22:41:50.588] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.normalpersonjava.blackpowderweaponsmod.event.ModEvents to FORGE
 [30Nov2024 22:41:50.579] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent0/]: direct buffer constructor: unavailable
 java.lang.UnsupportedOperationException: Reflective setAccessible(true) disabled
 	at io.netty.util.internal.ReflectionUtil.trySetAccessible(ReflectionUtil.java:31) ~[netty-common-4.1.82.Final.jar%23151!/:4.1.82.Final]
@@ -320,7 +320,7 @@ java.lang.UnsupportedOperationException: Reflective setAccessible(true) disabled
 	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622) ~[?:?]
 	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165) ~[?:?]
 [30Nov2024 22:41:50.589] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent0/]: java.nio.Bits.unaligned: available, true
-[30Nov2024 22:41:50.590] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.normalpersonJava.blackpowderweaponsmod.init.ModEntityRenderer to MOD
+[30Nov2024 22:41:50.590] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.normalpersonjava.blackpowderweaponsmod.init.ModEntityRenderer to MOD
 [30Nov2024 22:41:50.590] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent0/]: jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable
 java.lang.IllegalAccessException: class io.netty.util.internal.PlatformDependent0$7 (in module io.netty.common) cannot access class jdk.internal.misc.Unsafe (in module java.base) because module java.base does not export jdk.internal.misc to module io.netty.common
 	at jdk.internal.reflect.Reflection.newIllegalAccessException(Reflection.java:392) ~[?:?]
@@ -352,7 +352,7 @@ java.lang.IllegalAccessException: class io.netty.util.internal.PlatformDependent
 	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165) ~[?:?]
 [30Nov2024 22:41:50.592] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent0/]: java.nio.DirectByteBuffer.<init>(long, int): unavailable
 [30Nov2024 22:41:50.593] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent/]: sun.misc.Unsafe: available
-[30Nov2024 22:41:50.593] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.normalpersonJava.blackpowderweaponsmod.init.ModParticles to MOD
+[30Nov2024 22:41:50.593] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.normalpersonjava.blackpowderweaponsmod.init.ModParticles to MOD
 [30Nov2024 22:41:50.593] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent/]: maxDirectMemory: 4263510016 bytes (maybe)
 [30Nov2024 22:41:50.593] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent/]: -Dio.netty.tmpdir: C:\Users\Admin\AppData\Local\Temp (java.io.tmpdir)
 [30Nov2024 22:41:50.594] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent/]: -Dio.netty.bitMode: 64 (sun.arch.data.model)
@@ -361,7 +361,7 @@ java.lang.IllegalAccessException: class io.netty.util.internal.PlatformDependent
 [30Nov2024 22:41:50.594] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent/]: -Dio.netty.uninitializedArrayAllocationThreshold: -1
 [30Nov2024 22:41:50.595] [modloading-worker-0/DEBUG] [io.netty.util.internal.CleanerJava9/]: java.nio.ByteBuffer.cleaner(): available
 [30Nov2024 22:41:50.595] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent/]: -Dio.netty.noPreferDirect: false
-[30Nov2024 22:41:50.598] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.normalpersonJava.blackpowderweaponsmod.item.ModItems to MOD
+[30Nov2024 22:41:50.598] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.normalpersonjava.blackpowderweaponsmod.item.ModItems to MOD
 [30Nov2024 22:41:50.613] [modloading-worker-0/DEBUG] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Loading Network data for FML net version: FML3
 [30Nov2024 22:41:50.624] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.config.ConfigTracker/CONFIG]: Config file forge-client.toml for forge tracking
 [30Nov2024 22:41:50.624] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.config.ConfigTracker/CONFIG]: Config file forge-server.toml for forge tracking
